@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\.github\\workflows"
   ],
-  "SelectedNode": "\\C:\\Projects\\fotopark.doc",
+  "SelectedNode": "\\docusaurus.config.ts",
   "PreviewInSolutionExplorer": false
 }

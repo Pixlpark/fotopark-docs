@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-calculators/laser-cutting" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">Лазерная резка | Документация Pixlpark</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.moyvipusknoy.ru/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.moyvipusknoy.ru/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.moyvipusknoy.ru/calculators/laser-cutting"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Лазерная резка | Документация Pixlpark"><meta data-rh="true" name="description" content="Пример настройки калькулятора для лазерной резки с расчетом стоимости по длине реза"><meta data-rh="true" property="og:description" content="Пример настройки калькулятора для лазерной резки с расчетом стоимости по длине реза"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.moyvipusknoy.ru/calculators/laser-cutting"><link data-rh="true" rel="alternate" href="https://docs.moyvipusknoy.ru/calculators/laser-cutting" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.moyvipusknoy.ru/calculators/laser-cutting" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://CBISSLUS3P-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="Документация Pixlpark" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.b0b92ecc.css">
+<script src="/assets/js/runtime~main.f7af1bcb.js" defer="defer"></script>
+<script src="/assets/js/main.19762eb9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-pixlpark.svg" alt="Pixlpark Documentation" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-pixlpark.svg" alt="Pixlpark Documentation" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/">Документация</a><a href="https://support.pixlpark.com" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Поддержка<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://demo.pixlpark.ru" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Демонстрация<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://pixlpark.ru" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">О сервисе<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/">Главная</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/заказы">Заказы</a><button aria-label="Expand sidebar category &#x27;Заказы&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/клиенты">Клиенты</a><button aria-label="Expand sidebar category &#x27;Клиенты&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/маркетинг">Маркетинг</a><button aria-label="Expand sidebar category &#x27;Маркетинг&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/cms">CMS</a><button aria-label="Expand sidebar category &#x27;CMS&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/настройка">Настройка</a><button aria-label="Expand sidebar category &#x27;Настройка&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/печать">Печать</a><button aria-label="Expand sidebar category &#x27;Печать&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/сувениры">Сувениры</a><button aria-label="Expand sidebar category &#x27;Сувениры&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/магазин">Магазин</a><button aria-label="Expand sidebar category &#x27;Магазин&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/фотогалерея">Фотогалерея</a><button aria-label="Expand sidebar category &#x27;Фотогалерея&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/база-знаний">База знаний</a><button aria-label="Expand sidebar category &#x27;База знаний&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/новости">Новости</a><button aria-label="Expand sidebar category &#x27;Новости&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/отзывы">Отзывы</a><button aria-label="Expand sidebar category &#x27;Отзывы&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/приложение">Приложение</a><button aria-label="Expand sidebar category &#x27;Приложение&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/профиль">Профиль</a><button aria-label="Expand sidebar category &#x27;Профиль&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/интеграции">Интеграции</a><button aria-label="Expand sidebar category &#x27;Интеграции&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/разработчикам">Разработчикам</a><button aria-label="Expand sidebar category &#x27;Разработчикам&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/дизайнерам">Дизайнерам</a><button aria-label="Expand sidebar category &#x27;Дизайнерам&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/category/калькуляторы">Калькуляторы</a><button aria-label="Collapse sidebar category &#x27;Калькуляторы&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/photo">Печать фотопродукции</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/document">Печать документов</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/printing">Печать полиграфии</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/wide-format">Широкоформатная печать</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/calculators/laser-cutting">Лазерная резка</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/letters">Объемные буквы</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/calculators/gift">Бизнес-сувениры</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/category/прочее">Прочее</a><button aria-label="Expand sidebar category &#x27;Прочее&#x27;" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/category/калькуляторы"><span itemprop="name">Калькуляторы</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Лазерная резка</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Лазерная резка</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="техническое-задание">Техническое задание<a href="#техническое-задание" class="hash-link" aria-label="Direct link to Техническое задание" title="Direct link to Техническое задание">​</a></h2>
+<ul>
+<li>Необходимо настроить расчет стоимости лазерной резки для мате риалов различной толщины.</li>
+</ul>
+<table class="sheet-printing" id="laser-cutting-price"><thead><tr><th rowspan="2">Материал</th><th colspan="8">Стоимость материала и 1 п.м. реза в зависимости от толщины, руб.</th></tr><tr><th>до 1 мм</th><th>до 2 мм</th><th>до 4 мм</th><th>до 6 мм</th><th>до 8 мм</th><th>до 10 мм</th><th>до 12 мм</th><th>до 20 мм</th></tr></thead><tbody><tr><td>Фанера</td><td>-</td><td>15</td><td>20</td><td>30</td><td>35</td><td>40</td><td>60</td><td>-</td></tr><tr><td>Акрил / оргстекло</td><td>10</td><td>13</td><td>17</td><td>25</td><td>28</td><td>35</td><td>-</td><td>-</td></tr><tr><td>Ткань / Фетр</td><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Кожа</td><td>12</td><td>15</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Картон / бумага</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Микрогофрокартон</td><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Гофрокартон</td><td>-</td><td>-</td><td>15</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>ПЭТ</td><td>12</td><td>13</td><td>17</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>ЭВА материал</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>30</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="формула-расчета">Формула расчета<a href="#формула-расчета" class="hash-link" aria-label="Direct link to Формула расчета" title="Direct link to Формула расчета">​</a></h2>
+<div class="language-formula codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-formula codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Стоимость лазерной резки = стоимость материала и 1 м.п. реза * длина реза</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="пример-расчета">Пример расчета<a href="#пример-расчета" class="hash-link" aria-label="Direct link to Пример расчета" title="Direct link to Пример расчета">​</a></h2>
+<ul>
+<li>Для проверки расчетов взять продукт с характеристиками согласно таблице.</li>
+</ul>
+<table><thead><tr><th style="text-align:center">Материал</th><th style="text-align:center">ПЭТ</th></tr></thead><tbody><tr><td style="text-align:center">Толщина материала</td><td style="text-align:center">2 мм</td></tr><tr><td style="text-align:center">Длина реза</td><td style="text-align:center">10 мм</td></tr></tbody></table>
+<ul>
+<li>Стоимость материала задана с учетом толщины и стоимости реза 1 погонного метра и составляет 13 рублей. Для расчета итоговой стоимос ти лазерной резки необходимо умножить данное значение на длину реза:</li>
+</ul>
+<div class="language-formula codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-formula codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">13 рублей * 10 м. = 130 рублей.</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><strong>Итоговая стоимость лазерной резки составит:</strong></li>
+</ul>
+<div class="language-formula codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-formula codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">13 руб. * 10 м.  = 130 руб.</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="создание-категории">Создание категории<a href="#создание-категории" class="hash-link" aria-label="Direct link to Создание категории" title="Direct link to Создание категории">​</a></h2>
+<ul>
+<li>Для создания калькулятора продукта &quot;<strong>Лазерная резка</strong>&quot; в разделе &quot;<strong>Печать / Продукты</strong>&quot; нажать кнопку &quot;<strong>Добавить / Обновить</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_01-ed360ce4fafdbd8c4351c92e964b8dc8.png" width="1310" height="394" class="img_ev3q"></li>
+<li>В открывшейся карточке создания категории заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Создать новую категорию</strong>&quot; - необходимо выбрать.</li>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Лазерная резка</strong>&quot;.</li>
+<li>&quot;<strong>Редактор</strong>&quot; – выбрать &quot;<strong>Редактор товаров</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_01-1-a90c84e20e5176be6a98603020ce2baf.png" width="981" height="503" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания продукта.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; создан ной категории продукта необходимо задать адрес в интернете латинскими буквами.
+<img loading="lazy" src="/assets/images/laser-cutting_02-252237e8da6fb7e9187a7ecc28a32663.png" width="972" height="450" class="img_ev3q"></li>
+<li>Дополнительно включить &quot;<strong>Использовать радио – кнопки вместо выпадающего списка для выбора товара</strong>&quot; для выбора типа материала в редакторе при помощи радио – кнопок.
+<img loading="lazy" src="/assets/images/laser-cutting_03-f0ee921f612342907163256e57c5feac.png" width="967" height="496" class="img_ev3q"></li>
+<li>После, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>В подразделе &quot;<strong>Страница категории</strong>&quot; раздела &quot;<strong>Печать / Продукты / Лазерная резка / Настройка</strong>&quot; выбрать страницу, на которой будет располагаться данный продукт, а также задать настройки подраздела &quot;<strong>Хлебные крошки</strong>&quot; для отображения хлебных крошек в формате &quot;<strong>страница-раздела</strong>&quot;, &quot;<strong>страница-раздела / страница-продукта</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_04-468bcee746f770e51152098c48874880.png" width="977" height="526" class="img_ev3q"></li>
+<li>После, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; раздела &quot;<strong>Печать / Продукты / Лазерная резка / Дизайны</strong>&quot; включить:<!-- -->
+<ul>
+<li>&quot;<strong>Отображать ссылку перехода в редактор без шаблона на странице списка шаблонов</strong>&quot;.</li>
+<li>&quot;<strong>Отображать раздел &quot;Фотобанк&quot;</strong>&quot; в модальном окне выбора фотографий в редакторе.</li>
+</ul>
+</li>
+<li>В подразделе &quot;<strong>Настройки отображения</strong>&quot; раздела &quot;<strong>Печать / Продукты / Лазерная резка / Дизайны</strong>&quot; включить:<!-- -->
+<ul>
+<li>&quot;<strong>Отображать обложку шаблона при наведении на него на странице списка шаблонов</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_05-fc16ad52055136f3a7c72ff16cf4fe29.png" width="974" height="724" class="img_ev3q"></li>
+<li>После, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="создание-продуктов">Создание продуктов<a href="#создание-продуктов" class="hash-link" aria-label="Direct link to Создание продуктов" title="Direct link to Создание продуктов">​</a></h2>
+<ul>
+<li>В подразделе &quot;<strong>Продукты</strong>&quot; раздела &quot;<strong>Печать / Продукты / Лазерная резка / Продукты</strong>&quot; добавить продукт нажав кнопку &quot;<strong>Добавить</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_06-209087377a389cdda4dee39c73e1aa8f.png" width="971" height="482" class="img_ev3q"></li>
+<li>В открывшейся карточке создания продукта заполнить поля, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Создать новый продукт с нуля</strong>&quot; - необходимо выбрать.</li>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Фанера</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_07-c1a375fc1552b8f399927b22ddb80921.png" width="542" height="288" class="img_ev3q"></li>
+<li>Затем, нажать &quot;<strong>Добавить</strong>&quot;.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; раздела &quot;<strong>Настройка</strong>&quot; созданного продукта задать адрес в интернете латинскими буквами и включить &quot;<strong>Продукт доступен на сайте</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_08-ecb3bd9a17fffafa249f802dcb657075.png" width="972" height="499" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Тиражность</strong>&quot; раздела &quot;<strong>Настройка</strong>&quot; созданного продукта задать стоимость для количества от 1 до 1000 с шагом 1 шт. равной ноль рублей.</li>
+</ul>
+<blockquote>
+<p>Стоимость равна нулю т.к. она будет сформирована при помощи опций.</p>
+</blockquote>
+<ul>
+<li><img loading="lazy" src="/assets/images/document-printing_08-7f8a6c781666c0a7bd9772cb766ac7e1.png" width="995" height="323" class="img_ev3q"></li>
+<li>После, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>Аналогичным образом создаются и настраиваются оставшиеся согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> материалы.</li>
+<li>После внесения всех продуктов раздел выглядит следующим образом:
+<img loading="lazy" src="/assets/images/laser-cutting_09-1-df2e00760f8c265c65065ce3e5f12a24.png" width="973" height="674" class="img_ev3q"></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="создание-опций">Создание опций<a href="#создание-опций" class="hash-link" aria-label="Direct link to Создание опций" title="Direct link to Создание опций">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-фанера">Толщина материала (Фанера)<a href="#толщина-материала-фанера" class="hash-link" aria-label="Direct link to Толщина материала (Фанера)" title="Direct link to Толщина материала (Фанера)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Фанера</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>В разделе &quot;<strong>Печать / Калькуляция / Опции</strong>&quot; нажать кнопку &quot;<strong>Добавить опцию</strong>&quot; для создания новой опции.
+<img loading="lazy" src="/assets/images/laser-cutting_09-76b0269c0983001a5b132415c2080b6d.png" width="1309" height="437" class="img_ev3q"></li>
+<li>В открывшейся карточке создания опции заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; - указать &quot;<strong>Толщина материала (Фанера)</strong>&quot;.</li>
+<li>&quot;<strong>Тип опции</strong>&quot; - указать &quot;<strong>Список позиций</strong>&quot;.</li>
+<li>&quot;<strong>Начальное число позиций</strong>&quot; - указать &quot;<strong>1</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_10-7f8a88e419e58c7c04318e1fd9829bb0.png" width="532" height="317" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания опции.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; опции &quot;<strong>Толщина материала (Фанера) / Настройка</strong>&quot; заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Толщина материала</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Толщина материала (Фанера)</strong>&quot;.</li>
+<li>&quot;<strong>Вид выбора позиций на странице редактора</strong>&quot; и &quot;<strong>Вид выбора позиций на странице CMS</strong>&quot; - выбрать список.</li>
+<li>&quot;<strong>Опция доступная на сайте</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Опция обязательная для оформления заказа</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Выбирать значение опции по умолчанию</strong>&quot; - необходимо включить.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_11-bd4bb9b540fcd159a7483e1b452f1a05.png" width="974" height="627" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Расчет стоимости</strong>&quot; опции &quot;<strong>Толщина материала (Фанера) / Настройка</strong>&quot; задать настройки:<!-- -->
+<ul>
+<li>&quot;<strong>Алгоритм расчета позиции</strong>&quot; – выбрать &quot;<strong>Цена позиции фиксированная</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм расчета опции</strong>&quot; – выбрать &quot;<strong>Цена опции = цена позиции + дополнительная цена позиции</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм расчета количества опций</strong>&quot; – выбрать &quot;<strong>Количество опций равно количеству продуктов</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм выбора позиций</strong>&quot; - выбрать &quot;<strong>Возможен выбор только одной позиции</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_12-ac795c250d7cec901d372ec96064b904.png" width="1031" height="579" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Позиции</strong>&quot; опции &quot;<strong>Толщина материала (Фанера) / Настройка</strong>&quot; содержится перечень позиций созданной опции.
+<img loading="lazy" src="/assets/images/laser-cutting_13-d9cb0e34cd0e875cf7bd89782121d078.png" width="903" height="176" class="img_ev3q"></li>
+<li>Далее, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>В подразделе &quot;<strong>Категории и продукты</strong>&quot; опции &quot;<strong>Толщина материала (Фанера) / Продукты</strong>&quot; добавить продукты нажав кнопку &quot;<strong>Добавить</strong>&quot;.</li>
+</ul>
+<blockquote>
+<p>В данном разделе осуществляется привязка опции к необходимым продуктам. После осуществления привязки опция будет участвовать в формировании цены продуктов.</p>
+</blockquote>
+<ul>
+<li><img loading="lazy" src="/assets/images/laser-cutting_14-2c228650518a1fa8f7e2d81b8e841991.png" width="905" height="296" class="img_ev3q"></li>
+<li>В появившемся окне выбора категории в поле поиска ввести название категории продукта, а после – выбрать нужный продукт в списке и нажать &quot;<strong>Выбрать</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_15-771199e3812441a572e30cdec382676f.png" width="762" height="293" class="img_ev3q"></li>
+<li>Затем, нажать кнопку &quot;<strong>Выбрать</strong>&quot;.</li>
+<li>После, скорректировать привязку для продукта &quot;<strong>Фанера</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_16-bd641ca9f6c379cc72231305dcbc7599.png" width="902" height="580" class="img_ev3q"></li>
+<li>Затем -  нажать &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="позиции-опции-толщина-материала-фанера">Позиции опции &quot;Толщина материала (Фанера)&quot;<a href="#позиции-опции-толщина-материала-фанера" class="hash-link" aria-label="Direct link to Позиции опции &quot;Толщина материала (Фанера)&quot;" title="Direct link to Позиции опции &quot;Толщина материала (Фанера)&quot;">​</a></h4>
+<ul>
+<li>Для настройки позиции опции &quot;<strong>Толщина материала (Фанера)</strong>&quot; перейти в к арточку позиции нажав на нее. Затем, заполнить подраздел &quot;<strong>Основная информация</strong>&quot;, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>2 мм</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>2 мм</strong>&quot;.</li>
+<li>&quot;<strong>Позиция активна</strong>&quot; - необходимо включить.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_17-0dbee82ea84c026a62225b890c831215.png" width="974" height="332" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Стоимость</strong>&quot; позиции опции &quot;<strong>Толщина материала (Фанера)</strong>&quot; задать стоимость &quot;<strong>15</strong>&quot; руб.
+<img loading="lazy" src="data:image/png;base64,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" width="968" height="101" class="img_ev3q"></li>
+<li>Затем, нажать &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>Аналогичным образом настраиваются оставшиеся согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> позиции для материала &quot;<strong>Фанера</strong>&quot;.</li>
+</ul>
+<blockquote>
+<p>Добавить новую позицию опции можно при помощи &quot;<strong>Добавить</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li><img loading="lazy" src="/assets/images/laser-cutting_19-1869795377e4ab8f4511804cf6b65997.png" width="1090" height="143" class="img_ev3q"></li>
+</ul>
+<blockquote>
+<p>Также, позицию опции можно продублировать и скорректировать настройки в соответствии с нужными данными.</p>
+</blockquote>
+<ul>
+<li>После внесения всех данных подраздел &quot;<strong>Позиции</strong>&quot; опции &quot;<strong>Толщина материала (Фанера)</strong>&quot; выглядит следующим образом:
+<img loading="lazy" src="/assets/images/laser-cutting_20-6fa49df9c7cad73fccc78487c063b03f.png" width="1089" height="379" class="img_ev3q"></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-акрил--оргстекло">Толщина материала (Акрил / Оргстекло)<a href="#толщина-материала-акрил--оргстекло" class="hash-link" aria-label="Direct link to Толщина материала (Акрил / Оргстекло)" title="Direct link to Толщина материала (Акрил / Оргстекло)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Акрил / Оргстекло</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Акрил / Оргстекло</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-ткань--фетр">Толщина материала (Ткань / Фетр)<a href="#толщина-материала-ткань--фетр" class="hash-link" aria-label="Direct link to Толщина материала (Ткань / Фетр)" title="Direct link to Толщина материала (Ткань / Фетр)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Ткань / Фетр</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно  <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Ткань / Фетр</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-кожа">Толщина материала (Кожа)<a href="#толщина-материала-кожа" class="hash-link" aria-label="Direct link to Толщина материала (Кожа)" title="Direct link to Толщина материала (Кожа)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Кожа</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Кожа</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-картон">Толщина материала (Картон)<a href="#толщина-материала-картон" class="hash-link" aria-label="Direct link to Толщина материала (Картон)" title="Direct link to Толщина материала (Картон)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Картон</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Картон</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-гофрокартон">Толщина материала (Гофрокартон)<a href="#толщина-материала-гофрокартон" class="hash-link" aria-label="Direct link to Толщина материала (Гофрокартон)" title="Direct link to Толщина материала (Гофрокартон)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Гофрокартон</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Гофрокартон</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-пэт">Толщина материала (ПЭТ)<a href="#толщина-материала-пэт" class="hash-link" aria-label="Direct link to Толщина материала (ПЭТ)" title="Direct link to Толщина материала (ПЭТ)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>ПЭТ</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>ПЭТ</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-микрогофрокартон">Толщина материала (Микрогофрокартон)<a href="#толщина-материала-микрогофрокартон" class="hash-link" aria-label="Direct link to Толщина материала (Микрогофрокартон)" title="Direct link to Толщина материала (Микрогофрокартон)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Микрогофрокартон</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Микрогофрокартон</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="толщина-материала-эва-материал">Толщина материала (Эва материал)<a href="#толщина-материала-эва-материал" class="hash-link" aria-label="Direct link to Толщина материала (Эва материал)" title="Direct link to Толщина материала (Эва материал)">​</a></h3>
+<blockquote>
+<p>Назначение опции: задание стоимости с учетом толщины и 1 погонного метра реза для материала &quot;<strong>Эва материал</strong>&quot;.</p>
+</blockquote>
+<ul>
+<li>Опция и ее позиции настраиваются аналогично опции &quot;<strong>Толщина материала (Фанера)</strong>&quot;. Позиции опции задают стоимость согласно <a href="/calculators/laser-cutting#laser-cutting-price">таблице стоимости материала и 1 п.м. реза</a> для материала &quot;<strong>Эва материал</strong>&quot;.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="подформула-расчета-стоимости">Подформула расчета стоимости<a href="#подформула-расчета-стоимости" class="hash-link" aria-label="Direct link to Подформула расчета стоимости" title="Direct link to Подформула расчета стоимости">​</a></h3>
+<blockquote>
+<p>Назначение подформулы: суммирование и возможность повторного использования значений толщин материалов для лазерной резки.</p>
+</blockquote>
+<ul>
+<li>В разделе &quot;<strong>Печать / Калькуляция / Подформулы</strong>&quot; нажать кнопку &quot;<strong>Добавить подформулу</strong>&quot; для создания новой подформулы.
+<img loading="lazy" src="/assets/images/laser-cutting_21-05972e59750ced9394f53bcaa0b491a5.png" width="1292" height="524" class="img_ev3q">
+В открывшейся карточке создания подформулы заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Уникальное имя (только латинские буквы и символ _)</strong>&quot; - указать &quot;<strong>material_thickness</strong>&quot;.</li>
+<li>&quot;<strong>Название</strong>&quot; - указать &quot;<strong>Все виды толщины материала для лазерной резки</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_22-e225c8ca7024aaddfbedb4f0451c1526.png" width="542" height="286" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания подформулы.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; подформулы &quot;<strong>Все виды толщины материала для лазерной резки</strong>&quot; добавить текст подформулы нажав &quot;<strong>Редактировать</strong>&quot;:</li>
+</ul>
+<div class="language-formula codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-formula codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Цена опции &quot;Толщина материала (Фанера)&quot; + цена опции &quot;Толщина материала (Акрил / Оргстекло)&quot; + цена опции &quot;Толщина материала (Ткань / Фетр)&quot; + цена опции &quot;Толщина материала (Кожа)&quot; + Цена опции &quot;Толщина материала (Картон)&quot; + цена опции &quot;Толщина материала (Микрогофрокартон)&quot; + цена опции &quot;Толщина материала (Гофрокартон)&quot; + цена опции &quot;Толщина материала (ПЭТ)&quot; + цена опции &quot;Толщина материала (ЭВА материал)&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><img loading="lazy" src="/assets/images/laser-cutting_23-29e12149d3de0e276141c6c6ed21f703.png" width="1352" height="831" class="img_ev3q"></p>
+<ul>
+<li>Затем, нажать &quot;<strong>Применить</strong>&quot;, а после – &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="переменная-для-длины-реза">Переменная для длины реза<a href="#переменная-для-длины-реза" class="hash-link" aria-label="Direct link to Переменная для длины реза" title="Direct link to Переменная для длины реза">​</a></h3>
+<blockquote>
+<p>Назначение переменной: ввод длины реза для расчета стоимости лазерной резки.</p>
+</blockquote>
+<ul>
+<li>В разделе &quot;<strong>Печать / Калькуляция / Переменные</strong>&quot; нажать кнопку &quot;<strong>Добавить переменную</strong>&quot; для создания новой переменной.
+<img loading="lazy" src="/assets/images/laser-cutting_24-3ec444999038eac300aa0ba3ef8759e2.png" width="1345" height="494" class="img_ev3q"></li>
+<li>В открывшейся карточке создания переменной заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Уникальное имя (только латинские буквы и символ _)</strong>&quot; - указать &quot;<strong>dlina_reza</strong>&quot;.</li>
+<li>&quot;<strong>Название</strong>&quot; - указать &quot;<strong>Длина реза (лазерная резка)</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_25-9162f1b2eead4913c0acd05118b11652.png" width="541" height="288" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания переменной.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; переменной &quot;<strong>Длина реза (лазерная резка) / Настройка</strong>&quot; заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Длина реза</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Длина реза (лазерная резка)</strong>&quot;.</li>
+<li>&quot;<strong>Размерность</strong>&quot; - указать &quot;<strong>п. м.</strong>&quot;.</li>
+<li>&quot;<strong>Тип возвращаемого значения</strong>&quot; - указать &quot;<strong>Дробное число</strong>&quot;.</li>
+<li>&quot;<strong>Тип данных</strong>&quot; - указать &quot;<strong>Значение из диапазона</strong>&quot;.</li>
+<li>&quot;<strong>Минимальное значение</strong>&quot; - указать &quot;<strong>1</strong>&quot;.</li>
+<li>&quot;<strong>Максимальное значение</strong>&quot; - указать &quot;<strong>1000</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_26-08e35cda453197d3264d0f4a51915ce1.png" width="1040" height="429" class="img_ev3q"></li>
+<li>Далее, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="расчет-стоимости">Расчет стоимости<a href="#расчет-стоимости" class="hash-link" aria-label="Direct link to Расчет стоимости" title="Direct link to Расчет стоимости">​</a></h3>
+<blockquote>
+<p>Назначение опции: расчет стоимости лазерной резки выбранного материала с учетом указанной длинны реза.</p>
+</blockquote>
+<ul>
+<li>В разделе &quot;<strong>Печать / Калькуляция / Опции</strong>&quot; нажать кнопку &quot;<strong>Добавить опцию</strong>&quot; для создания новой опции.
+<img loading="lazy" src="/assets/images/laser-cutting_09-76b0269c0983001a5b132415c2080b6d.png" width="1309" height="437" class="img_ev3q"></li>
+<li>В открывшейся карточке создания опции заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; - указать &quot;<strong>Расчет стоимости (лазерная резка)</strong>&quot;.</li>
+<li>&quot;<strong>Тип опции</strong>&quot; - указать &quot;<strong>Список позиций</strong>&quot;.</li>
+<li>&quot;<strong>Начальное число позиций</strong>&quot; - указать &quot;<strong>1</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_27-887866e0c07b4358092c58d67735f00b.png" width="535" height="317" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания опции.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; опции &quot;<strong>Расчет стоимости (лазерная резка) / Настройка</strong>&quot; заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Длина реза</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Расчет стоимости (лазерная резка)</strong>&quot;.</li>
+<li>&quot;<strong>CSS-класс</strong>&quot; - указать &quot;<strong>inline-checkbox</strong>&quot;.</li>
+<li>&quot;<strong>Вид выбора позиций на странице редактора</strong>&quot; и &quot;<strong>Вид выбора позиций на странице CMS</strong>&quot; - выбрать список.</li>
+<li>&quot;<strong>Опция доступна на сайте</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Опция обязательная для оформления заказа</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Выбирать значение опции по умолчанию</strong>&quot; - необходимо включить.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_28-c00a20d453e5070dcf2405d6a858d4cf.png" width="1005" height="629" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Расчет стоимости</strong>&quot; опции &quot;<strong>Расчет стоимости (лазерная резка) / Настройка</strong>&quot; задать настройки:<!-- -->
+<ul>
+<li>&quot;<strong>Алгоритм расчета позиции</strong>&quot; – выбрать &quot;<strong>Цена позиции динамическая</strong>&quot;</li>
+<li>&quot;<strong>Алгоритм расчета опции</strong>&quot; – выбрать &quot;<strong>Цена опции = цена позиции + дополнительная цена позиции</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм расчета количества опций</strong>&quot; – выбрать &quot;<strong>Количество опций равно количеству продуктов</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм выбора позиций</strong>&quot; - выбрать &quot;<strong>Возможен выбор только одной позиции</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_39-9d69ce19c06f54d03629ac2dc3e60186.png" width="1027" height="574" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Позиции</strong>&quot; опции &quot;<strong>Расчет стоимости (лазерная резка) / Настройка</strong>&quot; содержится перечень позиций созданной опции.
+<img loading="lazy" src="/assets/images/laser-cutting_29-133bc286e8dcdcdebdd04bfeb3c23a59.png" width="980" height="188" class="img_ev3q"></li>
+<li>Далее, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>В подразделе &quot;<strong>Категории и продукты</strong>&quot; опции &quot;<strong>Расчет стоимости (лазерная резка) / Продукты</strong>&quot; добавить продукты нажав кнопку &quot;<strong>Добавить</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_30-86b50cb72d39878b06933ea4c765310c.png" width="917" height="205" class="img_ev3q"></li>
+<li>В появившемся окне выбора категории в поле поиска ввести название категории продукта, а после – выбрать нужный продукт в списке и нажать &quot;<strong>Выбрать</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_15-771199e3812441a572e30cdec382676f.png" width="762" height="293" class="img_ev3q"></li>
+<li>Затем, нажать кнопку &quot;<strong>Выбрать</strong>&quot;, а затем - &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="позиции-опции-расчет-стоимости-лазерная-резка">Позиции опции &quot;Расчет стоимости (лазерная резка)&quot;<a href="#позиции-опции-расчет-стоимости-лазерная-резка" class="hash-link" aria-label="Direct link to Позиции опции &quot;Расчет стоимости (лазерная резка)&quot;" title="Direct link to Позиции опции &quot;Расчет стоимости (лазерная резка)&quot;">​</a></h4>
+<blockquote>
+<p>Позиция опции задает формулу для расчета стоимости лазерной резки материала.</p>
+</blockquote>
+<ul>
+<li>Для настройки позиции опции &quot;<strong>Расчет стоимости (лазерная резка)</strong>&quot; перейти в карточку позиции нажав на нее. Затем, заполнить подраздел &quot;<strong>Основная информация</strong>&quot;, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Расчет стоимости</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Расчет стоимости</strong>&quot;.</li>
+<li>&quot;<strong>Позиция активна</strong>&quot; - необходимо включить.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_31-985f4176788af3ad7539adb0969efbd6.png" width="979" height="324" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Стоимость</strong>&quot; позиции опции &quot;<strong>Расчет стоимости (лазерная резка)</strong>&quot; задать способ расчета цены &quot;<strong>По формуле</strong>&quot;. Затем, в поле &quot;<strong>Формула для цены</strong>&quot; задать формулу:</li>
+</ul>
+<div class="language-formula codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-formula codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Подформула &quot;Все виды толщины материала для лазерной резки&quot; * переменная &quot;Длина реза (лазерная резка)&quot; - подформула &quot;Все виды толщины материала для лазерной резки&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<blockquote>
+<p>Вычитание значений толщин материалов необходимо т.к. их значения прибавляются за счет опций.</p>
+</blockquote>
+<ul>
+<li><img loading="lazy" src="/assets/images/laser-cutting_32-7daffa9a529f34854c0002dcbeacd838.png" width="1294" height="837" class="img_ev3q">
+Затем, нажать &quot;<strong>Применить</strong>&quot;,  а после &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="загрузка-фотографий">Загрузка фотографий<a href="#загрузка-фотографий" class="hash-link" aria-label="Direct link to Загрузка фотографий" title="Direct link to Загрузка фотографий">​</a></h3>
+<blockquote>
+<p>Назначение опции: позволяет загрузить файл макета для лазерной резки.</p>
+</blockquote>
+<ul>
+<li>В разделе &quot;<strong>Печать / Калькуляция / Опции</strong>&quot; нажать кнопку &quot;<strong>Добавить опцию</strong>&quot; для создания новой опции.
+<img loading="lazy" src="/assets/images/laser-cutting_09-76b0269c0983001a5b132415c2080b6d.png" width="1309" height="437" class="img_ev3q"></li>
+<li>В открывшейся карточке создания опции заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; - указать &quot;<strong>Загрузка фотографий (лазерная резка)</strong>&quot;.</li>
+<li>&quot;<strong>Тип опции</strong>&quot; - указать &quot;<strong>Список позиций</strong>&quot;.</li>
+<li>&quot;<strong>Начальное число позиций</strong>&quot; - указать &quot;<strong>1</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_33-8d735efafb910813c083e9e14a9b5fbd.png" width="532" height="316" class="img_ev3q"></li>
+<li>Далее, нажать &quot;<strong>Добавить</strong>&quot; для создания опции.</li>
+<li>В подразделе &quot;<strong>Основная информация</strong>&quot; опции &quot;<strong>Загрузка фотографий (лазерная резка) / Настройка</strong>&quot; заполнить форму, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Загрузка фотографий</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Загрузка фотографий (лазерная резка)</strong>&quot;.</li>
+<li>&quot;<strong>Вид выбора позиций на странице редактора</strong>&quot; и &quot;<strong>Вид выбора позиций на странице CMS</strong>&quot; - выбрать список.</li>
+<li>&quot;<strong>Опция доступная на сайте</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Опция обязательная для оформления заказа</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Выбирать значение опции по умолчанию</strong>&quot; - необходимо включить.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_34-c69a3bc7fad55a6b969d778f105e9c69.png" width="978" height="629" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Расчет стоимости</strong>&quot; опции &quot;<strong>Загрузка фотографий (лазерная резка) / Настройка</strong>&quot; задать настройки:<!-- -->
+<ul>
+<li>&quot;<strong>Алгоритм расчета позиции</strong>&quot; – выбрать &quot;<strong>Цена позиции фиксированная</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм расчета опции</strong>&quot; – выбрать &quot;<strong>Цена опции = цена позиции + дополнительная цена позиции</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм расчета количества опций</strong>&quot; – выбрать &quot;<strong>Количество опций равно количеству продуктов</strong>&quot;.</li>
+<li>&quot;<strong>Алгоритм выбора позиций</strong>&quot; - выбрать &quot;<strong>Возможен выбор только одной позиции</strong>&quot;.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_12-ac795c250d7cec901d372ec96064b904.png" width="1031" height="579" class="img_ev3q"></li>
+<li>В подразделе &quot;<strong>Позиции</strong>&quot; опции &quot;<strong>Загрузка фотографий (лазерная резка) / Настройка</strong>&quot; содержится перечень позиций созданной опции.
+<img loading="lazy" src="/assets/images/laser-cutting_35-b571a1f12fa05177ea6a52a19c228d65.png" width="976" height="185" class="img_ev3q"></li>
+<li>Далее, нажать кнопку &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+<li>В подразделе &quot;<strong>Категории и продукты</strong>&quot; опции &quot;<strong>Загрузка фотографий (лазерная резка) / Продукты</strong>&quot; добавить продукты нажав кнопку &quot;<strong>Добавить</strong>&quot;.
+<img loading="lazy" src="/assets/images/laser-cutting_36-ebea9a03bdbe2bd78b5da6c9c7ecc779.png" width="977" height="296" class="img_ev3q"></li>
+<li>В появившемся окне выбора категории в поле поиска ввести название категории продукта, а после – выбрать нужный продукт в списке и нажать &quot;<strong>Выбрать</strong>&quot;.</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_15-771199e3812441a572e30cdec382676f.png" width="762" height="293" class="img_ev3q"></li>
+<li>После, нажать кнопку &quot;<strong>Выбрать</strong>&quot;.</li>
+<li>Затем -  нажать &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="позиции-опции-загрузка-фотографий-лазерная-резка">Позиции опции &quot;Загрузка фотографий (лазерная резка)&quot;<a href="#позиции-опции-загрузка-фотографий-лазерная-резка" class="hash-link" aria-label="Direct link to Позиции опции &quot;Загрузка фотографий (лазерная резка)&quot;" title="Direct link to Позиции опции &quot;Загрузка фотографий (лазерная резка)&quot;">​</a></h4>
+<blockquote>
+<p>Позиция опции дает возможность загрузки файлов необходимого формата.</p>
+</blockquote>
+<ul>
+<li>Для настройки позиции опции &quot;<strong>Загрузка фотографий (лазерная резка)</strong>&quot; перейти в карточку позиции нажав на нее. Затем, заполнить подраздел &quot;<strong>Основная информация</strong>&quot;, указав:<!-- -->
+<ul>
+<li>&quot;<strong>Название на сайте</strong>&quot; – указать &quot;<strong>Выбрать файлы</strong>&quot;.</li>
+<li>&quot;<strong>Название в панели управления</strong>&quot; – указать &quot;<strong>Выбрать файлы</strong>&quot;.</li>
+<li>&quot;<strong>Позиция активна</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Разрешить загрузку файлов к позиции</strong>&quot; - необходимо включить.</li>
+<li>&quot;<strong>Загрузка файла</strong>&quot; - включить &quot;<strong>Не обязательна</strong>&quot;.</li>
+<li>&quot;<strong>Разрешить загрузку следующих типов файлов</strong>&quot; - включить нужные форматы.</li>
+</ul>
+</li>
+<li><img loading="lazy" src="/assets/images/laser-cutting_37-9a3d67e42145a9505bd18a2719f76940.png" width="981" height="651" class="img_ev3q">
+Затем, нажать &quot;<strong>Сохранить</strong>&quot; и сбросить кэш сайта.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="итоговый-калькулятор">Итоговый калькулятор<a href="#итоговый-калькулятор" class="hash-link" aria-label="Direct link to Итоговый калькулятор" title="Direct link to Итоговый калькулятор">​</a></h2>
+<div id="integratedCalculator" class="url-document-printing" style="position:relative;min-height:150px"></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/Pixlpark/fotopark-docs/tree/main/docs/calculators/laser-cutting.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/calculators/wide-format"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Широкоформатная печать</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/calculators/letters"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Объемные буквы</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#техническое-задание" class="table-of-contents__link toc-highlight">Техническое задание</a></li><li><a href="#формула-расчета" class="table-of-contents__link toc-highlight">Формула расчета</a></li><li><a href="#пример-расчета" class="table-of-contents__link toc-highlight">Пример расчета</a></li><li><a href="#создание-категории" class="table-of-contents__link toc-highlight">Создание категории</a></li><li><a href="#создание-продуктов" class="table-of-contents__link toc-highlight">Создание продуктов</a></li><li><a href="#создание-опций" class="table-of-contents__link toc-highlight">Создание опций</a><ul><li><a href="#толщина-материала-фанера" class="table-of-contents__link toc-highlight">Толщина материала (Фанера)</a></li><li><a href="#толщина-материала-акрил--оргстекло" class="table-of-contents__link toc-highlight">Толщина материала (Акрил / Оргстекло)</a></li><li><a href="#толщина-материала-ткань--фетр" class="table-of-contents__link toc-highlight">Толщина материала (Ткань / Фетр)</a></li><li><a href="#толщина-материала-кожа" class="table-of-contents__link toc-highlight">Толщина материала (Кожа)</a></li><li><a href="#толщина-материала-картон" class="table-of-contents__link toc-highlight">Толщина материала (Картон)</a></li><li><a href="#толщина-материала-гофрокартон" class="table-of-contents__link toc-highlight">Толщина материала (Гофрокартон)</a></li><li><a href="#толщина-материала-пэт" class="table-of-contents__link toc-highlight">Толщина материала (ПЭТ)</a></li><li><a href="#толщина-материала-микрогофрокартон" class="table-of-contents__link toc-highlight">Толщина материала (Микрогофрокартон)</a></li><li><a href="#толщина-материала-эва-материал" class="table-of-contents__link toc-highlight">Толщина материала (Эва материал)</a></li><li><a href="#подформула-расчета-стоимости" class="table-of-contents__link toc-highlight">Подформула расчета стоимости</a></li><li><a href="#переменная-для-длины-реза" class="table-of-contents__link toc-highlight">Переменная для длины реза</a></li><li><a href="#расчет-стоимости" class="table-of-contents__link toc-highlight">Расчет стоимости</a></li><li><a href="#загрузка-фотографий" class="table-of-contents__link toc-highlight">Загрузка фотографий</a></li></ul></li><li><a href="#итоговый-калькулятор" class="table-of-contents__link toc-highlight">Итоговый калькулятор</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>

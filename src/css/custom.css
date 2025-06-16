@@ -1,0 +1,2270 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #64bb46;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-h4-font-size: 1.15rem;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #64bb46;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-link-hover-color: #64bb46;
+}
+[data-theme="light"] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+* {
+  --main-color: #64bb46;
+  --second-color: #eb6309;
+  --rounded-value: 8px;
+  --header-height: 145px;
+  --text-color: #3e3e3e;
+}
+
+/* SOLIEV */
+@media screen and (min-width: 768px) {
+  .DocSearch-Button {
+    min-width: 280px;
+  }
+  .section.col.col--6,
+  article.col.col--6 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  .docs-wrapper.docs-doc-id-Главная .container > .row .col,
+  #__docusaurus main > div > div {
+    max-width: 100% !important;
+  }
+}
+.navbar .navbar__item.navbar__link > svg,
+.navbar .menu__list-item > svg {
+  display: none;
+}
+.navbar__items.navbar__items--right {
+  gap: 20px;
+}
+.navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+  order: -1;
+}
+
+.sections {
+  list-style: none;
+  padding: 0;
+  align-items: stretch;
+}
+
+#__docusaurus .section.col.col--6,
+#__docusaurus article.col.col--6 {
+  margin-bottom: 2rem !important;
+}
+.section.col.col--4 {
+  margin-top: 0;
+}
+.section-link {
+  --ifm-link-color: var(--ifm-color-emphasis-800);
+  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+  --ifm-link-hover-decoration: none;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 1.5px 3px 0 #00000026;
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border, box-shadow;
+  height: 100%;
+}
+#__docusaurus h1 {
+  font-size: 2.5rem;
+}
+h2.section-title {
+  display: flex;
+  gap: 6px;
+  font-size: 1.2rem;
+}
+.section-link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+}
+.section-description {
+  font-size: 0.8rem;
+}
+.card {
+  padding: 20px 15px !important;
+  justify-content: stretch;
+  height: 100%;
+}
+.card h2.text--truncate,
+.card p.text--truncate {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.card h2.text--truncate {
+  -webkit-line-clamp: 1;
+}
+
+h2.section-title > span {
+  padding-right: 6px;
+}
+
+.markdown > ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.markdown > ul > li {
+  padding-bottom: 10px;
+}
+
+.markdown > ul > li img {
+  display: inherit;
+}
+
+.markdown > h2 {
+  margin-top: 0px;
+}
+
+h1 .note {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.theme-doc-footer {
+  display: none;
+}
+
+.pagination-nav {
+  display: none;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.markdown > p {
+  margin-bottom: 5px;
+}
+
+/* SOLIEV */
+
+#integratedCalculator {
+  width: 44%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 10px;
+  min-width: 555px;
+}
+#integratedCalculator a,
+#integratedCalculator u {
+  text-decoration: none;
+  border-bottom: none;
+  line-height: 1.5;
+}
+#integratedCalculator a {
+  transition: 0.3s;
+}
+#integratedCalculator ul {
+  padding: 0 0 0 20px;
+  margin: 0;
+  width: 100%;
+}
+.url-businesscards #pxpProducCalc .material-selector > ul > li > ul > li a {
+  width: 150px;
+  text-align: center;
+  font-weight: 400;
+}
+.url-businesscards
+  #pxpProducCalc
+  .option-row.customWorkRadio
+  .option-value
+  label {
+  width: 150px;
+}
+.url-businesscards #pxpProducCalc .option-value li > a {
+  width: 111px;
+  text-align: center;
+}
+.pxp-total-price.sticky-visible {
+  z-index: 2;
+}
+#pxpProducCalc .pxp-total-price .sticky-block .info {
+  display: block;
+}
+#pxpProducCalc.pxp-calculator
+  .pxp-total-price
+  .sticky-block
+  .totalPriceContainer,
+#pxpProducCalc.pxp-calculator
+  .pxp-total-price
+  .sticky-block
+  .totalPriceContainer
+  + .buttons {
+  margin: 0;
+}
+.total-price__formatted {
+  line-height: 22px;
+}
+#pxpProducCalc {
+  border: 1px solid #bbbdbe;
+  margin: 0;
+  width: 100%;
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#pxpProducCalc #pxpProducCalc {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
+#pxpProducCalc .material-selector {
+  margin: 0;
+}
+#pxpProducCalc .material-selector ul,
+#pxpProducCalc .custom-works ul {
+  padding: 0;
+  list-style: none;
+}
+#pxpProducCalc .option-value li,
+#pxpProducCalc .material-selector > ul > li > ul > li {
+  float: left;
+  margin: 0 5px;
+  position: relative;
+}
+#pxpProducCalc .option-value li > a,
+#pxpProducCalc .custom-works label,
+#pxpProducCalc .material-selector > ul > li > ul > li a {
+  color: #364657;
+  border: 1px solid #64bb46;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 14px;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#pxpProducCalc .option-value li > a:hover,
+#pxpProducCalc .custom-works label:hover,
+#pxpProducCalc .material-selector > ul > li > ul > li a:hover {
+  border: 1px solid #eb6309;
+  color: #fff;
+  background: #eb6309;
+}
+#pxpProducCalc .option-value li.selected > a,
+#pxpProducCalc .custom-works li.selected label,
+#pxpProducCalc .material-selector > ul > li > ul > li.selected a {
+  color: #fff;
+  background: #64bb46;
+  border: 1px solid #64bb46;
+  display: inline-block;
+}
+#pxpProducCalc .option-value li > a.calc-helper,
+#pxpProducCalc .material-selector > ul > li > ul > li a.calc-helper {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  line-height: 16px;
+  padding: 0;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #fff !important;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 5px;
+  color: #fff;
+  border: 2px solid !important;
+  color: #666 !important;
+  font-weight: 700;
+}
+#pxpProducCalc .option-value li > .calc-helper-icon,
+#pxpProducCalc .material-selector > ul > li > ul > li .calc-helper-icon {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+#pxpProducCalc .option-value li > a.calc-helper + .calc-helper-view,
+#pxpProducCalc
+  .material-selector
+  > ul
+  > li
+  > ul
+  > li
+  a.calc-helper
+  + .calc-helper-view {
+  visibility: hidden;
+  position: absolute;
+  max-width: 20px;
+  max-height: 20px;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  z-index: 2;
+  border: 2px solid #666;
+  border-radius: 10px;
+  overflow: auto;
+}
+#pxpProducCalc .option-value li > a.calc-helper:hover + .calc-helper-view,
+#pxpProducCalc
+  .material-selector
+  > ul
+  > li
+  > ul
+  > li
+  a.calc-helper:hover
+  + .calc-helper-view,
+#pxpProducCalc .option-value li > a.calc-helper + .calc-helper-view:hover,
+#pxpProducCalc
+  .material-selector
+  > ul
+  > li
+  > ul
+  > li
+  a.calc-helper
+  + .calc-helper-view:hover {
+  visibility: visible;
+  max-width: 100%;
+  max-height: 360px;
+}
+#pxpProducCalc .helper-container {
+  position: relative;
+}
+#pxpProducCalc .helper-container a.calc-helper {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  line-height: 16px;
+  padding: 0;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #fff !important;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 5px;
+  color: #fff;
+  border: 2px solid !important;
+  color: #666 !important;
+  font-weight: 700;
+}
+#pxpProducCalc .helper-container .calc-helper-icon {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+#pxpProducCalc .helper-container a.calc-helper + .calc-helper-view {
+  visibility: hidden;
+  position: absolute;
+  max-width: 20px;
+  max-height: 20px;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  z-index: 2;
+  border: 2px solid #666;
+  border-radius: 10px;
+  overflow: auto;
+}
+#pxpProducCalc .helper-container a.calc-helper:hover + .calc-helper-view,
+#pxpProducCalc .helper-container a.calc-helper + .calc-helper-view:hover {
+  visibility: visible;
+  max-width: 100%;
+  max-height: 360px;
+}
+#pxpProducCalc .option-row .option-label {
+  top: 50%;
+  font-weight: 600;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  display: block;
+  margin-right: 10px;
+  color: #364657;
+}
+#pxpProducCalc .option-row .option-value {
+  list-style: none;
+}
+#pxpProducCalc .option-row .option-value select {
+  margin-top: 10px;
+  width: 290px;
+  height: 30px;
+  font-weight: 400;
+  color: #364657;
+}
+#pxpProducCalc .option-row .option-value select:focus {
+  outline: none;
+}
+#pxpProducCalc .option-row .option-value > .list-inline {
+  margin: 0;
+}
+#pxpProducCalc .list-inline > li {
+  padding: 0;
+}
+#pxpProducCalc .material-selector > ul > li > ul > li {
+  margin-top: 14px;
+}
+#pxpProducCalc .material-selector > ul > li > ul > li:first-child {
+  margin-left: 0;
+}
+#pxpProducCalc .list-inline > li:first-child {
+  margin-left: 0;
+}
+#pxpProducCalc .option-row {
+  position: relative;
+  margin-bottom: 0;
+  list-style: none;
+  margin-bottom: 20px;
+}
+#pxpProducCalc .pxp-circulation-selector ul li:first-child {
+  margin-left: 0;
+}
+#pxpProducCalc .option-row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#pxpProducCalc a u {
+  border-bottom: none 0;
+}
+#pxpProducCalc .custom-works .formatted-price,
+#pxpProducCalc .custom-works .customworkitem,
+#pxpProducCalc .custom-works .formatted-price + span,
+#pxpProducCalc .custom-works .customworkitem + span,
+#pxpProducCalc .custom-works .custom-work-item-price + span {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: 6px;
+}
+#pxpProducCalc .radio input[type="radio"],
+#pxpProducCalc .radio-inline input[type="radio"],
+#pxpProducCalc .checkbox input[type="checkbox"],
+#pxpProducCalc .checkbox-inline input[type="checkbox"] {
+  margin-left: 0;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkRadio
+  ul
+  li
+  .checkbox
+  input[type="radio"] {
+  position: absolute;
+  left: 35px;
+}
+#pxpProducCalc .custom-works ul li.customWorkRadio ul li .checkbox {
+  padding: 0;
+  display: inline-block;
+}
+#pxpProducCalc .custom-works ul li.customWorkCheckbox ul li .checkbox label {
+  background: transparent;
+  color: #000;
+  border: 0 none;
+  float: left;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  span[data-bind="template:{name: template}"]
+  input[type="checkbox"] {
+  width: 0;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  span:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 0 4px #f7f7f7;
+  border: 1px solid #eee;
+  left: 4px;
+  right: auto;
+  cursor: pointer;
+  top: 4px;
+}
+#pxpProducCalc .custom-works ul li.customWorkCheckbox ul li .checkbox {
+  padding-left: 0;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li.selected
+  .checkbox
+  span:before {
+  right: 5px;
+  left: auto;
+  top: 5px;
+  background: #64bb46;
+  cursor: pointer;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  span:after {
+  content: "\000432\00043a\00043b.";
+  position: absolute;
+  right: 5px;
+  left: auto;
+  top: 3px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li.selected
+  .checkbox
+  span:after {
+  content: "\000432\00044b\00043a\00043b.";
+  color: #fff;
+  right: auto;
+  left: 8px;
+  top: 4px;
+  cursor: pointer;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  span.formatted-price
+  + span {
+  width: 70px;
+  height: 30px;
+  margin-top: 0;
+  border-radius: 16px;
+  background: #bbbdbe;
+  border: 1px solid #bbbdbe;
+  cursor: pointer;
+  left: 25px;
+  position: relative;
+  float: left;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li.selected
+  .checkbox
+  span.formatted-price
+  + span {
+  border: #64bb46;
+  background: #64bb46;
+  cursor: pointer;
+}
+#pxpProducCalc .custom-works ul li.customWorkCheckbox .checkbox label {
+  padding-left: 30px !important;
+  cursor: pointer;
+}
+#pxpProducCalc .custom-works .customWorkRadio input[type="radio"] {
+  display: none;
+}
+#pxpProducCalc .custom-works .customWorkRadio .checkbox {
+  padding: 0;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  label:before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 30px;
+  display: block;
+  margin-left: -75px;
+  margin-top: -4px;
+}
+#pxpProducCalc .totalPriceContainer .price-per-photo {
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#pxpProducCalc .editor-sizes.option-row input {
+  width: 100px;
+  min-height: 25px;
+}
+#pxpProducCalc .editor-sizes.option-row .editor-sizes-width input {
+  text-align: center;
+}
+#pxpProducCalc .editor-sizes.option-row .editor-sizes-height input {
+  text-align: center;
+}
+#pxpProducCalc #totalPriceContainer + .buttons {
+  width: auto;
+  display: inline-block;
+}
+#pxpProducCalc input[type="checkbox"],
+#pxpProducCalc input[type="radio"] {
+  display: none;
+}
+#pxpProducCalc .option-row.with-description .option-value.list-inline li {
+  overflow: visible;
+  position: relative;
+  line-height: 0;
+}
+#pxpProducCalc .option-row.with-description .option-value.list-inline li label {
+  width: 100%;
+  line-height: 1.7;
+  border-radius: 4px;
+  border: 0;
+}
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li
+  label:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: 4px;
+}
+#pxpProducCalc
+  .option-row.large-format
+  .option-value.list-inline
+  li
+  label:after {
+  content: none;
+}
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li.selected:hover,
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li.selected:hover
+  .checkbox,
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li.selected:hover
+  label:after {
+  border-color: #64bb46;
+}
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li.selected:hover
+  .checkbox {
+  border-bottom-color: #64bb46;
+  background: #64bb46;
+}
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li
+  .customworkitem
+  img {
+  width: 100%;
+  padding: 0;
+  border-radius: 15px;
+}
+#pxpProducCalc .option-row li.selected label {
+  display: inline-block;
+  margin-bottom: 0;
+  border-radius: 4px;
+  padding: 0;
+  color: #fff;
+  overflow: hidden;
+  font-weight: 400;
+  background: #64bb46;
+  border: 1px solid #64bb46;
+  max-width: 210px;
+}
+#pxpProducCalc .option-row li.selected:hover label {
+  background: #64bb46;
+  border: 1px solid #64bb46;
+}
+#pxpProducCalc .option-row li:hover label {
+  background: #eb6309;
+  border-color: #eb6309;
+  color: #fff;
+}
+#pxpProducCalc .option-row li label {
+  display: inline-block;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 210px;
+  background: 0 0;
+  border-radius: 4px;
+  padding: 0;
+  color: #000;
+  overflow: hidden;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  border: 1px solid #64bb46;
+}
+#pxpProducCalc .option-row .option-value {
+  list-style: none;
+  min-height: 35px;
+  margin-left: 0;
+}
+#pxpProducCalc .option-row input#txtPartsQuantity,
+#pxpProducCalc .option-row input#txtQuantity {
+  float: left;
+  display: block;
+  margin-top: 0;
+  width: 180px;
+}
+#pxpProducCalc .option-row input#txtQuantity,
+.activatedCoupons li {
+  position: initial;
+}
+#pxpProducCalc .option-row input + span.option-item-title {
+  text-align: center;
+  padding: 5px 0 0;
+  margin: 0 auto;
+  width: 100%;
+  float: left;
+}
+#pxpProducCalc .option-row input#txtQuantity-for-calc2 + span.measure {
+  position: relative;
+  margin: 10px;
+  top: 0;
+}
+#pxpProducCalc .option-row input + span.measure {
+  position: relative;
+  margin: 10px;
+  top: 0;
+}
+#pxpProducCalc .option-row.customWorkRadio .option-value label {
+  min-height: inherit;
+  padding: 4px 15px;
+  border: 0;
+}
+#pxpProducCalc .option-row .option-value label[for="txtPartsQuantity"] {
+  min-height: inherit;
+}
+#pxpProducCalc .option-row .option-value label {
+  background: 0 0;
+  color: #364657;
+  width: auto;
+  min-height: 70px;
+  line-height: 1.7;
+}
+#pxpProducCalc #totalPriceContainer,
+#pxpProducCalc .totalPriceContainer {
+  float: none;
+  padding: 15px 0;
+}
+#pxpProducCalc #totalPriceContainer + .buttons,
+#pxpProducCalc .totalPriceContainer + .buttons {
+  float: none;
+  margin-bottom: 10px;
+}
+#pxpProducCalc .material-selector > ul > li > ul > li,
+#pxpProducCalc .option-value li {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+#pxpProducCalc .material-selector > ul > li > ul > li .option-item-description {
+  width: 100%;
+  position: relative;
+  top: 4px;
+}
+#pxpProducCalc .option-row .option-value select {
+  margin-top: 0 !important;
+  width: 280px;
+}
+#pxpProducCalc .material-selector .option-row .option-label,
+#pxpProducCalc
+  .material-selector
+  > ul
+  > li
+  > ul
+  > li
+  a.calc-helper
+  + .calc-helper-view
+  ol
+  li,
+#pxpProducCalc
+  .material-selector
+  > ul
+  > li
+  > ul
+  > li
+  a.calc-helper
+  + .calc-helper-view
+  ul
+  li,
+#pxpProducCalc .option-row .option-label,
+#pxpProducCalc .option-value li > a.calc-helper + .calc-helper-view ol li,
+#pxpProducCalc .option-value li > a.calc-helper + .calc-helper-view ul li {
+  margin-bottom: 10px;
+}
+.with-bg-gray #pxpProducCalc {
+  background-color: #fefefe;
+  border-color: #ddd;
+}
+.with-bg-gray .pxp-total-price .sticky-block {
+  background: #ddd;
+}
+#pxpProducCalc .measure {
+  margin-left: 10px;
+}
+#pxpProducCalc {
+  position: relative;
+  min-height: 340px;
+  margin-top: 0;
+}
+#pxpProducCalc .calc-lock {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+#pxpProducCalc .calc-lock div {
+  display: block;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 55px);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 250px;
+  height: 110px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+#pxpProducCalc .calc-lock div span {
+  margin-top: 55px;
+  display: block;
+}
+#pxpProducCalc .calc-lock div:before {
+  content: "";
+  animation: a 1s linear infinite;
+  border: 4px solid #eee;
+  border-left-color: #64bb46;
+  border-radius: 50%;
+  display: inline-block;
+  margin: -40px 0 0 -20px;
+  height: 40px;
+  width: 40px;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox
+  ul
+  li
+  .checkbox
+  span[data-bind="template:{name:template}"]
+  input[type="checkbox"] {
+  width: 0;
+  display: none;
+}
+#pxpProducCalc .custom-works .customWorkDropdown label,
+#pxpProducCalc .custom-works .customWorkDropdown label:hover {
+  padding: 0;
+  border: 0;
+  background: 0 0;
+  color: #364657;
+  cursor: auto;
+}
+#pxpProducCalc
+  .custom-works
+  .customWorkDropdown
+  .option-value
+  select
+  + div
+  > span {
+  color: #000;
+  font-weight: 600;
+  float: left;
+  padding: 14px;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li:hover
+  .checkbox,
+#pxpProducCalc .custom-works ul li.customWorkRadio ul li:hover .checkbox,
+#pxpProducCalc
+  .option-row.with-description
+  .option-value.list-inline
+  li:hover
+  .checkbox {
+  background: #eb6309;
+  border-color: #eb6309;
+}
+#pxpProducCalc .custom-works ul li.customWorkRadio ul li:hover .checkbox label {
+  color: #fff;
+  border: 0;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected
+  .checkbox,
+#pxpProducCalc .custom-works ul li.customWorkRadio ul li.selected .checkbox,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkRadio
+  ul
+  li.selected:hover
+  .checkbox {
+  background: #64bb46;
+  border-color: #64bb46;
+}
+#pxpProducCalc .custom-works ul li.customWorkRadio ul li .checkbox {
+  padding: 0;
+  margin-top: 0;
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 0;
+  background: #fff;
+  transition: 0.3s;
+  border-radius: 4px;
+  border: 1px solid #64bb46;
+}
+#pxpProducCalc .custom-work-item-price,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  .checkbox
+  span.formatted-price
+  + span:after,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  .checkbox
+  span.formatted-price
+  + span:before,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected
+  .checkbox
+  span.formatted-price
+  + span:after,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected
+  .checkbox
+  span.formatted-price
+  + span:before,
+#pxpProducCalc .custom-works ul li.no-description ul li .note.customworkitem,
+.shc.sh_btn img.shc.sh_logo_btn.sh_logo_img {
+  display: none;
+}
+#pxpProducCalc .custom-works .note.customworkitem {
+  position: relative;
+  border: 1px solid #64bb46;
+  border-radius: 15px;
+  margin: 15px 0 0;
+}
+#pxpProducCalc .custom-works .note.customworkitem:before {
+  color: #fff;
+  content: "▲";
+  left: 50%;
+  line-height: 20px;
+  position: absolute;
+  top: -15px;
+  text-shadow: 1px -2px 0 #64bb46, -1px -2px 0 #64bb46, 0 -4px 0 #64bb46;
+  font-size: 16px;
+  -webkit-transform: translate(-30%, 0);
+  transform: translate(-30%, 0);
+  -moz-transform: translate(-30%, 0);
+}
+#pxpProducCalc .custom-works .for-stamps .note img {
+  width: 60%;
+}
+#pxpProducCalc span.price-per-item {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 12px;
+}
+#pxpProducCalc .option-row .option-value label[for="txtQuantity"] {
+  line-height: 1.7;
+  min-height: 0;
+}
+#pxpProducCalc .option-row .option-value input#txtQuantity-for-calc2,
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="txtQuantity"]
+  input#txtQuantity {
+  position: relative;
+  width: 180px;
+}
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="txtQuantity"]
+  input#txtQuantity
+  + span.measure {
+  float: left;
+  margin-top: -10px;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone
+  ul
+  li
+  .checkbox
+  label {
+  border-radius: 0;
+  padding: 4px 10px;
+  line-height: 1.2;
+  display: inline-block;
+  min-height: 45px;
+  min-width: 210px;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  .checkbox
+  span.formatted-price
+  + span {
+  width: auto;
+  background: 0 0;
+  border: 0;
+}
+#pxpProducCalc .alone.monotony-option .list-inline > li,
+#pxpProducCalc .alone.monotony-option .list-inline > li:hover {
+  border: unset;
+}
+#pxpProducCalc .alone.monotony-option .option-label {
+  display: block !important;
+}
+#pxpProducCalc .alone.monotony-option .list-inline > li .checkbox {
+  margin-top: 0;
+  border-radius: 3px;
+  min-height: 33px;
+  margin-bottom: 0;
+}
+#pxpProducCalc
+  .alone.monotony-option
+  .list-inline
+  > li
+  .note.customworkitem
+  a.shipping-trigger {
+  padding: 4px;
+}
+#pxpProducCalc .alone.monotony-option .list-inline > li.checkbox {
+  margin: 0 !important;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected
+  .checkbox
+  span.formatted-price
+  + span {
+  background: 0 0;
+  color: #fff;
+  width: 100%;
+  height: auto;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  .checkbox {
+  background: 0 0;
+  border: 1px solid #64bb46;
+  transition: 0.3s;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  .checkbox
+  label {
+  width: 100%;
+  padding: 3px 15px !important;
+  min-height: initial;
+  line-height: 1.7;
+  border-color: transparent;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option.with-description
+  ul
+  li.selected
+  .checkbox
+  label {
+  border-radius: 3px;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li
+  label {
+  border: 1px solid #64bb46;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li,
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected {
+  background: 0 0;
+  border: 0;
+  border-radius: 3px;
+}
+#pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkCheckbox.alone.monotony-option
+  ul
+  li.selected
+  label {
+  color: #fff;
+  background: 0 0;
+}
+#pxpProducCalc .custom-works li.selected .checkbox {
+  color: #fff;
+  background: #64bb46;
+}
+#pxpProducCalc .custom-works li.selected label,
+#pxpProducCalc .material-selector > ul > li > ul > li.selected a,
+#pxpProducCalc .option-value li.selected > a {
+  color: #fff;
+  background: #64bb46;
+  border: 1px solid #64bb46;
+  display: inline-block;
+}
+#pxpProducCalc .custom-works label,
+#pxpProducCalc .material-selector > ul > li > ul > li a,
+#pxpProducCalc .option-value li > a {
+  color: #364657;
+  border: 1px solid #64bb46;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 14px;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: 400;
+}
+#customWorksContainer .a-book-color ul,
+.swiper-container.random_template {
+  margin: 0 -15px;
+}
+#pxpProducCalc ol li,
+#pxpProducCalc ul li {
+  margin: 0 0 30px;
+}
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"]
+  input#integratedCalculator-txtQuantity {
+  position: relative;
+  margin-top: 0;
+  float: left;
+}
+#pxpProductCalc label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"] {
+  padding: 0;
+  line-height: 1.7;
+  min-height: 0;
+}
+#pxpProducCalc .option-row input#txtPartsQuantity,
+#pxpProducCalc .option-row input#integratedCalculator-txtQuantity {
+  float: left;
+  display: block;
+  margin-top: 0;
+  width: 180px;
+}
+#pxpProducCalc .option-row .option-value input#txtQuantity-for-calc2,
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"]
+  input#integratedCalculator-txtQuantity {
+  position: relative;
+  width: 180px;
+  font-weight: 700;
+  min-height: 39px;
+}
+#pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"]
+  input#integratedCalculator-txtQuantity
+  + span.measure {
+  float: left;
+  margin-top: 9px;
+  font-weight: 700;
+  font-size: 14px;
+}
+#pxpProducCalc .pxp-calculator .pxp-total-price .totalPriceContainer,
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer + .buttons {
+  margin: 0 0 10px;
+}
+#pxpProducCalc .buttons .ok,
+#pxpProducCalc .buttons .ok-disabled {
+  display: inline-block;
+}
+#pxpProducCalc a.btn:active {
+  background: 0 0 #64bb46;
+  box-shadow: 1px 1px 1px #18410a inset;
+}
+#pxpProducCalc .btn,
+#pxpProducCalc a.btn {
+  border: 0;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 5px 15px;
+  border-radius: 4px;
+  outline: 0;
+  box-shadow: none;
+  text-shadow: none;
+  background: #64bb46;
+  color: #fff;
+  border: 1px solid transparent;
+}
+#pxpProducCalc .btn:hover,
+#pxpProducCalc a.btn:hover {
+  background: 0 0 #eb6309;
+}
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer {
+  margin: 0 0 10px;
+}
+#pxpProducCalc .totalPriceContainer,
+#pxpProducCalc .totalPriceContainer span.price-total {
+  width: 100%;
+}
+.totalPriceContainer .price-per-item {
+  padding: 0 0 0 0.4em;
+}
+#integratedCalculator .pxp_calc_quick_order_manager_block_info_text a {
+  border-bottom: 1px solid #64bb46;
+  font-weight: 400;
+}
+#integratedCalculator .currency.rub:before {
+  content: "₽ ";
+  font-size: 1.06em;
+}
+.url-businesscards
+  #pxpProducCalc
+  .pxp-circulation-selector
+  ul
+  li.circulation-selector__item.option-row {
+  margin-bottom: 25px;
+}
+.url-businesscards #pxpProducCalc .custom-works__list .option-row:first-child {
+  margin-bottom: 15px;
+}
+#pxpProducCalc a.btn:last-child {
+  display: none;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer,
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer + .buttons {
+  position: relative;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+#pxpProducCalc .pxp-circulation-selector ul {
+  padding: 0;
+  margin-top: 10px;
+}
+#pxpProducCalc .option-row .option-value label input {
+  padding: 6px 12px;
+  margin-top: 10px;
+  outline: none;
+}
+#pxpProducCalc.pxp-calculator .pxp-total-price > div,
+.order-button {
+  text-align: right;
+}
+#totalPriceContainer,
+.totalPriceContainer {
+  padding: 20px 0;
+  text-align: right;
+  font-size: 20pt;
+  width: 100%;
+  float: right;
+}
+.currency.rub {
+  font-family: "Helvetica Neue", "Arial";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  width: auto;
+  font-size: 0.95em;
+  border: none 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.currency.rub.postfix {
+  margin: 0;
+}
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer,
+#pxpProducCalc.pxp-calculator .pxp-total-price .totalPriceContainer + .buttons {
+  margin: 0 0 10px;
+}
+#pxpProducCalc.pxp-calculator
+  .pxp-total-price
+  .totalPriceContainer
+  + .buttons
+  a {
+  margin-bottom: 0;
+}
+.buttons {
+  padding: 10px 0;
+  text-align: right;
+}
+.pxp-total-price .btn {
+  margin-left: 15px;
+}
+.pxp-total-price.sticky-visible {
+  z-index: 2;
+}
+.pxp-total-price.sticky-visible,
+.pxp-total-price.sticky-hidden {
+  position: fixed;
+  top: auto;
+  right: auto;
+  bottom: 0;
+}
+.pxp-total-price.sticky-visible {
+  visibility: visible;
+}
+.pxp-total-price.sticky-hidden,
+.pxp-total-price.sticky-hidden * {
+  visibility: hidden;
+  transition: none;
+}
+.pxp-total-price .sticky-block {
+  border-top: 1px solid #bbbdbe;
+  background: #eee;
+  margin: 0 -30px;
+  padding: 0;
+  position: relative;
+  height: 65px;
+}
+.pxp-total-price .sticky-block .info {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 30px;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  padding: 0;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.pxp-total-price .sticky-block .info .totalQuantityBlock {
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.totalPriceContainer .price-per-item:before {
+  content: "(";
+}
+.totalPriceContainer .price-per-item:after {
+  content: ")";
+}
+.currency.rub span {
+  display: none;
+}
+#pxpProducCalc.pxp-calculator
+  .pxp-total-price
+  .sticky-block
+  .totalPriceContainer
+  + .buttons
+  .ok {
+  display: flex;
+  padding-right: 5px;
+}
+#pxpProducCalc .pxp-total-price .sticky-block a.btn {
+  font-size: 14px;
+}
+.pxp_calc_quick_order_manager_block
+  .pxp_calc_quick_order_manager_block_info_text:before,
+.pxp-quick-order-widget .pxp-quick-order-widget-wrapper-mobile__message:before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  font-size: 42px;
+  color: #64bb46;
+  line-height: 20px;
+}
+.pxp_calc_quick_order_manager_block {
+  margin: 15px 0 0 0;
+  padding: 15px 0 0 0;
+  border-top: solid 1px #bbbdbe;
+}
+.pxp_calc_quick_order_manager_block
+  .pxp_calc_quick_order_manager_block_info_text,
+.pxp-quick-order-widget .pxp-quick-order-widget-wrapper-mobile__message {
+  position: relative;
+  display: block;
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+.button--height .checkbox {
+  min-height: 60px;
+}
+.url-document-printing
+  #pxpProducCalc
+  .custom-works
+  ul
+  li.button--height.customWorkRadio
+  ul
+  li
+  .checkbox {
+  min-height: 60px;
+  display: table;
+}
+.url-document-printing
+  #pxpProducCalc
+  .button--height
+  .option-value
+  label.checkbox-label {
+  display: table-cell;
+  min-height: 100%;
+  vertical-align: middle;
+}
+.url-document-printing
+  #pxpProducCalc
+  .option-row
+  .option-value
+  label[for="txtQuantity"]
+  input#txtQuantity {
+  width: 150px;
+}
+.url-document-printing #custom-works .filling ul li .formatted-price {
+  display: inline-block;
+}
+.url-document-printing
+  #pxpProducCalc
+  .option-row.customWorkRadio
+  .option-value
+  label {
+  width: 150px;
+}
+.url-document-printing #pxpProducCalc .material-selector > ul > li > ul > li a,
+.url-document-printing #pxpProducCalc .option-value li > a {
+  width: 150px;
+  text-align: center;
+}
+.url-document-printing
+  #pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"]
+  input#integratedCalculator-txtQuantity {
+  width: 150px;
+}
+.url-laser-cutting #pxpProducCalc .option-value.list-inline li.zero.checkbox {
+  display: none !important;
+}
+.url-laser-cutting #pxpProducCalc .inline-checkbox ul.option-value.list-inline {
+  min-height: 0;
+  display: none;
+}
+.calc-variable span[data-bind="html: title"] {
+  font-weight: 600;
+  font-size: 16px;
+  color: #364657;
+}
+.url-laser-cutting
+  .custom-works__item.inline-checkbox.option-row.customWorkRadio.alone
+  .zero {
+  outline: 1px solid red;
+  margin-right: 0;
+}
+.url-laser-cutting li.inline-checkbox.option-row ul.option-value.list-inline {
+  display: none !important;
+}
+.url-laser-cutting
+  li.inline-checkbox.option-row
+  ul.option-value.list-inline
+  li.option-item.selected
+  span.checkbox {
+  display: none !important;
+}
+.url-laser-cutting
+  li.custom-works__item.inline-checkbox.option-row
+  span.option-label.required {
+  display: none !important;
+}
+.url-laser-cutting
+  li.custom-works__item.inline-checkbox.option-row
+  ul
+  li.calc-variable
+  span:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  color: #364657;
+}
+.url-laser-cutting .calc-variable .text {
+  padding: 4px;
+  max-width: 170px;
+}
+.url-laser-cutting .pxp-calc-fileUpload-link__text {
+  font-size: 0.875rem;
+}
+.url-laser-cutting
+  #pxpProducCalc
+  > div.pxp-custom-works-selector
+  > div
+  > div
+  > ul
+  > li.custom-works__item.upload-for-order.option-row.customWorkRadio.alone
+  > ul
+  > li
+  > span.checkbox {
+  display: none;
+}
+.url-laser-cutting #pxpProducCalc .material-selector > ul > li > ul > li a,
+.url-laser-cutting #pxpProducCalc .option-value li > a {
+  width: 150px;
+  text-align: center;
+}
+.url-laser-cutting
+  #pxpProducCalc
+  .option-row.customWorkRadio
+  .option-value
+  label {
+  width: 150px;
+  padding: 4px;
+}
+.url-laser-cutting .pxp-calc-fileUpload-link {
+  width: 152px;
+  text-align: center;
+  padding: 3px 15px !important;
+}
+#pxpProducCalc input:focus {
+  outline: solid 1px #d7c500;
+  outline-style: auto;
+}
+.url-prints #pxpProducCalc .material-selector > ul > li > ul > li a,
+.url-prints #pxpProducCalc .option-value li > a {
+  width: 151px;
+  text-align: center;
+}
+.url-prints #pxpProducCalc .option-row.customWorkRadio .option-value label {
+  width: 151px;
+  padding: 4px;
+}
+#integratedCalculator #pxpProducCalc .option-row input#txtQuantity {
+  position: initial;
+}
+#integratedCalculator .option-row .stepper-container input[type="text"] {
+  min-height: 36px;
+  border: 1px solid #aaa;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  text-align: center;
+  padding: 4px;
+  min-width: 76px;
+  max-width: 76px;
+  margin: 0 auto;
+  outline: none;
+  float: none !important;
+}
+#integratedCalculator #pxpProducCalc .option-row input#txtQuantity {
+  position: initial;
+}
+#integratedCalculator .stepper-container .stepper__minus,
+.stepper-container .stepper__plus {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+#integratedCalculator .url-prints :before,
+.url-prints :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#integratedCalculator .stepper-container .btn:after {
+  display: block;
+  font-size: 18px;
+}
+#integratedCalculator .stepper-container .stepper-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+}
+#integratedCalculator .stepper-container .stepper__minus:after {
+  content: "-";
+}
+#integratedCalculator .stepper-container .stepper__plus:after {
+  content: "+";
+}
+#integratedCalculator .stepper-container .stepper-wrapper:after {
+  clear: both;
+}
+#integratedCalculator .stepper-container .stepper-wrapper:after,
+#integratedCalculator .stepper-container .stepper-wrapper:before {
+  content: "";
+  display: table;
+}
+#integratedCalculator #pxpProducCalc .stepper-container .stepper__plus {
+  right: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#integratedCalculator #pxpProducCalc .stepper-container .stepper__minus {
+  left: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#integratedCalculator #pxpProducCalc .btn {
+  padding: 0;
+}
+#integratedCalculator .stepper__measure {
+  font-size: 14px;
+}
+.content .markdown-section h3 + blockquote {
+  margin: 1rem 0 0;
+}
+.url-letters #pxpProducCalc .option-row.customWorkRadio .option-value label {
+  padding: 4px 14px;
+}
+.url-letters #pxpProducCalc .material-selector > ul > li > ul > li a,
+#pxpProducCalc .option-value li > a {
+  width: 150px;
+  text-align: center;
+}
+.url-letters
+  #pxpProducCalc
+  .custom-works
+  ul
+  li.customWorkRadio
+  ul
+  li
+  .checkbox
+  label {
+  width: 150px;
+}
+.url-letters ul li.calc-variable input.text.shortest {
+  padding: 6px 12px;
+  width: 153px;
+  left: 2%;
+  position: relative;
+  left: 3px;
+}
+.url-letters #pxpProducCalc .letter-height .option-label,
+.url-letters #pxpProducCalc .letter-height .list-inline {
+  display: none;
+}
+.url-letters .text.shortest {
+  line-height: 22px;
+}
+.url-letters #pxpProducCalc .alone.monotony-option .list-inline > li {
+  width: 100%;
+}
+.url-letters #pxpProducCalc .comment-for-order .list-inline .checkbox {
+  display: none;
+}
+.url-letters .arbitrary-input {
+  width: 96.4%;
+  max-width: 600px;
+  padding: 6px 14px;
+  line-height: 22px;
+  color: #000;
+}
+.url-letters #pxpProducCalc .upload-for-order .list-inline .checkbox {
+  display: none;
+}
+.url-letters#integratedCalculator #pxpProducCalc .btn {
+  font-size: 14px;
+  padding: 4px 22px;
+}
+.url-letters .calc-variable {
+  visibility: hidden;
+}
+.url-letters .calc-variable span,
+.calc-variable input {
+  position: static;
+  visibility: visible;
+}
+.url-letters
+  #pxpProducCalc
+  .option-row
+  .option-value
+  label[for="integratedCalculator-txtQuantity"]
+  input#integratedCalculator-txtQuantity {
+  width: 152px;
+}
+.url-letters #pxpProducCalc .buttons .ok {
+  display: none;
+}
+/* [data-page="calculators/gift.md"] .sheet-printing--mb {margin-bottom: 0;} */
+[data-page="calculators/gift.md"] .sheet-printing--mb ~ blockquote {
+  margin: 25px 0 0;
+}
+[data-page="misc/app-data.md"] .markdown-section blockquote {
+  margin: 1em 0;
+}
+.url-banners #pxpProducCalc .pxp-material-selector .material-selector a {
+  width: 210px;
+  text-align: center;
+}
+.url-banners .pxp-calculator .editor-sizes-width .option-value,
+.pxp-calculator .editor-sizes-height .option-value {
+  padding: 6px 12px;
+}
+.url-banners
+  #pxpProducCalc
+  .pxp-editor-settings-controller
+  .editor-sizes
+  input.option-value {
+  width: 150px;
+  text-align: left;
+}
+.url-banners #pxpProducCalc .option-row.customWorkRadio .option-value label {
+  width: 135px;
+}
+.url-banners #pxpProducCalc ul li.calc-variable {
+  margin-bottom: 0;
+}
+.url-banners .calc-variable span[data-bind="html: title"] {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.url-banners input.text {
+  padding: 1px 2px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.url-banners ul.option-value.list-inline {
+  clear: both;
+}
+.url-banners ul.option-value.list-inline + ul {
+  float: none;
+  clear: both;
+}
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-pages-count,
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-pages-count
+  + .editor-sizes-arbitrary-measurement {
+  display: none;
+}
+.url-banners .pxp-editor-settings-controller .editor-sizes.option-row {
+  font-size: 0;
+}
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-width:after {
+  content: "× ";
+}
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-width,
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-arbitrary-measurement {
+  font-size: 14px;
+}
+.url-banners
+  .pxp-editor-settings-controller
+  .editor-sizes.option-row
+  .editor-sizes-arbitrary-measurement {
+  padding-left: 5px;
+}
+[data-page="calculators/large-format-printing.md"] h5 + ol li > ul li {
+  list-style: inside;
+}
+
+@media screen and (max-width: 1055px) {
+  #integratedCalculator {
+    width: 50%;
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  #pxpProducCalc .sticky-block .info span.price-per-item {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  #integratedCalculator {
+    width: 100%;
+    min-width: auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .totalPriceContainer {
+    font-size: 20px;
+  }
+}
+@media (max-width: 580px) {
+  .document-printing
+    #pxpProducCalc
+    .option-row.customWorkRadio
+    .option-value
+    label {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 571px) {
+  .url-businesscards #pxpProducCalc .material-selector > ul > li > ul > li a {
+    width: 135px;
+  }
+  .url-businesscards
+    #pxpProducCalc
+    ul
+    li.customWorkRadio:first-child
+    .option-value
+    label,
+  .url-businesscards
+    #pxpProducCalc
+    ul
+    li.customWorkRadio:nth-child(2)
+    .option-value
+    label {
+    width: 135px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .buttons {
+    text-align: right;
+  }
+  .buttons .ok,
+  .buttons .ok-disabled {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 490px) {
+  #pxpProducCalc .totalPriceContainer {
+    width: 100%;
+    font-size: 16px;
+  }
+  .pxp-total-price .btn {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header {
+    flex-flow: row wrap;
+    align-content: flex-start;
+  }
+  @media (max-width: 414px) {
+    .url-document-printing #pxpProducCalc .option-value li {
+      width: 48%;
+    }
+    .url-document-printing #pxpProducCalc .option-row .option-value label {
+      width: 100%;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .option-row
+      .option-value
+      label[for="txtQuantity"]
+      input#txtQuantity {
+      width: 48%;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .material-selector
+      > ul
+      > li
+      > ul
+      > li
+      a,
+    .url-document-printing #pxpProducCalc .option-value li > a {
+      width: 100%;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .material-selector
+      > ul
+      > li
+      > ul
+      > li:nth-child(even),
+    .url-document-printing #pxpProducCalc .option-value li:nth-child(even) {
+      margin: 0 0 5px;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .option-row.customWorkRadio
+      .option-value
+      label {
+      padding: 4px;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .option-row.customWorkRadio
+      .option-value
+      label {
+      width: 100%;
+    }
+    .url-document-printing
+      #pxpProducCalc
+      .option-row
+      .option-value
+      label[for="integratedCalculator-txtQuantity"]
+      input#integratedCalculator-txtQuantity {
+      width: 48%;
+    }
+    .url-banners #pxpProducCalc .editor-sizes .editor-sizes-width,
+    .url-banners #pxpProducCalc .editor-sizes .editor-sizes-height {
+      display: block;
+    }
+  }
+  header .logo-container {
+    width: 100%;
+    height: 45px;
+    padding: 0 25px;
+  }
+  header .header-main-container {
+    height: calc(100% - 45px);
+  }
+  header .bottom-row {
+    margin: 5px 0 0;
+  }
+  header .logo-container img {
+    width: 70px;
+  }
+  header .header-link {
+    font-size: 14px;
+    padding: 0 0 0 25px;
+  }
+  .header-link::before {
+    width: 15px;
+    height: 15px;
+  }
+  .content .markdown-section {
+    max-width: 100%;
+  }
+  .content .markdown-section h1 {
+    font-size: 1.25rem;
+  }
+  .content .markdown-section h2 {
+    font-size: 1rem;
+  }
+  .content .markdown-section h3 {
+    font-size: 0.75rem;
+  }
+  .content .markdown-section h4 {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 414px) {
+  #pxpProducCalc {
+    padding: 15px;
+  }
+  #pxpProducCalc .totalPriceContainer {
+    font-size: 10pt;
+  }
+  .pxp-total-price .sticky-block .info {
+    margin: 0 10px;
+  }
+  #pxpProducCalc.pxp-calculator
+    .pxp-total-price
+    .sticky-block
+    .totalPriceContainer {
+    font-size: 14pt;
+  }
+}
+@media screen and (max-width: 340px) {
+  #pxpProducCalc.pxp-calculator
+    .pxp-total-price
+    .sticky-block
+    .totalPriceContainer {
+    font-size: 10pt;
+  }
+  #pxpProducCalc {
+    padding: 15px;
+  }
+  #pxpProducCalc .totalPriceContainer {
+    font-size: 10pt;
+  }
+}
+
+.list {
+  list-style: disc;
+  margin: 15px 0;
+}
+
+.gifts-data--wrapper {
+  margin-bottom: 30px;
+}
+
+.content .markdown-section .gifts-data--wrapper h3 {
+  margin: 10px 0 10px 0;
+}
+
+.gifts-data--wrapper .gifts--contacts-list ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+  margin: 0;
+}
+
+.gifts-data--wrapper .gifts-data--catalog-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.gifts-data--wrapper .gifts-data--catalog-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  justify-content: center;
+  margin: 15px 15px 15px 0;
+}
+
+.gifts-data--wrapper .gifts-data--catalog-item img {
+  display: inline-block;
+  max-width: 120px;
+}
+.content .markdown-section pre > code.lang-js {
+  white-space: inherit;
+}
+.content .markdown-section pre > code.lang-css {
+  white-space: inherit;
+}
+.content .markdown-section pre > code.lang-html {
+  white-space: inherit;
+}
+[data-page="dev/calc.md"] .content .markdown-section h2[id="Размеры-редактора"],
+[data-page="dev/calc.md"] .content .markdown-section h2[id="Опции-и-позиции"],
+[data-page="dev/calc.md"] .content .markdown-section h2[id="Переменные"],
+[data-page="dev/calc.md"] .content .markdown-section h2[id="Ценовая-панель"],
+[data-page="dev/calc-install.md"]
+  .content
+  .markdown-section
+  h2[id="_3-Инициализация-калькулятора"] {
+  margin-top: 0px !important;
+}
+[data-page="integration/payments.md"]
+  .content
+  .markdown-section
+  > ul
+  > li
+  > ul
+  > li
+  ul {
+  list-style: none;
+  padding-left: 0;
+}
+[data-page="design/named-photobooks.md"] .markdown-section tr td:nth-child(1) {
+  text-align: center;
+}
+h2#Создание-har-файла,
+[data-page="design/businesscards.md"] h2#Основная-информация {
+  margin-top: 0px !important;
+  border-top: 0 !important;
+}
+[data-page="calculators/large-format-printing.md"] .markdown-section h5 {
+  margin: 1rem 0;
+}
+[data-page="calculators/large-format-printing.md"]
+  .markdown-section
+  h5
+  + blockquote {
+  margin: 0;
+}
+
+ol ol, ul ol {
+  list-style-type: auto;
+}
+
+/* calc */
+.totalPriceContainer .totalPriceContainerInner .price-total-without-discount {
+  display: inline;
+}
+.totalPriceContainer .price-total-without-discount {
+  color: #888;
+  text-decoration: line-through;
+  margin: 0 6px;
+  font-size: 13px;
+}
+#pxpProducCalc .pxp-total-price .sticky-block .info.price-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+@media screen and (min-width: 601px) {
+  #pxpProducCalc .pxp-total-price .sticky-block .info .total-price__formatted {
+      display: block !important;
+      font-size: 24px;
+      color: black;
+  }
+}
+@media screen and (min-width: 601px) {
+  #pxpProducCalc .pxp-total-price .sticky-block .info .customContinueButton {
+      width: 33.3333%;
+      max-width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+  }
+}
+@media screen and (min-width: 601px) {
+  #pxpProducCalc .pxp-total-price .sticky-block .info .btn.customContinueButton>span {
+      display: none;
+  }
+}
+/*  */

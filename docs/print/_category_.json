@@ -1,6 +1,6 @@
 {
-  "label": "Печать",
-  "position": 6,
+  "label": "Продукты",
+  "position": 4,
   "link": {
     "type": "generated-index"
   }

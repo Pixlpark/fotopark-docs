@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\.github",
-    "\\.github\\workflows"
+    "\\.github\\workflows",
+    "\\docs"
   ],
+  "SelectedNode": "\\docs\\intro.mdx",
   "PreviewInSolutionExplorer": false
 }

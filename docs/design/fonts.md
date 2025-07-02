@@ -1,7 +1,7 @@
 ---
-title: Создание шаблона
-description: Создание шаблона
-sidebar_position: 2
+title: Установка шрифтов
+description: Установка шрифтов
+sidebar_position: 4
 ---
 # Шаблон
 

@@ -57,7 +57,7 @@ const config: Config = {
         navbar: {
             logo: {
                 alt: 'Pixlpark Documentation',
-                src: 'img/logo-pixlpark.svg',
+                src: 'img/logo.svg',
             },
             items: [
                 {
@@ -67,19 +67,19 @@ const config: Config = {
                     label: 'Документация',
                 },
                 {
-                    href: "https://support.pixlpark.com",
+                    href: "https://admin.moyvipusknoy.ru/",
+                    position: 'left',
+                    label: 'Панель управления',
+                },
+                {
+                    href: "https://t.me/moyvipusknoy_news",
+                    position: 'left',
+                    label: 'Новости',
+                },
+                {
+                    href: "https://t.me/MoyVipusknoySupport_bot",
                     position: 'left',
                     label: 'Поддержка',
-                },
-                {
-                    href: "https://demo.pixlpark.ru",
-                    position: 'left',
-                    label: 'Демонстрация',
-                },
-                {
-                    href: "https://pixlpark.ru",
-                    position: 'left',
-                    label: 'О сервисе',
                 },
             ],
         },

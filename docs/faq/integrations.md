@@ -1,9 +1,12 @@
 ---
 title: Сторонние интеграции
-description: Сторонние интеграции
+description: В данном разделе собрана информация по подключению сервисов Photoroom и Retouch4me
 sidebar_position: 2
 ---
 
 # Сторонние интеграции
-* [Как подключить сервис Photoroom](https://docs.moyvipusknoy.ru)
-* [Как подключить сервис Retouch4me](https://docs.moyvipusknoy.ru)
+### Как подключить сервис Photoroom
+* Раздел находится в разработке
+
+### Как подключить сервис Retouch4me
+* Раздел находится в разработке

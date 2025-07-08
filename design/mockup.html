@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Подготовка макета | Документация Мой выпускной</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.moyvipusknoy.ru/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.moyvipusknoy.ru/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.moyvipusknoy.ru/design/mockup"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Подготовка макета | Документация Мой выпускной"><meta data-rh="true" name="description" content="В разделе содержится инструкция по подготовке макетов в формате PSD"><meta data-rh="true" property="og:description" content="В разделе содержится инструкция по подготовке макетов в формате PSD"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.moyvipusknoy.ru/design/mockup"><link data-rh="true" rel="alternate" href="https://docs.moyvipusknoy.ru/design/mockup" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.moyvipusknoy.ru/design/mockup" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://CBISSLUS3P-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Работа с дизайнами","item":"https://docs.moyvipusknoy.ru/category/работа-с-дизайнами"},{"@type":"ListItem","position":2,"name":"Подготовка макета","item":"https://docs.moyvipusknoy.ru/design/mockup"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Документация Мой выпускной" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.dead53f8.css">
-<script src="/assets/js/runtime~main.cdca6cdd.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.bdea0e4b.js" defer="defer"></script>
 <script src="/assets/js/main.83256273.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -43,8 +43,8 @@
 <li>Фон текста задается в формате <code>[text-background: padding: 50 radius: 50 rgba(222, 222, 0, 1)]</code>, где padding - это внутренний отступ со всех сторон от текста, <code>radius</code> - это степень скругления углов фона текста, <code>rgba(222, 222, 0, 1)</code> - это цвет фона.</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="работа-с-изображениями">Работа с изображениями<a href="#работа-с-изображениями" class="hash-link" aria-label="Direct link to Работа с изображениями" title="Direct link to Работа с изображениями">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="фото-в-рамке-без-декора">Фото в рамке без декора<a href="#фото-в-рамке-без-декора" class="hash-link" aria-label="Direct link to Фото в рамке без декора" title="Direct link to Фото в рамке без декора">​</a></h4>
 <ul>
-<li><strong>Фото в рамке без декора</strong></li>
 <li>Для размещения фотографии необходимо:<!-- -->
 <ol>
 <li>Создать растровый слой с двумя ключами <code>[placeholder]</code> и <code>[path:pathName]</code>, где <code>pathName</code> – название контура.</li>
@@ -53,17 +53,21 @@
 </li>
 <li>Фотография будет размещена в области <code>[path]</code> и заменит собой содержимое слоя <code>[placeholder]</code>.<br>
 Если рамка для фото квадратной или прямоугольной формы, то контур <code>pathName</code> можно не использовать.</li>
-<li><strong>Фото в рамке с декором</strong></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="фото-в-рамке-с-декором">Фото в рамке с декором<a href="#фото-в-рамке-с-декором" class="hash-link" aria-label="Direct link to Фото в рамке с декором" title="Direct link to Фото в рамке с декором">​</a></h4>
+<ul>
 <li>Для размещения фотографии необходимо:<!-- -->
 <ol>
-<li>Создать группу с ключом <code>[placeholder]</code>.</li>
+<li>Создат ь группу с ключом <code>[placeholder]</code>.</li>
 <li>В группе создать замкнутый растровый слой с ключом <code>[mask]</code> и прозрачностью по центру для отображения фотографии.</li>
 <li>В группе создать растровый слой с двумя ключами <code>[content]</code> и <code>[path:pathName]</code>, где <code>pathName</code> – название контура.</li>
 <li>Создать контур с именем <code>pathName</code> и привязать к слою <code>[content]</code>.</li>
 </ol>
 </li>
 <li>Фотография будет размещена в области <code>[path]</code>, заменит собой содержимое слоя <code>[content]</code> и отобразится с наложением <code>[mask]</code>.</li>
-<li><strong>Фотоколлажи</strong></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="фотоколлажи">Фотоколлажи<a href="#фотоколлажи" class="hash-link" aria-label="Direct link to Фотоколлажи" title="Direct link to Фотоколлажи">​</a></h4>
+<ul>
 <li>Для размещения коллажа из фотографий необходимо:<!-- -->
 <ol>
 <li>Создать растровый слой с двумя ключами <code>[collage:n]</code> (n - количество фотографий в коллаже) и <code>[path:pathName]</code>, где <code>pathName</code> – название контура.</li>
@@ -72,14 +76,14 @@
 </li>
 </ul>
 <ul>
-<li>Допустимо вместо <code>[collage:n]</code> использовать ключ <code>[collage]</code>, в этом случае в коллаже будет размещаться от 3 до 6 фотографий. Коллаж будет вписан в растровый слой и заменит собой его содержимое.</li>
+<li>Допустимо вместо <code>[collage:n]</code> использовать ключ <code>[collage]</code>, в этом случае в коллаже будет размещаться от 3 до 6 фотографий. Коллаж будет вписан в растровый слой и заменит собой его содержим ое.</li>
 </ul>
 <ul>
 <li>Если в макете отсутствуют какие-либо рамки, то на нем автоматически будет размещен коллаж из 3-6 фотографий, который разместиться выше слоя <code>[background]</code>, но ниже всех остальных.</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="семантика-альбомов">Семантика альбомов<a href="#семантика-альбомов" class="hash-link" aria-label="Direct link to Семантика альбомов" title="Direct link to Семантика альбомов">​</a></h3>
 <ul>
-<li>Макет для выпускных альбом следует создавать согласно струк туре, которая описана в статье <a href="https://docs.pixlpark.ru/design/psd" target="_blank" rel="noopener noreferrer">&quot;Особенности макетов фотокниг&quot;</a>.</li>
+<li>Макет для выпускных альбом следует создавать согласно структуре, которая описана в статье <a href="https://docs.pixlpark.ru/design/psd" target="_blank" rel="noopener noreferrer">&quot;Особенности макетов фотокниг&quot;</a>.</li>
 <li>Для автоматической верстки выпускных альбомов макет шаблона должен содержать в себе метаинформацию, по которой в дизайн будут подставляться реальный данные класса.</li>
 <li>Метаинформация в данном случае является набором ключей, которые необходимо использовать в названиях слоев или групп.</li>
 <li><strong><code>[meta:school]</code></strong> - группа, содержащая информацию о школе. В ней можно использовать слои со следующими ключами:<!-- -->
@@ -140,7 +144,7 @@
 </li>
 </ul>
 <ul>
-<li><strong><code>[meta:classmates]</code></strong> - группа, содержащая информация об учениках, т.е. все группы [meta<!-- -->:student<!-- -->] должны быть расположены именно в ней. Но, ученик, для которого создается альбом должен размещаться вне  этой группы.<br></li>
+<li><strong><code>[meta:classmates]</code></strong> - группа, содержащая информация об учениках, т.е. все группы [meta<!-- -->:student<!-- -->] должны быть расположены именно в ней. Но, ученик, для которого создается альбом должен размещаться вне этой группы.<br></li>
 <li><strong><code>[meta:students:n]</code></strong> - группа, содержащая слои дизайна разворота с виньетками учеников, где n - количество учеников.</li>
 <li><strong><code>[meta:teachers:n]</code></strong> - группа, содержащая слои дизайна разворота с виньетками учителей, где n - количество учителей.</li>
 <li><strong><code>[meta:my-friends]</code></strong> - группа, содержащая фотографии с друзьями.</li>

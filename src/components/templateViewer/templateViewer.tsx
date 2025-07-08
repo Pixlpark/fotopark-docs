@@ -10,7 +10,7 @@ const TemplateViewer = () => {
       const apiUrl = 'https://moyvipusknoy.ru/api/templateSets';
       const requestBody = {
         materialTypeId: 0,
-        materialIds: [11721562],
+        materialIds: [11721572],
         authorId: 0,
         languageId: 8166,
         ownType: 0,

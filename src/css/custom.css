@@ -16,6 +16,7 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-h4-font-size: 1.15rem;
+  --doc-sidebar-width: 325px !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -33,7 +34,12 @@
 [data-theme="light"] .DocSearch {
   --docsearch-primary-color: var(--ifm-color-primary);
 }
-
+a {
+  text-decoration: underline !important;
+}
+.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a{
+  text-decoration: none !important;
+}
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 * {
   --main-color: #64bb46;
@@ -2273,7 +2279,7 @@ ol ol, ul ol {
 
 .calc-card {
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
   border: 2px solid #0c20616b;
   border-radius: 20px;
 }
@@ -2534,4 +2540,44 @@ input[type=range] {
 
 .template-viewer .close-btn:hover {
   background: #b30000;
+}
+.option.total .label{
+  margin-right: 8px;
+}
+.tip{
+  width: 20px;
+  margin-right: auto;
+  margin-top: 7px;
+  position: relative;
+}
+.tip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+.tip:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  z-index: 101;
+  margin-bottom: -5px;
+}
+.group-option{
+  display: flex;
+  gap: 40px;
 }

@@ -54,7 +54,6 @@ const TemplateViewer = ({
 
   return (
     <div className="template-viewer">
-      <h2>Шаблоны</h2>
       <div className="grid">
         {templates.map((template) => (
           <img

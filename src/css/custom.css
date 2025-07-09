@@ -2515,7 +2515,6 @@ input[type=range] {
 
 .template-viewer .modal-content {
   background: #fff;
-  padding: 20px;
   border-radius: 8px;
   max-height: 80vh;
   overflow-y: auto;
@@ -2588,4 +2587,35 @@ input[type=range] {
 .modal-images{
   display: flex;
   gap: 20px;
+}
+@media (max-width: 550px){
+  .group-option {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .option .label{
+    font-size: 18px;
+  }
+  .book-card img{
+    object-position: center 0px;
+  }
+  .book-card p {
+    font-size: 14px;
+  }
+  .book-card>span{
+    font-size: 17px;
+  }
+  .template-viewer .grid{
+    gap: 6px;
+  }
+}
+.docItemCol_VOVn{
+    max-width: 100% !important;
+}
+.template-viewer .template{
+    width: 32%;
+    box-shadow: 0px 3px 11px 10px rgba(34, 60, 80, 0.2);
+}
+.template-viewer .grid{
+    gap: 20px
 }

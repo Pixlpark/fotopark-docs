@@ -71,7 +71,7 @@ const TemplateViewer = ({
         <div className="modal">
           <div className="modal-content">
             <button className="close-btn" onClick={closeModal}>
-              Закрыть
+              ×
             </button>
             <div className="modal-images">
               {selectedTemplate.Templates.map((template) => (

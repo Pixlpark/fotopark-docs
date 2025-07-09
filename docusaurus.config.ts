@@ -8,14 +8,14 @@ const config: Config = {
     favicon: 'img/favicon.ico',
 
     // Set the production url of your site here
-    url: 'https://docs.moyvipusknoy.ru/',
+    url: 'https://docs.moyvipusknoy.ru',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'Мой выпускной', // Usually your GitHub org/user name.
+    organizationName: 'Pixlpark', // Usually your GitHub org/user name.
     projectName: 'fotopark-docs', // Usually your repo name.
     trailingSlash: false,
 

@@ -37,8 +37,12 @@
 a {
   text-decoration: underline !important;
 }
-.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a{
+.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a, a.card{
   text-decoration: none !important;
+}
+.markdown > h3{
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 * {
@@ -2453,7 +2457,6 @@ input[type=range] {
 .total {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-bottom: 1px solid #d1d5db;
   margin-bottom: 1rem;
 }
 .total .label {
@@ -2547,7 +2550,7 @@ input[type=range] {
 .tip{
   width: 20px;
   margin-right: auto;
-  margin-top: 7px;
+  margin-top: 5px;
   position: relative;
 }
 .tip:hover::after {
@@ -2579,5 +2582,5 @@ input[type=range] {
 }
 .group-option{
   display: flex;
-  gap: 40px;
+  gap: 60px;
 }

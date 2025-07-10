@@ -2550,7 +2550,6 @@ input[type=range] {
 .tip{
   width: 20px;
   margin-right: auto;
-  margin-top: 5px;
   position: relative;
 }
 .tip:hover::after {
@@ -2589,6 +2588,9 @@ input[type=range] {
   gap: 20px;
 }
 @media (max-width: 550px){
+  :root{
+    --ifm-navbar-sidebar-width: 86vw;
+  }
   .group-option {
     flex-direction: column;
     gap: 0px;

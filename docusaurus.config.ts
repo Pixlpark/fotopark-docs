@@ -12,6 +12,10 @@ const config: Config = {
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
+    i18n: {
+    defaultLocale: 'ru', // Основной язык
+    locales: ['ru'],    // Список поддерживаемых языков
+    },
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.

@@ -37,7 +37,7 @@
 a {
   text-decoration: underline !important;
 }
-.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a, a.card{
+.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a, a.card, .table-of-contents__link{
   text-decoration: none !important;
 }
 .markdown > h3{
@@ -2520,7 +2520,7 @@ input[type=range] {
   overflow-y: auto;
   width: 90%;
   max-width: 800px;
-  padding-top: 55px;
+  padding: 55px 20px 0px 20px;
 }
 
 .template-viewer .modal img {
@@ -2613,7 +2613,7 @@ input[type=range] {
     max-width: 100% !important;
 }
 .template-viewer .template{
-    width: 32%;
+    width: 23%;
     box-shadow: 0px 3px 11px 10px rgba(34, 60, 80, 0.2);
 }
 .template-viewer .grid{

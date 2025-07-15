@@ -2514,16 +2514,19 @@ input[type=range] {
 }
 
 .template-viewer .modal-content {
-  background: #fff;
-  border-radius: 8px;
-  max-height: 80vh;
-  overflow-y: auto;
-  width: 90%;
-  max-width: 800px;
-  padding: 55px 20px 0px 20px;
+    background: #fff;
+    border-radius: 8px;
+    max-height: 80vh;
+    max-width: 800px;
+    overflow: hidden;
+    padding: 55px 20px 55px;
+    width: 90%;
+    display: flex;
+    position: relative;
 }
 .book-type-options, .modal-images{
-  flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow-y: auto;
 }
 .template-viewer .modal img {
   max-width: 100%;
@@ -2533,15 +2536,16 @@ input[type=range] {
 }
 
 .template-viewer .close-btn {
-    align-self: flex-end;
-    border: none;
-    border-radius: 4px;    color: #000;
-    cursor: pointer;
-    margin-bottom: 47px;
-    padding: 0px 0px;
-    position: fixed;
-    margin-top: -46px;
-    font-size: 33px;
+  align-self: flex-end;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+  font-size: 33px;
+  padding: 0;
+  position: absolute;
+  right: 36px;
+  top: 4px;
 }
 
 .template-viewer .close-btn:hover {

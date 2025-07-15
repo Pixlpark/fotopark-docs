@@ -175,7 +175,7 @@ const MainCalculator = () => {
           </div>
 
           <div className="option total flex">
-            <p className="label">Итоговая стоимость за весь класс:</p>
+            <p className="label">Стоимость за весь класс:</p>
             <span className="tip" data-tooltip="20 ₽ / уникальный разворот, но не менее 1000 ₽">
               <img src="img/questionmark.svg" alt="Подсказка" />
             </span>

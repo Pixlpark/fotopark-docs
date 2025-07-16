@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const TemplateViewer = ({ 
   baseUrl = 'https://moyvipusknoy.ru',
   materialIds = [11721572],
-  pid = 6830 // Новый пропс с значением по умолчанию
+  pid = 6830
 }) => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -47,9 +47,33 @@ const TemplateViewer = ({
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedTemplate(null);
+  }, []);
+
+  // Обработчик нажатия клавиши ESC
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, closeModal]);
+
+  // Обработчик клика вне модального окна
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
   };
 
   return (
@@ -67,8 +91,8 @@ const TemplateViewer = ({
       </div>
 
       {isModalOpen && selectedTemplate && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" onClick={handleBackdropClick}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={closeModal}>
               ×
             </button>

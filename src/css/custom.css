@@ -1954,10 +1954,16 @@ sup {
     width: 100%;
     min-width: auto;
   }
+  .template-viewer .template{
+    width: 48%;
+  }
 }
 @media screen and (max-width: 600px) {
   .totalPriceContainer {
     font-size: 20px;
+  }
+  .template-viewer .modal img{
+    width: 100%;
   }
 }
 @media (max-width: 580px) {
@@ -2517,7 +2523,7 @@ input[type=range] {
     background: #fff;
     border-radius: 8px;
     max-height: 80vh;
-    max-width: 800px;
+    max-width: 900px;
     overflow: hidden;
     padding: 55px 20px 55px;
     width: 90%;
@@ -2647,6 +2653,7 @@ input[type=range] {
   list-style: none;
   border-bottom: 4px solid #e0e0e0; 
   overflow: visible;
+  font-weight: 500;
 }
 
 .tabs__item[role="tab"] {

@@ -15,9 +15,9 @@ export default function TemplatesTabs() {
       </TabItem>
       <TabItem value="irina" label="Ирина Миронова">
         <TemplateViewer 
-          baseUrl="https://mirramian.pixlpark.ru" 
-          materialIds={[11519865]}
-          pid={6748}
+          baseUrl="https://site.pixlpark.ru" 
+          materialIds={[12536471]}
+          pid={7193}
         />
       </TabItem>
     </Tabs>

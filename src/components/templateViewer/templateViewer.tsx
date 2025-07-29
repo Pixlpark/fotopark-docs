@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const TemplateViewer = ({ 
-  baseUrl = 'https://moyvipusknoy.ru',
-  materialIds = [11721572],
-  pid = 6830
+  baseUrl = 'https://demo.pixlpark.ru',
+  materialIds = [3993968],
+  pid = 1164
 }) => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState(null);

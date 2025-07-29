@@ -2490,9 +2490,9 @@ input[type=range] {
 .template-viewer .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   margin-top: 20px;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 33px;
 }
 
 .template-viewer .template {

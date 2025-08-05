@@ -2491,7 +2491,10 @@ input[type=range] {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: start;
+  justify-content: space-between;
+  padding-left: 8px;
+  padding-right: 8px;
+  row-gap: 19px;
 }
 
 .template-viewer .template {
@@ -2628,11 +2631,11 @@ input[type=range] {
   }
 }
 .template-viewer .template{
-    width: 23%;
+    width: 32%;
     box-shadow: 0 5px 9px 1px #223c5033;
 }
 .template-viewer .grid{
-    gap: 33px
+    /* gap: 33px */
 }
 @media (max-width: 321px){
   .menu__link{

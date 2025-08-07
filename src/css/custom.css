@@ -2491,9 +2491,10 @@ input[type=range] {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: space-between;
+  justify-content: start;
   padding-left: 8px;
   padding-right: 8px;
+  gap: 16px;
   row-gap: 19px;
 }
 

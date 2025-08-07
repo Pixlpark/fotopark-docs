@@ -2684,6 +2684,6 @@ input[type=range] {
 .tabs-container {
   overflow: hidden;
 }
-[class*="third-party-templates"] .docItemCol_VOVn {
+[class*="third-party-templates"] .docItemCol_VOVn, [class*="free-templates"] .docItemCol_VOVn {
     max-width: 100% !important;
 }

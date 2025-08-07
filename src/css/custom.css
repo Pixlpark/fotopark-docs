@@ -2491,9 +2491,10 @@ input[type=range] {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: space-between;
+  justify-content: start;
   padding-left: 8px;
   padding-right: 8px;
+  gap: 16px;
   row-gap: 19px;
 }
 
@@ -2631,7 +2632,7 @@ input[type=range] {
   }
 }
 .template-viewer .template{
-    width: 32%;
+    width: 24%;
     box-shadow: 0 5px 9px 1px #223c5033;
 }
 .template-viewer .grid{
@@ -2683,4 +2684,7 @@ input[type=range] {
 }
 .tabs-container {
   overflow: hidden;
+}
+[class*="third-party-templates"] .docItemCol_VOVn, [class*="free-templates"] .docItemCol_VOVn {
+    max-width: 100% !important;
 }

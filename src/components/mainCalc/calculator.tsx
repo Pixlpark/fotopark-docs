@@ -110,60 +110,60 @@ const PhotoBookCalculator = () => {
               <p className="label">персональная обложка</p>
             </label>
           </div>
-
+          <div className="group-option">
           {/* Количество разворотов */}
-          <div className="option">
-            <p className="label">Всего разворотов</p>
-            <div className="spread-control all">
-              <button 
-                type="button" 
-                className="decrease"
-                onClick={() => handleSpreadChange(spreadCount - 1)}
-                disabled={bookType === 'folder'}
-              >–</button>
-              <input 
-                type="number"
-                value={spreadCount}
-                min="1"
-                max="50"
-                onChange={(e) => handleSpreadChange(e.target.value)}
-                disabled={bookType === 'folder'}
-              />
-              <button 
-                type="button" 
-                className="increase"
-                onClick={() => handleSpreadChange(spreadCount + 1)}
-                disabled={bookType === 'folder'}
-              >+</button>
+            <div className="option">
+              <p className="label">Всего разворотов</p>
+              <div className="spread-control all">
+                <button 
+                  type="button" 
+                  className="decrease"
+                  onClick={() => handleSpreadChange(spreadCount - 1)}
+                  disabled={bookType === 'folder'}
+                >–</button>
+                <input 
+                  type="number"
+                  value={spreadCount}
+                  min="1"
+                  max="50"
+                  onChange={(e) => handleSpreadChange(e.target.value)}
+                  disabled={bookType === 'folder'}
+                />
+                <button 
+                  type="button" 
+                  className="increase"
+                  onClick={() => handleSpreadChange(spreadCount + 1)}
+                  disabled={bookType === 'folder'}
+                >+</button>
+              </div>
+            </div>
+
+            {/* Количество уникальных разворотов */}
+            <div className="option">
+              <p className="label">Уникальных разворотов</p>
+              <div className="spread-control">
+                <button 
+                  type="button" 
+                  className="decrease"
+                  onClick={() => handleUniqueSpreadChange(uniqueSpreadCount - 1)}
+                  disabled={bookType === 'folder' && uniqueSpreadCount <= 0}
+                >–</button>
+                <input 
+                  type="number"
+                  value={uniqueSpreadCount}
+                  min="0"
+                  max={bookType === 'folder' ? 1 : 50}
+                  onChange={(e) => handleUniqueSpreadChange(e.target.value)}
+                />
+                <button 
+                  type="button" 
+                  className="increase"
+                  onClick={() => handleUniqueSpreadChange(uniqueSpreadCount + 1)}
+                  disabled={bookType === 'folder' && uniqueSpreadCount >= 1}
+                >+</button>
+              </div>
             </div>
           </div>
-
-          {/* Количество уникальных разворотов */}
-          <div className="option">
-            <p className="label">Уникальных разворотов</p>
-            <div className="spread-control">
-              <button 
-                type="button" 
-                className="decrease"
-                onClick={() => handleUniqueSpreadChange(uniqueSpreadCount - 1)}
-                disabled={bookType === 'folder' && uniqueSpreadCount <= 0}
-              >–</button>
-              <input 
-                type="number"
-                value={uniqueSpreadCount}
-                min="0"
-                max={bookType === 'folder' ? 1 : 50}
-                onChange={(e) => handleUniqueSpreadChange(e.target.value)}
-              />
-              <button 
-                type="button" 
-                className="increase"
-                onClick={() => handleUniqueSpreadChange(uniqueSpreadCount + 1)}
-                disabled={bookType === 'folder' && uniqueSpreadCount >= 1}
-              >+</button>
-            </div>
-          </div>
-
           {/* Количество учеников */}
           <div className="option">
             <label className="label">
@@ -181,13 +181,16 @@ const PhotoBookCalculator = () => {
 
           {/* Итоговая стоимость */}
           <div className="option total flex">
-            <p className="label">Итоговая стоимость за весь класс:</p>
+            <p className="label">Стоимость за весь класс:</p>
+            <span className="tip" data-tooltip="20 ₽ / уникальный разворот, но не менее 1000 ₽">
+              <img src="img/questionmark.svg" alt="Подсказка" />
+            </span>
             <p className="total-value">{totalPrice.toLocaleString('ru-RU')} ₽</p>
           </div>
           <div className="option prompt">
             <p>
-              <strong>{oneSpreadPrice} ₽</strong> / уникальный разворот, но не менее {' '}
-              <strong>{bookType === 'folder' ? minPriceFolder : minPriceAlbum} ₽</strong>
+              {/* <strong>{oneSpreadPrice} ₽</strong> / уникальный разворот, но не менее {' '}
+              <strong>{bookType === 'folder' ? minPriceFolder : minPriceAlbum} ₽</strong> */}
             </p>
           </div>
         </div>

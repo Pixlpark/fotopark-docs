@@ -2291,6 +2291,7 @@ ol ol, ul ol {
   padding: 20px;
   border: 2px solid #0c20616b;
   border-radius: 20px;
+  padding-bottom: 0px;
 }
 .option {
   margin-bottom: 20px;

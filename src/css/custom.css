@@ -2688,3 +2688,9 @@ input[type=range] {
 [class*="third-party-templates"] .docItemCol_VOVn, [class*="free-templates"] .docItemCol_VOVn {
     max-width: 100% !important;
 }
+.spread-control.all button:disabled {
+    background-color: #b7b9bd;
+    color: #5f6166;
+    cursor: not-allowed;
+    box-shadow: none;
+}

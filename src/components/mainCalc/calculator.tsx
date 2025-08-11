@@ -44,27 +44,36 @@ const PhotoBookCalculator = () => {
     setTotalPrice(finalPrice);
   };
 
-  // Обновляем расчет при изменении параметров
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [bookType, isPersonalCover, spreadCount, uniqueSpreadCount, studentsCount]);
+  // Проверка и корректировка уникальных разворотов
+  const validateUniqueSpreads = (newSpreadCount, newUniqueCount) => {
+    if (newUniqueCount > newSpreadCount) {
+      return newSpreadCount;
+    }
+    return newUniqueCount;
+  };
 
-  // Обработчики изменения значений
+  // Обработчик изменения общего количества разворотов
   const handleSpreadChange = (value) => {
     const numValue = parseInt(value) || 1;
     const clampedValue = Math.min(Math.max(numValue, 1), 50);
+    const newUniqueCount = validateUniqueSpreads(clampedValue, uniqueSpreadCount);
+    
     setSpreadCount(clampedValue);
-    if (uniqueSpreadCount > clampedValue) {
-      setUniqueSpreadCount(clampedValue);
-    }
+    setUniqueSpreadCount(newUniqueCount);
   };
 
+  // Обработчик изменения уникальных разворотов
   const handleUniqueSpreadChange = (value) => {
-    const maxValue = bookType === 'folder' ? 1 : 50;
+    const maxValue = bookType === 'folder' ? 1 : spreadCount;
     const numValue = parseInt(value) || 0;
     const clampedValue = Math.min(Math.max(numValue, 0), maxValue);
     setUniqueSpreadCount(clampedValue);
   };
+
+  // Обновляем расчет при изменении параметров
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [bookType, isPersonalCover, spreadCount, uniqueSpreadCount, studentsCount]);
 
   return (
     <div className="price-block__left">
@@ -110,8 +119,9 @@ const PhotoBookCalculator = () => {
               <p className="label">персональная обложка</p>
             </label>
           </div>
+          
           <div className="group-option">
-          {/* Количество разворотов */}
+            {/* Количество разворотов */}
             <div className="option">
               <p className="label">Всего разворотов</p>
               <div className="spread-control all">
@@ -152,7 +162,7 @@ const PhotoBookCalculator = () => {
                   type="number"
                   value={uniqueSpreadCount}
                   min="0"
-                  max={bookType === 'folder' ? 1 : 50}
+                  max={bookType === 'folder' ? 1 : spreadCount}
                   onChange={(e) => handleUniqueSpreadChange(e.target.value)}
                 />
                 <button 
@@ -164,6 +174,7 @@ const PhotoBookCalculator = () => {
               </div>
             </div>
           </div>
+
           {/* Количество учеников */}
           <div className="option">
             <label className="label">
@@ -186,12 +197,6 @@ const PhotoBookCalculator = () => {
               <img src="img/questionmark.svg" alt="Подсказка" />
             </span>
             <p className="total-value">{totalPrice.toLocaleString('ru-RU')} ₽</p>
-          </div>
-          <div className="option prompt">
-            <p>
-              {/* <strong>{oneSpreadPrice} ₽</strong> / уникальный разворот, но не менее {' '}
-              <strong>{bookType === 'folder' ? minPriceFolder : minPriceAlbum} ₽</strong> */}
-            </p>
           </div>
         </div>
       </div>

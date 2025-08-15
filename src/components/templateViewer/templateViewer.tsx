@@ -84,7 +84,7 @@ const TemplateViewer = ({
             key={template.Id}
             src={`${baseUrl}${template.CoverUrl}`}
             className="template"
-            alt={`Шаблон ${template.Name}`}
+            alt={`Шаблон ${template.Title}`}
             onClick={() => openModal(template)}
           />
         ))}

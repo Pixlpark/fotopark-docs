@@ -96,12 +96,13 @@ const TemplateViewer = ({
             <button className="close-btn" onClick={closeModal}>
               ×
             </button>
+            <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
             <div className="modal-images">
               {selectedTemplate.Templates.map((template) => (
                 <img
                   key={template.Id}
                   src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
-                  alt={`Шаблон ${template.Name}`}
+                  alt={`Шаблон ${template.Title}`}
                 />
               ))}
             </div>

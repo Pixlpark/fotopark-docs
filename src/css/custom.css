@@ -2533,6 +2533,7 @@ input[type=range] {
     width: 90%;
     display: flex;
     position: relative;
+    flex-direction: column;
 }
 .book-type-options, .modal-images{
     flex-wrap: wrap;

@@ -23,7 +23,13 @@ const PhotoBookCalculator = () => {
       setSpreadCount(1);
       setUniqueSpreadCount(0);
       setIsPersonalCover(true);
+    } else if (type === 'tablet') {
+      // Настройки для планшета
+      setSpreadCount(1);
+      setUniqueSpreadCount(0);
+      setIsPersonalCover(true);
     } else {
+      // Настройки для альбома
       setSpreadCount(10);
       setUniqueSpreadCount(1);
     }
@@ -38,10 +44,20 @@ const PhotoBookCalculator = () => {
 
     const total = basePrice + uniqPrice + coverPrice;
 
-    const finalPrice = bookType === 'folder'
-      ? Math.max(total, minPriceFolder)
-      : Math.max(total, minPriceAlbum);
+    // Определяем минимальную цену в зависимости от типа
+    let minPrice;
+    switch (bookType) {
+      case 'folder':
+        minPrice = minPriceFolder;
+        break;
+      case 'tablet':
+        minPrice = minPriceTablet;
+        break;
+      default: // album
+        minPrice = minPriceAlbum;
+    }
 
+    const finalPrice = Math.max(total, minPrice);
     setTotalPrice(finalPrice);
   };
 
@@ -65,7 +81,7 @@ const PhotoBookCalculator = () => {
 
   // Обработчик изменения уникальных разворотов
   const handleUniqueSpreadChange = (value) => {
-    const maxValue = bookType === 'folder' ? 1 : spreadCount;
+    const maxValue = (bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount;
     const numValue = parseInt(value) || 0;
     const clampedValue = Math.min(Math.max(numValue, 0), maxValue);
     setUniqueSpreadCount(clampedValue);
@@ -105,7 +121,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'tablet' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('tablet')}
               >
-                <img src="/img/фотопапка.png" alt="Альбом" />
+                <img src="/img/фотопапка.png" alt="Планшет" />
                 <p>Планшет</p>
                 <span>от {minPriceTablet.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -120,7 +136,7 @@ const PhotoBookCalculator = () => {
                 className="hidden"
                 checked={isPersonalCover}
                 onChange={(e) => setIsPersonalCover(e.target.checked)}
-                disabled={bookType === 'folder'}
+                disabled={bookType === 'folder' || bookType === 'tablet'}
               />
               <div className="toggle">
                 <div className="circle"></div>
@@ -138,7 +154,7 @@ const PhotoBookCalculator = () => {
                   type="button" 
                   className="decrease"
                   onClick={() => handleSpreadChange(spreadCount - 1)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 >–</button>
                 <input 
                   type="number"
@@ -146,13 +162,13 @@ const PhotoBookCalculator = () => {
                   min="1"
                   max="50"
                   onChange={(e) => handleSpreadChange(e.target.value)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 />
                 <button 
                   type="button" 
                   className="increase"
                   onClick={() => handleSpreadChange(spreadCount + 1)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 >+</button>
               </div>
             </div>
@@ -165,20 +181,20 @@ const PhotoBookCalculator = () => {
                   type="button" 
                   className="decrease"
                   onClick={() => handleUniqueSpreadChange(uniqueSpreadCount - 1)}
-                  disabled={bookType === 'folder' && uniqueSpreadCount <= 0}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount <= 0}
                 >–</button>
                 <input 
                   type="number"
                   value={uniqueSpreadCount}
                   min="0"
-                  max={bookType === 'folder' ? 1 : spreadCount}
+                  max={(bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount}
                   onChange={(e) => handleUniqueSpreadChange(e.target.value)}
                 />
                 <button 
                   type="button" 
                   className="increase"
                   onClick={() => handleUniqueSpreadChange(uniqueSpreadCount + 1)}
-                  disabled={bookType === 'folder' && uniqueSpreadCount >= 1}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount >= 1}
                 >+</button>
               </div>
             </div>

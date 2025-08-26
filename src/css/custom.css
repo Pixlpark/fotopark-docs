@@ -2321,7 +2321,7 @@ ol ol, ul ol {
   max-height: 250px;
   width: 100%;
   object-fit: cover;
-  object-position: center -20px;
+  /* object-position: center -20px; */
 }
 .book-card p {
   font-weight: 600;

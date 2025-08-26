@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 
 const PhotoBookCalculator = () => {
   // Ценовые константы
-  const minPriceFolder = 500;
+  const minPriceFolder = 800;
   const minPriceAlbum = 1000;
+  const minPriceTablet = 600;
   const oneSpreadPrice = 20;
 
   // Состояния компонента
@@ -88,7 +89,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'album' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('album')}
               >
-                <img src="/img/rectangle_76.png" alt="Альбом" />
+                <img src="/img/лайфлат_картон.png" alt="Альбом" />
                 <p>Альбом</p>
                 <span>от {minPriceAlbum.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -96,9 +97,17 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('folder')}
               >
-                <img src="/img/rectangle_79.png" alt="Папка" />
-                <p>Трюмо или Папка</p>
+                <img src="/img/трюмо_1.png" alt="Папка" />
+                <p>Трюмо</p>
                 <span>от {minPriceFolder.toLocaleString('ru-RU')} ₽</span>
+              </div>
+              <div 
+                className={`book-card ${bookType === 'tablet' ? 'active-card' : ''}`}
+                onClick={() => handleBookTypeChange('tablet')}
+              >
+                <img src="/img/фотопапка.png" alt="Альбом" />
+                <p>Планшет</p>
+                <span>от {minPriceTablet.toLocaleString('ru-RU')} ₽</span>
               </div>
             </div>
           </div>

@@ -208,9 +208,10 @@ const TemplateViewer = ({
           const isLoaded = loadedImages.has(imageId);
           
           return (
-            <div key={template.Id} className="template-wrapper">
-              {!isLoaded && <div className="skeleton-loader"></div>}
+            <div key={template.Id} style={{ position: 'relative' }}>
+              <div className={`template-loader ${isLoaded ? '' : 'active'}`}></div>
               <img
+                key={template.Id}
                 src={`${baseUrl}${template.CoverUrl}`}
                 className={`template ${isLoaded ? 'loaded' : ''}`}
                 alt={`Шаблон ${template.Title}`}
@@ -218,6 +219,7 @@ const TemplateViewer = ({
                 onLoad={() => handleImageLoad(imageId)}
                 onError={() => handleImageError(imageId)}
                 loading="lazy"
+                style={{ position: 'relative', zIndex: 1 }}
               />
             </div>
           );
@@ -237,14 +239,16 @@ const TemplateViewer = ({
                 const isModalLoaded = loadedImages.has(modalImageId);
                 
                 return (
-                  <div key={template.Id} className="modal-image-wrapper">
-                    {!isModalLoaded && <div className="skeleton-loader"></div>}
+                  <div key={template.Id} style={{ position: 'relative' }}>
+                    <div className={`modal-image-loader ${isModalLoaded ? '' : 'active'}`}></div>
                     <img
+                      key={template.Id}
                       src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
                       className={isModalLoaded ? 'loaded' : ''}
                       alt={`Шаблон ${template.Title}`}
                       onLoad={() => handleImageLoad(modalImageId)}
                       onError={() => handleImageError(modalImageId)}
+                      style={{ position: 'relative', zIndex: 1 }}
                     />
                   </div>
                 );

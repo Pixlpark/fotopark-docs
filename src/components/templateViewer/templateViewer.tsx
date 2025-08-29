@@ -213,7 +213,7 @@ const TemplateViewer = ({
               <img
                 key={template.Id}
                 src={`${baseUrl}${template.CoverUrl}`}
-                className={`template ${isLoaded ? 'loaded' : ''}`}
+                // className={`template ${isLoaded ? 'loaded' : ''}`}
                 alt={`Шаблон ${template.Title}`}
                 onClick={() => openModal(template)}
                 onLoad={() => handleImageLoad(imageId)}

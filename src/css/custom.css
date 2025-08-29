@@ -2758,3 +2758,9 @@ input[type=range] {
     background-position: -200% 0;
   }
 }
+.grid .template-item {
+    cursor: pointer;
+    transition: transform .2s;
+    box-shadow: 0 5px 9px 1px #223c5033;
+    width: 24%;
+}

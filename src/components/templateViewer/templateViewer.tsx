@@ -208,7 +208,7 @@ const TemplateViewer = ({
           const isLoaded = loadedImages.has(imageId);
           
           return (
-            <div key={template.Id} style={{ position: 'relative' }}>
+            <div key={template.Id} className="template-item">
               <div className={`template-loader ${isLoaded ? '' : 'active'}`}></div>
               <img
                 key={template.Id}

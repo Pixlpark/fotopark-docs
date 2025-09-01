@@ -105,7 +105,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'album' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('album')}
               >
-                <img src="/img/лайфлат_картон.png" alt="Альбом" />
+                <img src="/img/rectangle_79.png" alt="Альбом" />
                 <p>Альбом</p>
                 <span>от {minPriceAlbum.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -113,7 +113,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('folder')}
               >
-                <img src="/img/трюмо_1.png" alt="Папка" />
+                <img src="/img/rectangle_76.png" alt="Папка" />
                 <p>Трюмо</p>
                 <span>от {minPriceFolder.toLocaleString('ru-RU')} ₽</span>
               </div>

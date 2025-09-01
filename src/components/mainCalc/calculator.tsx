@@ -105,7 +105,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'album' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('album')}
               >
-                <img src="/img/rectangle_79.png" alt="Альбом" />
+                <img src="/img/лайфлат_картон_new.png" alt="Альбом" />
                 <p>Альбом</p>
                 <span>от {minPriceAlbum.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -113,7 +113,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('folder')}
               >
-                <img src="/img/rectangle_76.png" alt="Папка" />
+                <img src="/img/трюмо_1_new.png" alt="Папка" />
                 <p>Трюмо</p>
                 <span>от {minPriceFolder.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -121,7 +121,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'tablet' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('tablet')}
               >
-                <img src="/img/фотопапка.png" alt="Планшет" />
+                <img src="/img/фотопапка_new.png" alt="Планшет" />
                 <p>Планшет</p>
                 <span>от {minPriceTablet.toLocaleString('ru-RU')} ₽</span>
               </div>

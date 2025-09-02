@@ -2720,8 +2720,8 @@ input[type=range] {
 }
 
 .modal-images img {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  /* opacity: 0; */
+  /* transition: opacity 0.3s ease; */
 }
 
 .modal-images img.loaded {

@@ -49,4 +49,5 @@ sidebar_position: 1
     3. Сохранить мастер-альбом с нужными параметрами.
 
 ![](../_media/general/locked.png) 
+
 ![](../_media/general/unlocked.png) 

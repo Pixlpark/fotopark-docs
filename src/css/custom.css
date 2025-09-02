@@ -2699,14 +2699,9 @@ input[type=range] {
 
 
 .grid .template {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
-
-.grid .template.loaded {
-  opacity: 1;
-}
-
 .template-loader {
   position: absolute;
   top: 0;

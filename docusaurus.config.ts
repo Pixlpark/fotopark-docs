@@ -94,9 +94,9 @@ const config: Config = {
             },
         },
         algolia: {
-            appId: 'CBISSLUS3P',
-            apiKey: '5fbb925f3ae404c5e3f239aedc2c0eca',
-            indexName: 'pixlpark',
+            appId: '98G5IPWT70', //CBISSLUS3P
+            apiKey: 'e6ea046103dd64863f20bf981eb0e9c0', //5fbb925f3ae404c5e3f239aedc2c0eca
+            indexName: 'moyvipusknoy',
 
             // Optional: see doc section below
             contextualSearch: false,

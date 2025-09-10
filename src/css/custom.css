@@ -2766,3 +2766,8 @@ input[type=range] {
 .template-viewer .template-item:hover{
   transform: scale(1.03);
 }
+@media (max-width: 768px){
+  .book-card {
+    width: 29%;
+  }
+}

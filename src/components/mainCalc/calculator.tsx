@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 
 const PhotoBookCalculator = () => {
   // Ценовые константы
-  const minPriceFolder = 500;
+  const minPriceFolder = 800;
   const minPriceAlbum = 1000;
+  const minPriceTablet = 600;
   const oneSpreadPrice = 20;
 
   // Состояния компонента
@@ -22,7 +23,13 @@ const PhotoBookCalculator = () => {
       setSpreadCount(1);
       setUniqueSpreadCount(0);
       setIsPersonalCover(true);
+    } else if (type === 'tablet') {
+      // Настройки для планшета
+      setSpreadCount(1);
+      setUniqueSpreadCount(0);
+      setIsPersonalCover(true);
     } else {
+      // Настройки для альбома
       setSpreadCount(10);
       setUniqueSpreadCount(1);
     }
@@ -37,34 +44,53 @@ const PhotoBookCalculator = () => {
 
     const total = basePrice + uniqPrice + coverPrice;
 
-    const finalPrice = bookType === 'folder'
-      ? Math.max(total, minPriceFolder)
-      : Math.max(total, minPriceAlbum);
+    // Определяем минимальную цену в зависимости от типа
+    let minPrice;
+    switch (bookType) {
+      case 'folder':
+        minPrice = minPriceFolder;
+        break;
+      case 'tablet':
+        minPrice = minPriceTablet;
+        break;
+      default: // album
+        minPrice = minPriceAlbum;
+    }
 
+    const finalPrice = Math.max(total, minPrice);
     setTotalPrice(finalPrice);
+  };
+
+  // Проверка и корректировка уникальных разворотов
+  const validateUniqueSpreads = (newSpreadCount, newUniqueCount) => {
+    if (newUniqueCount > newSpreadCount) {
+      return newSpreadCount;
+    }
+    return newUniqueCount;
+  };
+
+  // Обработчик изменения общего количества разворотов
+  const handleSpreadChange = (value) => {
+    const numValue = parseInt(value) || 1;
+    const clampedValue = Math.min(Math.max(numValue, 1), 50);
+    const newUniqueCount = validateUniqueSpreads(clampedValue, uniqueSpreadCount);
+    
+    setSpreadCount(clampedValue);
+    setUniqueSpreadCount(newUniqueCount);
+  };
+
+  // Обработчик изменения уникальных разворотов
+  const handleUniqueSpreadChange = (value) => {
+    const maxValue = (bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount;
+    const numValue = parseInt(value) || 0;
+    const clampedValue = Math.min(Math.max(numValue, 0), maxValue);
+    setUniqueSpreadCount(clampedValue);
   };
 
   // Обновляем расчет при изменении параметров
   useEffect(() => {
     calculateTotalPrice();
   }, [bookType, isPersonalCover, spreadCount, uniqueSpreadCount, studentsCount]);
-
-  // Обработчики изменения значений
-  const handleSpreadChange = (value) => {
-    const numValue = parseInt(value) || 1;
-    const clampedValue = Math.min(Math.max(numValue, 1), 50);
-    setSpreadCount(clampedValue);
-    if (uniqueSpreadCount > clampedValue) {
-      setUniqueSpreadCount(clampedValue);
-    }
-  };
-
-  const handleUniqueSpreadChange = (value) => {
-    const maxValue = bookType === 'folder' ? 1 : 50;
-    const numValue = parseInt(value) || 0;
-    const clampedValue = Math.min(Math.max(numValue, 0), maxValue);
-    setUniqueSpreadCount(clampedValue);
-  };
 
   return (
     <div className="price-block__left">
@@ -79,7 +105,7 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'album' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('album')}
               >
-                <img src="/img/rectangle_76.png" alt="Альбом" />
+                <img src="/img/лайфлат_картон_new.png" alt="Альбом" />
                 <p>Альбом</p>
                 <span>от {minPriceAlbum.toLocaleString('ru-RU')} ₽</span>
               </div>
@@ -87,9 +113,17 @@ const PhotoBookCalculator = () => {
                 className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`}
                 onClick={() => handleBookTypeChange('folder')}
               >
-                <img src="/img/rectangle_79.png" alt="Папка" />
-                <p>Трюмо или Папка</p>
+                <img src="/img/трюмо_1_new.png" alt="Папка" />
+                <p>Трюмо</p>
                 <span>от {minPriceFolder.toLocaleString('ru-RU')} ₽</span>
+              </div>
+              <div 
+                className={`book-card ${bookType === 'tablet' ? 'active-card' : ''}`}
+                onClick={() => handleBookTypeChange('tablet')}
+              >
+                <img src="/img/фотопапка_new.png" alt="Планшет" />
+                <p>Планшет</p>
+                <span>от {minPriceTablet.toLocaleString('ru-RU')} ₽</span>
               </div>
             </div>
           </div>
@@ -102,7 +136,7 @@ const PhotoBookCalculator = () => {
                 className="hidden"
                 checked={isPersonalCover}
                 onChange={(e) => setIsPersonalCover(e.target.checked)}
-                disabled={bookType === 'folder'}
+                disabled={bookType === 'folder' || bookType === 'tablet'}
               />
               <div className="toggle">
                 <div className="circle"></div>
@@ -110,8 +144,9 @@ const PhotoBookCalculator = () => {
               <p className="label">персональная обложка</p>
             </label>
           </div>
+          
           <div className="group-option">
-          {/* Количество разворотов */}
+            {/* Количество разворотов */}
             <div className="option">
               <p className="label">Всего разворотов</p>
               <div className="spread-control all">
@@ -119,7 +154,7 @@ const PhotoBookCalculator = () => {
                   type="button" 
                   className="decrease"
                   onClick={() => handleSpreadChange(spreadCount - 1)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 >–</button>
                 <input 
                   type="number"
@@ -127,13 +162,13 @@ const PhotoBookCalculator = () => {
                   min="1"
                   max="50"
                   onChange={(e) => handleSpreadChange(e.target.value)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 />
                 <button 
                   type="button" 
                   className="increase"
                   onClick={() => handleSpreadChange(spreadCount + 1)}
-                  disabled={bookType === 'folder'}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
                 >+</button>
               </div>
             </div>
@@ -146,24 +181,25 @@ const PhotoBookCalculator = () => {
                   type="button" 
                   className="decrease"
                   onClick={() => handleUniqueSpreadChange(uniqueSpreadCount - 1)}
-                  disabled={bookType === 'folder' && uniqueSpreadCount <= 0}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount <= 0}
                 >–</button>
                 <input 
                   type="number"
                   value={uniqueSpreadCount}
                   min="0"
-                  max={bookType === 'folder' ? 1 : 50}
+                  max={(bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount}
                   onChange={(e) => handleUniqueSpreadChange(e.target.value)}
                 />
                 <button 
                   type="button" 
                   className="increase"
                   onClick={() => handleUniqueSpreadChange(uniqueSpreadCount + 1)}
-                  disabled={bookType === 'folder' && uniqueSpreadCount >= 1}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount >= 1}
                 >+</button>
               </div>
             </div>
           </div>
+
           {/* Количество учеников */}
           <div className="option">
             <label className="label">
@@ -186,12 +222,6 @@ const PhotoBookCalculator = () => {
               <img src="img/questionmark.svg" alt="Подсказка" />
             </span>
             <p className="total-value">{totalPrice.toLocaleString('ru-RU')} ₽</p>
-          </div>
-          <div className="option prompt">
-            <p>
-              {/* <strong>{oneSpreadPrice} ₽</strong> / уникальный разворот, но не менее {' '}
-              <strong>{bookType === 'folder' ? minPriceFolder : minPriceAlbum} ₽</strong> */}
-            </p>
           </div>
         </div>
       </div>

@@ -218,7 +218,7 @@ const PhotoBookCalculator = () => {
           {/* Итоговая стоимость */}
           <div className="option total flex">
             <p className="label">Стоимость за весь класс:</p>
-            <span className="tip" data-tooltip="20 ₽ / уникальный разворот, но не менее 1000 ₽">
+            <span className="tip" data-tooltip="20 ₽ / уникальный разворот">
               <img src="img/questionmark.svg" alt="Подсказка" />
             </span>
             <p className="total-value">{totalPrice.toLocaleString('ru-RU')} ₽</p>

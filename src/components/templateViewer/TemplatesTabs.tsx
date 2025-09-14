@@ -16,7 +16,7 @@ export default function TemplatesTabs() {
       <TabItem value="irina" label="Ирина Миронова">
         <TemplateViewer 
           baseUrl="https://mironova.pixlpark.ru"
-          materialIds={[12536471]}
+          materialIds={[12536839]}
           pid={7193}
         />
       </TabItem>

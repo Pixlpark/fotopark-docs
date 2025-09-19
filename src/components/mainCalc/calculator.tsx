@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const MainCalculator = () => {
+const PhotoBookCalculator = () => {
   // Ценовые константы
-  const minPriceFolder = 500;
+  const minPriceFolder = 800;
   const minPriceAlbum = 1000;
+  const minPriceTablet = 600;
   const oneSpreadPrice = 20;
-  const oneLifeAlbum = 30;
 
   // Состояния компонента
   const [bookType, setBookType] = useState('album');
@@ -15,11 +15,27 @@ const MainCalculator = () => {
   const [studentsCount, setStudentsCount] = useState(20);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [bookType, isPersonalCover, spreadCount, uniqueSpreadCount, studentsCount]);
+  // Обработчик изменения типа книги
+  const handleBookTypeChange = (type) => {
+    setBookType(type);
+    
+    if (type === 'folder') {
+      setSpreadCount(1);
+      setUniqueSpreadCount(0);
+      setIsPersonalCover(true);
+    } else if (type === 'tablet') {
+      // Настройки для планшета
+      setSpreadCount(1);
+      setUniqueSpreadCount(0);
+      setIsPersonalCover(true);
+    } else {
+      // Настройки для альбома
+      setSpreadCount(10);
+      setUniqueSpreadCount(1);
+    }
+  };
 
-  // Функция расчета итоговой стоимости
+  // Расчет стоимости
   const calculateTotalPrice = () => {
     const baseSpreads = Math.max(spreadCount - uniqueSpreadCount, 0);
     const basePrice = baseSpreads * oneSpreadPrice;
@@ -28,37 +44,53 @@ const MainCalculator = () => {
 
     const total = basePrice + uniqPrice + coverPrice;
 
-    const finalPrice = bookType === 'folder'
-      ? Math.max(total, minPriceFolder)
-      : Math.max(total, minPriceAlbum);
+    // Определяем минимальную цену в зависимости от типа
+    let minPrice;
+    switch (bookType) {
+      case 'folder':
+        minPrice = minPriceFolder;
+        break;
+      case 'tablet':
+        minPrice = minPriceTablet;
+        break;
+      default: // album
+        minPrice = minPriceAlbum;
+    }
 
+    const finalPrice = Math.max(total, minPrice);
     setTotalPrice(finalPrice);
   };
 
-  // Обработчики изменения значений
-  const handleSpreadCountChange = (value) => {
-    const numValue = parseInt(value);
-    if (!isNaN(numValue) && numValue >= 1 && numValue <= 50) {
-      setSpreadCount(numValue);
-      if (uniqueSpreadCount > numValue) {
-        setUniqueSpreadCount(numValue);
-      }
+  // Проверка и корректировка уникальных разворотов
+  const validateUniqueSpreads = (newSpreadCount, newUniqueCount) => {
+    if (newUniqueCount > newSpreadCount) {
+      return newSpreadCount;
     }
+    return newUniqueCount;
   };
 
-  const handleUniqueSpreadCountChange = (value) => {
-    const numValue = parseInt(value);
-    if (!isNaN(numValue) && numValue >= 0 && numValue <= 50) {
-      setUniqueSpreadCount(numValue);
-    }
+  // Обработчик изменения общего количества разворотов
+  const handleSpreadChange = (value) => {
+    const numValue = parseInt(value) || 1;
+    const clampedValue = Math.min(Math.max(numValue, 1), 50);
+    const newUniqueCount = validateUniqueSpreads(clampedValue, uniqueSpreadCount);
+    
+    setSpreadCount(clampedValue);
+    setUniqueSpreadCount(newUniqueCount);
   };
 
-  const handleStudentsCountChange = (value) => {
-    const numValue = parseInt(value);
-    if (!isNaN(numValue) && numValue >= 5 && numValue <= 35) {
-      setStudentsCount(numValue);
-    }
+  // Обработчик изменения уникальных разворотов
+  const handleUniqueSpreadChange = (value) => {
+    const maxValue = (bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount;
+    const numValue = parseInt(value) || 0;
+    const clampedValue = Math.min(Math.max(numValue, 0), maxValue);
+    setUniqueSpreadCount(clampedValue);
   };
+
+  // Обновляем расчет при изменении параметров
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [bookType, isPersonalCover, spreadCount, uniqueSpreadCount, studentsCount]);
 
   return (
     <div className="price-block__left">
@@ -68,24 +100,30 @@ const MainCalculator = () => {
           
           {/* Тип книги */}
           <div className="option">
-            <div id="bookType" className="book-type-options">
+            <div className="book-type-options">
               <div 
-                className={`book-card ${bookType === 'album' ? 'active-card' : ''}`} 
-                onClick={() => setBookType('album')}
-                data-type="album"
+                className={`book-card ${bookType === 'album' ? 'active-card' : ''}`}
+                onClick={() => handleBookTypeChange('album')}
               >
-                <img src="/img/rectangle_76.png" alt="Альбом" />
+                <img src="/img/лайфлат_картон_new.png" alt="Альбом" />
                 <p>Альбом</p>
                 <span>от {minPriceAlbum.toLocaleString('ru-RU')} ₽</span>
               </div>
               <div 
-                className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`} 
-                onClick={() => setBookType('folder')}
-                data-type="folder"
+                className={`book-card ${bookType === 'folder' ? 'active-card' : ''}`}
+                onClick={() => handleBookTypeChange('folder')}
               >
-                <img src="/img/rectangle_79.png" alt="Папка" />
-                <p>Трюмо или Папка</p>
+                <img src="/img/трюмо_1_new.png" alt="Папка" />
+                <p>Трюмо</p>
                 <span>от {minPriceFolder.toLocaleString('ru-RU')} ₽</span>
+              </div>
+              <div 
+                className={`book-card ${bookType === 'tablet' ? 'active-card' : ''}`}
+                onClick={() => handleBookTypeChange('tablet')}
+              >
+                <img src="/img/фотопапка_new.png" alt="Планшет" />
+                <p>Планшет</p>
+                <span>от {minPriceTablet.toLocaleString('ru-RU')} ₽</span>
               </div>
             </div>
           </div>
@@ -94,10 +132,11 @@ const MainCalculator = () => {
           <div className="option">
             <label className={`person-cover ${isPersonalCover ? 'active' : ''}`}>
               <input 
-                type="checkbox" 
-                className="hidden" 
+                type="checkbox"
+                className="hidden"
                 checked={isPersonalCover}
                 onChange={(e) => setIsPersonalCover(e.target.checked)}
+                disabled={bookType === 'folder' || bookType === 'tablet'}
               />
               <div className="toggle">
                 <div className="circle"></div>
@@ -105,87 +144,84 @@ const MainCalculator = () => {
               <p className="label">персональная обложка</p>
             </label>
           </div>
-
-          {/* Количество разворотов */}
-          <div className="option">
-            <p className="label">Всего разворотов</p>
-            <div className="spread-control">
-              <button 
-                type="button" 
-                className="decrease" 
-                onClick={() => handleSpreadCountChange(spreadCount - 1)}
-                disabled={bookType === 'folder'}
-              >–</button>
-              <input 
-                type="number" 
-                id="spreadCount" 
-                value={spreadCount}
-                min="1" 
-                max="50"
-                onChange={(e) => handleSpreadCountChange(e.target.value)}
-                disabled={bookType === 'folder'}
-              />
-              <button 
-                type="button" 
-                className="increase" 
-                onClick={() => handleSpreadCountChange(spreadCount + 1)}
-                disabled={bookType === 'folder'}
-              >+</button>
+          
+          <div className="group-option">
+            {/* Количество разворотов */}
+            <div className="option">
+              <p className="label">Всего разворотов</p>
+              <div className="spread-control all">
+                <button 
+                  type="button" 
+                  className="decrease"
+                  onClick={() => handleSpreadChange(spreadCount - 1)}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
+                >–</button>
+                <input 
+                  type="number"
+                  value={spreadCount}
+                  min="1"
+                  max="50"
+                  onChange={(e) => handleSpreadChange(e.target.value)}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
+                />
+                <button 
+                  type="button" 
+                  className="increase"
+                  onClick={() => handleSpreadChange(spreadCount + 1)}
+                  disabled={bookType === 'folder' || bookType === 'tablet'}
+                >+</button>
+              </div>
             </div>
-          </div>
 
-          {/* Количество уникальных разворотов */}
-          <div className="option">
-            <p className="label">Уникальных разворотов</p>
-            <div className="spread-control">
-              <button 
-                type="button" 
-                className="decrease" 
-                onClick={() => handleUniqueSpreadCountChange(uniqueSpreadCount - 1)}
-              >–</button>
-              <input 
-                type="number" 
-                id="unicalSpreadCount" 
-                value={uniqueSpreadCount}
-                min="0" 
-                max={bookType === 'folder' ? 1 : 50}
-                onChange={(e) => handleUniqueSpreadCountChange(e.target.value)}
-              />
-              <button 
-                type="button" 
-                className="increase" 
-                onClick={() => handleUniqueSpreadCountChange(uniqueSpreadCount + 1)}
-              >+</button>
+            {/* Количество уникальных разворотов */}
+            <div className="option">
+              <p className="label">Уникальных разворотов</p>
+              <div className="spread-control">
+                <button 
+                  type="button" 
+                  className="decrease"
+                  onClick={() => handleUniqueSpreadChange(uniqueSpreadCount - 1)}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount <= 0}
+                >–</button>
+                <input 
+                  type="number"
+                  value={uniqueSpreadCount}
+                  min="0"
+                  max={(bookType === 'folder' || bookType === 'tablet') ? 1 : spreadCount}
+                  onChange={(e) => handleUniqueSpreadChange(e.target.value)}
+                />
+                <button 
+                  type="button" 
+                  className="increase"
+                  onClick={() => handleUniqueSpreadChange(uniqueSpreadCount + 1)}
+                  disabled={(bookType === 'folder' || bookType === 'tablet') && uniqueSpreadCount >= 1}
+                >+</button>
+              </div>
             </div>
           </div>
 
           {/* Количество учеников */}
           <div className="option">
-            <label htmlFor="studentsRange" className="label">
-              Количество учеников: <span id="studentsValue">{studentsCount}</span>
+            <label className="label">
+              Количество учеников: <span>{studentsCount}</span>
             </label>
             <input 
-              type="range" 
-              id="studentsRange" 
-              min="5" 
-              max="35" 
+              type="range"
+              min="5"
+              max="35"
               value={studentsCount}
-              onChange={(e) => handleStudentsCountChange(e.target.value)}
+              onChange={(e) => setStudentsCount(parseInt(e.target.value))}
               className="range-slider"
             />
           </div>
 
+          {/* Итоговая стоимость */}
           <div className="option total flex">
-            <p className="label">Итоговая стоимость за весь класс:</p>
-            <p className="total-value">
-              <span id="totalPrice">{totalPrice.toLocaleString('ru-RU')}</span> ₽
-            </p>
-          </div>
-          <div className="option prompt">
-            <p>
-              <strong>{oneSpreadPrice} ₽</strong> / уникальный разворот, но не менее{' '}
-              <strong>{bookType === 'folder' ? minPriceFolder : minPriceAlbum} ₽</strong>
-            </p>
+            <p className="label">Стоимость за весь класс:</p>
+            <span className="tip" data-tooltip="20 ₽ / уникальный разворот">
+              <img src="img/questionmark.svg" alt="Подсказка" />
+            </span>
+            <p className="total-value">{totalPrice.toLocaleString('ru-RU')} ₽</p>
           </div>
         </div>
       </div>
@@ -193,4 +229,4 @@ const MainCalculator = () => {
   );
 };
 
-export default MainCalculator;
+export default PhotoBookCalculator;

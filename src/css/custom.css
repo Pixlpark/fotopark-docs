@@ -7,8 +7,8 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #0c2061;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-dark: #29784c;    
+  --ifm-color-primary-darker: #277148; 
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
@@ -16,6 +16,7 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-h4-font-size: 1.15rem;
+  --doc-sidebar-width: 325px !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -33,7 +34,15 @@
 [data-theme="light"] .DocSearch {
   --docsearch-primary-color: var(--ifm-color-primary);
 }
-
+a {
+  text-decoration: underline !important;
+}
+.menu__list a, .navbar__inner a, .theme-doc-toc-desktop a, a.card, .table-of-contents__link, .breadcrumbs__link{
+  text-decoration: none !important;
+}
+.markdown > h3{
+  margin-top: 0px;
+}
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 * {
   --main-color: #64bb46;
@@ -1945,10 +1954,16 @@ sup {
     width: 100%;
     min-width: auto;
   }
+  .template-viewer .template{
+    width: 48%;
+  }
 }
 @media screen and (max-width: 600px) {
   .totalPriceContainer {
     font-size: 20px;
+  }
+  .template-viewer .modal img{
+    width: 100%;
   }
 }
 @media (max-width: 580px) {
@@ -2273,9 +2288,10 @@ ol ol, ul ol {
 
 .calc-card {
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
   border: 2px solid #0c20616b;
   border-radius: 20px;
+  padding-bottom: 0px;
 }
 .option {
   margin-bottom: 20px;
@@ -2305,7 +2321,7 @@ ol ol, ul ol {
   max-height: 250px;
   width: 100%;
   object-fit: cover;
-  object-position: center -20px;
+  /* object-position: center -20px; */
 }
 .book-card p {
   font-weight: 600;
@@ -2370,14 +2386,14 @@ ol ol, ul ol {
   font-size: 26px;
   padding: 0;
   color: #374151;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   display: inline-block;
 }
 .spread-control {
   display: flex;
   align-items: center;
   gap: 0;
-  margin-top: 0.5rem;
+  margin-top: 0;
   position: relative;
   width: 140px;
   justify-content: center;
@@ -2447,7 +2463,6 @@ input[type=range] {
 .total {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-bottom: 1px solid #d1d5db;
   margin-bottom: 1rem;
 }
 .total .label {
@@ -2455,7 +2470,7 @@ input[type=range] {
 }
 .total-value {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--ifm-navbar-link-hover-color);
   margin-bottom: 0;
 }
@@ -2471,14 +2486,17 @@ input[type=range] {
 }
 .template-viewer {
   font-family: sans-serif;
-  padding: 20px;
 }
 
 .template-viewer .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   margin-top: 20px;
+  justify-content: start;
+  padding-left: 8px;
+  padding-right: 8px;
+  gap: 16px;
+  row-gap: 19px;
 }
 
 .template-viewer .template {
@@ -2506,32 +2524,253 @@ input[type=range] {
 }
 
 .template-viewer .modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-height: 80vh;
-  overflow-y: auto;
-  width: 90%;
-  max-width: 800px;
+    background: #fff;
+    border-radius: 8px;
+    max-height: 80vh;
+    max-width: 1100px;
+    overflow: hidden;
+    padding: 15px 20px 55px;
+    width: 90%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
 }
-
+.book-type-options, .modal-images{
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
 .template-viewer .modal img {
   max-width: 100%;
   margin-bottom: 10px;
   display: block;
+  width: 48%;
+  box-shadow: 0 3px 7px 5px #223c5033;
 }
 
 .template-viewer .close-btn {
-  background: crimson;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  border-radius: 4px;
   align-self: flex-end;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+  font-size: 33px;
+  padding: 0;
+  position: absolute;
+  right: 36px;
+  top: 4px;
 }
 
 .template-viewer .close-btn:hover {
-  background: #b30000;
+  background: #fff;
+}
+.option.total .label{
+  margin-right: 8px;
+}
+.tip{
+  width: 20px;
+  margin-right: auto;
+  position: relative;
+}
+.tip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+.tip:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  z-index: 101;
+  margin-bottom: -5px;
+}
+.group-option{
+  display: flex;
+  gap: 60px;
+}
+.modal-images{
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 550px){
+  :root{
+    --ifm-navbar-sidebar-width: 86vw;
+  }
+  .total p.label {
+    font-size: 17px;
+}
+  .group-option {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .option .label{
+    font-size: 18px;
+  }
+  .book-card img{
+    object-position: center 0px;
+  }
+  .book-card p {
+    font-size: 14px;
+  }
+  .book-card>span{
+    font-size: 17px;
+  }
+  .template-viewer .grid{
+    gap: 6px;
+  }
+}
+.template-viewer .template{
+    width: 24%;
+    box-shadow: 0 5px 9px 1px #223c5033;
+}
+.template-viewer .grid{
+    /* gap: 33px */
+}
+@media (max-width: 321px){
+  .menu__link{
+    padding: 6px 0px;
+  }
+  .menu__caret {
+    padding: var(--ifm-menu-link-padding-vertical) 0px;
+}
+}
+.tabs[role="tablist"] {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-bottom: 4px solid #e0e0e0; 
+  overflow: visible;
+  font-weight: 500;
+}
+
+.tabs__item[role="tab"] {
+  position: relative;
+  padding: 12px 16px;
+  margin: 0 4px 0 0;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tabs__item--active[role="tab"] {
+  color: #0c2061;
+  font-weight: 500;
+}
+
+.tabs__item--active[role="tab"]::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #0c2061;
+}
+.tabs-container {
+  overflow: hidden;
+}
+[class*="third-party-templates"] .docItemCol_VOVn, [class*="free-templates"] .docItemCol_VOVn {
+    max-width: 100% !important;
+}
+.spread-control.all button:disabled {
+    background-color: #b7b9bd;
+    color: #5f6166;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+.grid .template {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.template-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+  display: none;
+}
+
+.template-loader.active {
+  display: block;
+}
+
+.modal-images img {
+  /* opacity: 0; */
+  /* transition: opacity 0.3s ease; */
+}
+
+.modal-images img.loaded {
+  opacity: 1;
+}
+
+.modal-image-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 6px;
+  display: none;
+}
+
+.modal-image-loader.active {
+  display: block;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.grid .template-item {
+    cursor: pointer;
+    transition: transform .2s;
+    box-shadow: 0 5px 9px 1px #223c5033;
+    width: 24%;
+    line-height: 0;
+}
+.template-item img{
+  height: 100%;
+}
+.template-viewer .template-item:hover{
+  transform: scale(1.03);
+}
+@media (max-width: 768px){
+  .book-card {
+    width: 29%;
+  }
+  .book-card>span{
+    right: 3px;
+  }
 }

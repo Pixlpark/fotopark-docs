@@ -8,14 +8,18 @@ const config: Config = {
     favicon: 'img/favicon.ico',
 
     // Set the production url of your site here
-    url: 'https://docs.moyvipusknoy.ru/',
+    url: 'https://docs.moyvipusknoy.ru',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
+    i18n: {
+    defaultLocale: 'ru', // Основной язык
+    locales: ['ru'],    // Список поддерживаемых языков
+    },
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'Мой выпускной', // Usually your GitHub org/user name.
+    organizationName: 'Pixlpark', // Usually your GitHub org/user name.
     projectName: 'fotopark-docs', // Usually your repo name.
     trailingSlash: false,
 
@@ -50,8 +54,13 @@ const config: Config = {
             } satisfies Preset.Options,
         ],
     ],
-
+    plugins: [
+        require.resolve('docusaurus-plugin-image-zoom'),
+    ],
     themeConfig: {
+        zoom: {
+            selector: '.img_ev3q',
+        },
         // Replace with your project's social card
         image: 'img/docusaurus-social-card.jpg',
         navbar: {
@@ -90,9 +99,9 @@ const config: Config = {
             },
         },
         algolia: {
-            appId: 'CBISSLUS3P',
-            apiKey: '5fbb925f3ae404c5e3f239aedc2c0eca',
-            indexName: 'pixlpark',
+            appId: '98G5IPWT70', //CBISSLUS3P
+            apiKey: 'e6ea046103dd64863f20bf981eb0e9c0', //5fbb925f3ae404c5e3f239aedc2c0eca
+            indexName: 'moyvipusknoy',
 
             // Optional: see doc section below
             contextualSearch: false,

@@ -96,7 +96,6 @@ const PhotoBookCalculator = () => {
     <div className="price-block__left">
       <div className="new-calc">
         <div className="calc-card">
-          <h2>Рассчитать стоимость</h2>
           
           {/* Тип книги */}
           <div className="option">

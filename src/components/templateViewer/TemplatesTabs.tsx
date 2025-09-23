@@ -23,7 +23,7 @@ export default function TemplatesTabs() {
       <TabItem value="Sergei" label="Сергей Степанов">
         <TemplateViewer 
           baseUrl="https://stepanov.pixlpark.ru"
-          materialIds={[12659921]}
+          materialIds={[12660292]}
           pid={7248}
         />
       </TabItem>

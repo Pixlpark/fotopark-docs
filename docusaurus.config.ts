@@ -76,6 +76,11 @@ const config: Config = {
                     label: 'Документация',
                 },
                 {
+                    href: "https://moyvipusknoy.ru/",
+                    position: 'left',
+                    label: 'О сервисе',
+                },
+                {
                     href: "https://admin.moyvipusknoy.ru/",
                     position: 'left',
                     label: 'Панель управления',

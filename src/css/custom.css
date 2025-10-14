@@ -2626,8 +2626,8 @@ input[type=range] {
   }
   .book-card p {
     font-size: 14px;
-    width: 100%;
-    left: 0px;
+    /* width: 100%;
+    left: 0px; */
 
   }
   .book-card>span{
@@ -2774,6 +2774,10 @@ input[type=range] {
 @media (max-width: 768px){
   .book-card {
     width: 29%;
+  }
+  .book-card p{
+    width: 100%;
+    left: 0px;
   }
   .book-card>span{
     right: 0px;

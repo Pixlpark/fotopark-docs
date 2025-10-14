@@ -2641,13 +2641,14 @@ input[type=range] {
 .template-viewer .grid{
     /* gap: 33px */
 }
-@media (max-width: 321px){
+@media (max-width: 400px){
   .menu__link{
     padding: 6px 0px;
   }
   .menu__caret {
     padding: var(--ifm-menu-link-padding-vertical) 0px;
 }
+.book-card>span, .total p.label{font-size: 13px;}
 }
 .tabs[role="tablist"] {
   display: flex;

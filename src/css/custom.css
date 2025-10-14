@@ -2626,6 +2626,9 @@ input[type=range] {
   }
   .book-card p {
     font-size: 14px;
+    width: 100%;
+    left: 0px;
+
   }
   .book-card>span{
     font-size: 17px;
@@ -2773,6 +2776,7 @@ input[type=range] {
     width: 29%;
   }
   .book-card>span{
-    right: 3px;
+    right: 0px;
+    width: 100%;
   }
 }

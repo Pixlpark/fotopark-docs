@@ -2339,7 +2339,7 @@ ol ol, ul ol {
   bottom: 10px;
   right: 10px;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 6px;
   display: inline-block;
 }
@@ -2607,6 +2607,7 @@ input[type=range] {
   gap: 20px;
 }
 @media (max-width: 550px){
+  .book-type-options, .modal-images{flex-wrap: nowrap;}
   :root{
     --ifm-navbar-sidebar-width: 86vw;
   }

@@ -2784,3 +2784,15 @@ input[type=range] {
     width: 100%;
   }
 }
+@media (max-width: 934px){
+  .main__video{
+    width: 100%;
+  }
+}
+@media (min-width: 934px){
+  .main__video{
+    width: 934px;
+    height: 525px;
+    max-width: 100%;
+  }
+}

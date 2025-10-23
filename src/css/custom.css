@@ -1954,6 +1954,9 @@ sup {
     width: 100%;
     min-width: auto;
   }
+  .wrapper{
+    margin-bottom: 20px;
+  }
   .template-viewer .template{
     width: 48%;
   }

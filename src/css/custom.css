@@ -1954,9 +1954,6 @@ sup {
     width: 100%;
     min-width: auto;
   }
-  .wrapper{
-    margin-bottom: 20px;
-  }
   .template-viewer .template{
     width: 48%;
   }
@@ -2813,3 +2810,6 @@ position: absolute;
     width: 100%;
     height: 100%;
 }
+.wrapper{
+    margin-bottom: 20px;
+  }

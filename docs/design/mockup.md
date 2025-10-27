@@ -102,7 +102,7 @@ sidebar_position: 1
     + ```[meta:firstname]``` - имя ученика;
     + ```[meta:lastname]``` - фамилия ученика;
     + ```[meta:middlename]``` - отчество ученика;
-    + ```[meta:firstname lastname]``` - имя и фамилия ученика;
+    + ```[meta:firstname lastname]``` - имя и фамилия ученика;f
     + ```[meta:note]``` - цитата ученика;
     + ```[meta:frame]``` - общий портрет;
     + ```[meta:personal]``` - персональный портрет;

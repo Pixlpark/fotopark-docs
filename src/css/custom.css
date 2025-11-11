@@ -2783,6 +2783,17 @@ input[type=range] {
     right: 0px;
     width: 100%;
   }
+  .modal .modal-title{
+    font-size: 14px;
+  }
+  .template-viewer .modal-content{
+    padding-bottom: 22px;
+  }
+  .tabs[role=tablist]{
+    border-bottom: none;
+    overflow-y: hidden;
+    padding-bottom: 3px;
+  }
 }
 /* @media (max-width: 934px){
   .main__video{

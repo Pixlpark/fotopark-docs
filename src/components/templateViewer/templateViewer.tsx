@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 const TemplateViewer = ({ 
   baseUrl = 'https://demo.pixlpark.ru',
-  materialIds = [3993968],
+  materialIds = [12730841],
   pid = 1164
 }) => {
   const [templates, setTemplates] = useState([]);

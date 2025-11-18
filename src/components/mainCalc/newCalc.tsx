@@ -205,7 +205,7 @@ const PriceCalculator: React.FC = () => {
                 480: { slidesPerView: 2.2, spaceBetween: 10 },
                 640: { slidesPerView: 2.5, spaceBetween: 12 },
                 768: { slidesPerView: 3.8, spaceBetween: 15 },
-                1024: { slidesPerView: 4.5, spaceBetween: 15 },
+                1024: { slidesPerView: 3.5, spaceBetween: 15 },
                 1200: { slidesPerView: 4.5, spaceBetween: 20 }
               }}
               className="book-type-slider"

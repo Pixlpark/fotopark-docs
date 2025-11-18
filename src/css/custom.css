@@ -2615,11 +2615,11 @@ input[type=range] {
     font-size: 17px;
 }
   .group-option {
-    flex-direction: column;
-    gap: 0px;
+    flex-direction: row;
+    gap: 23px;
   }
   .option .label{
-    font-size: 18px;
+    font-size: 16px;
   }
   .book-card img{
     object-position: center 0px;
@@ -2645,13 +2645,14 @@ input[type=range] {
     /* gap: 33px */
 }
 @media (max-width: 400px){
+  .total-value{font-size: 35px;}
   .menu__link{
     padding: 6px 0px;
   }
   .menu__caret {
     padding: var(--ifm-menu-link-padding-vertical) 0px;
 }
-.book-card>span, .total p.label{font-size: 13px;}
+.book-card>span, .total p.label{font-size: 16px;}
 }
 .tabs[role="tablist"] {
   display: flex;
@@ -2772,9 +2773,10 @@ input[type=range] {
   transform: scale(1.03);
 }
 @media (max-width: 768px){
-  /* .book-card {
-    width: 29%;
-  } */
+  .spread-control button{width: 35px;}
+  .spread-control {
+        width: 120px;
+  }
   .book-card p{
     width: 100%;
     left: 0px;

@@ -2318,7 +2318,7 @@ ol ol, ul ol {
 }
 .book-card img {
   max-width: 100%;
-  max-height: 250px;
+  max-height: 300px;
   width: 100%;
   object-fit: cover;
   /* object-position: center -20px; */
@@ -2368,7 +2368,7 @@ ol ol, ul ol {
   font-size: 20px;
 }
 .person-cover.active .toggle .circle {
-  transform: translateX(24px);
+  transform: translateX(20px);
 }
 .toggle .circle {
   width: 20px;
@@ -2824,3 +2824,110 @@ position: absolute;
 .wrapper{
     margin-bottom: 20px;
   }
+
+/* тесты слайдер */
+.book-type-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 8px;
+}
+
+.book-card {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 0px;
+  width: unset;
+  max-height: unset;
+}
+
+.book-card.active-card {
+  border-color: var(--ifm-navbar-link-hover-color);
+  background-color: #f8f9fa;
+}
+
+.spread-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spread-control button {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.spread-control button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.range-slider {
+  width: 100%;
+}
+
+.person-cover {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.toggle .circle {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+/* .person-cover.active .circle {
+  transform: translateX(20px);
+} */
+
+.hidden {
+  display: none;
+}
+
+/* Swiper navigation styles */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: white;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.total {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid #d1d5db;
+    margin-bottom: 1rem;
+}

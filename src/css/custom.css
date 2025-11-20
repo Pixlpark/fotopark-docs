@@ -2466,7 +2466,7 @@ input[type=range] {
 .total {
   margin-top: 20px;
   padding-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 .total .label {
   margin-bottom: 0;

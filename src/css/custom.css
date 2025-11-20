@@ -1937,7 +1937,7 @@ sup {
   list-style: inside;
 }
 @media (min-width: 1100px){
-  .calc-card{min-height: 734px;}
+  .calc-card{min-height: auto;}
 }
 @media screen and (max-width: 1055px) {
   #integratedCalculator {
@@ -2293,11 +2293,12 @@ ol ol, ul ol {
   padding: 20px;
   border: 2px solid #0c20616b;
   border-radius: 20px;
-  padding-bottom: 0px;
+  padding-bottom: 30px;
 }
 .option {
   margin-bottom: 20px;
 }
+#personalCoverOption{margin-bottom: 0px;}
 .book-type-options {
   display: flex;
   gap: 20px;
@@ -2320,7 +2321,7 @@ ol ol, ul ol {
 }
 .book-card img {
   max-width: 100%;
-  max-height: 300px;
+  max-height: 250px;
   width: 100%;
   object-fit: cover;
   /* object-position: center -20px; */
@@ -2459,11 +2460,11 @@ input[type=range] {
   -webkit-appearance: none;
   appearance: none;
   transition: background 0.3s ease;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   accent-color: var(--ifm-navbar-link-hover-color);
 }
 .total {
-  margin-top: 2rem;
+  margin-top: 20px;
   padding-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -2930,8 +2931,14 @@ position: absolute;
   cursor: not-allowed;
 }
 .total {
-    margin-top: 2rem;
+    margin-top: 10px;
     padding-top: 1rem;
     border-bottom: 1px solid #d1d5db;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+}
+.group-option .option {
+    margin-bottom: 10px;
+}
+div#studentsOption {
+    margin-bottom: 10px;
 }

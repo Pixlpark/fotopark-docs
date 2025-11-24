@@ -357,7 +357,7 @@ const getImageByType = (type: string): string => {
     tablet: '/img/фотопапка_new.png',
     vignette: '/img/виньетка.png',
     calendar: '/img/календарь.png',
-    photo: '/img/фотопечать_2.png'
+    photo: '/img/Фотопечать_2.png'
   };
   return images[type] || '/img/фотопапка_new.png';
 };

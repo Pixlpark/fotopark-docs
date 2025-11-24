@@ -25,7 +25,7 @@ interface ProductConfigs {
 
 const productConfig: ProductConfigs = {
   'album': {
-    minPrice: 1000,
+    minPrice: 900,
     hasSpreads: true,
     hasPersonalCover: true,
     hasUniqueSpreads: true,
@@ -38,7 +38,7 @@ const productConfig: ProductConfigs = {
     uniqueLabel: 'Из них уникальных'
   },
   'folder': {
-    minPrice: 900,
+    minPrice: 800,
     hasSpreads: true,
     hasPersonalCover: true,
     hasUniqueSpreads: true,
@@ -51,7 +51,7 @@ const productConfig: ProductConfigs = {
     uniqueLabel: 'Из них уникальных'
   },
   'tablet': {
-    minPrice: 800,
+    minPrice: 700,
     hasSpreads: true,
     hasPersonalCover: true,
     hasUniqueSpreads: true,
@@ -60,19 +60,6 @@ const productConfig: ProductConfigs = {
     minSpreads: 1,
     maxSpreads: 1,
     pricePerSpread: 25,
-    spreadLabel: 'Всего разворотов',
-    uniqueLabel: 'Из них уникальных'
-  },
-  'vignette': {
-    minPrice: 700,
-    hasSpreads: true,
-    hasPersonalCover: false,
-    hasUniqueSpreads: true,
-    defaultSpreads: 1,
-    defaultUniqueSpreads: 0,
-    minSpreads: 1,
-    maxSpreads: 200,
-    pricePerSpread: 30,
     spreadLabel: 'Всего разворотов',
     uniqueLabel: 'Из них уникальных'
   },
@@ -89,8 +76,21 @@ const productConfig: ProductConfigs = {
     spreadLabel: 'Всего разворотов',
     uniqueLabel: 'Из них уникальных'
   },
-    'photo': {
+  'vignette': {
     minPrice: 500,
+    hasSpreads: false,
+    hasPersonalCover: false,
+    hasUniqueSpreads: false,
+    defaultSpreads: 1,
+    defaultUniqueSpreads: 0,
+    minSpreads: 1,
+    maxSpreads: 200,
+    pricePerSpread: 0,
+    spreadLabel: 'Всего разворотов',
+    uniqueLabel: 'Из них уникальных'
+  },
+    'photo': {
+    minPrice: 400,
     hasSpreads: true,
     hasPersonalCover: false,
     hasUniqueSpreads: true,
@@ -180,7 +180,7 @@ const PriceCalculator: React.FC = () => {
   const getPriceInfoText = () => {
     if (currentProductType === "photo") {
       return ` / фотография (минимум ${config.minPrice}₽)`;
-    } else if (currentProductType === "calendar" || currentProductType === "vignette") {
+    } else if (currentProductType === "calendar") {
         
       return ` / плакат (минимум ${config.minPrice}₽)`;
     } else {
@@ -336,7 +336,9 @@ const PriceCalculator: React.FC = () => {
           {config.hasSpreads && (
             <div className="option prompt" id="priceInfo">
               <p>
-                <strong>{config.pricePerSpread}₽</strong>
+                <strong>
+                  {config.pricePerSpread}₽
+                  </strong>
                 {getPriceInfoText()}
               </p>
             </div>
@@ -355,7 +357,7 @@ const getImageByType = (type: string): string => {
     tablet: '/img/фотопапка_new.png',
     vignette: '/img/виньетка.png',
     calendar: '/img/календарь.png',
-    photo: '/img/фотопечать.png'
+    photo: '/img/фотопечать_2.png'
   };
   return images[type] || '/img/фотопапка_new.png';
 };
@@ -365,8 +367,8 @@ const getProductName = (type: string): string => {
     album: 'Альбом',
     folder: 'Трюмо',
     tablet: 'Планшет',
-    vignette: 'Виньетка',
     calendar: 'Календарь',
+    vignette: 'Виньетка',
     photo: 'Фотографии'
   };
   return names[type] || 'Фотографии';

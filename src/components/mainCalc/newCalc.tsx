@@ -127,6 +127,8 @@ const PriceCalculator: React.FC = () => {
     if (config.hasSpreads) {
       if (currentProductType === "photo") {
         total = spreadCount * studentsCount * config.pricePerSpread;
+      } else if (currentProductType === "calendar" || currentProductType === "vignette"){
+        total = studentsCount * config.pricePerSpread;
       } else {
         const baseSpreads = Math.max(spreadCount - uniqueSpreadCount, 0);
         const basePrice = baseSpreads * config.pricePerSpread;

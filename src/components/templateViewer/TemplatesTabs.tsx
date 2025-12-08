@@ -27,6 +27,13 @@ export default function TemplatesTabs() {
           pid={7248}
         />
       </TabItem>
+      <TabItem value="Yulia" label="Юлия Сорокина">
+        <TemplateViewer 
+          baseUrl="https://sorokina.pixlpark.ru"
+          materialIds={[12819003]}
+          pid={7336}
+        />
+      </TabItem>
     </Tabs>
   );
 }

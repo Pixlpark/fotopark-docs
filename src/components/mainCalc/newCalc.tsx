@@ -78,14 +78,14 @@ const productConfig: ProductConfigs = {
   },
   'vignette': {
     minPrice: 500,
-    hasSpreads: false,
+    hasSpreads: true,
     hasPersonalCover: false,
-    hasUniqueSpreads: false,
+    hasUniqueSpreads: true,
     defaultSpreads: 1,
     defaultUniqueSpreads: 0,
     minSpreads: 1,
     maxSpreads: 200,
-    pricePerSpread: 0,
+    pricePerSpread: 20,
     spreadLabel: 'Всего разворотов',
     uniqueLabel: 'Из них уникальных'
   },
@@ -182,8 +182,7 @@ const PriceCalculator: React.FC = () => {
   const getPriceInfoText = () => {
     if (currentProductType === "photo") {
       return ` / фотография (минимум ${config.minPrice}₽)`;
-    } else if (currentProductType === "calendar") {
-        
+    } else if (currentProductType === "calendar" || currentProductType === "vignette") {        
       return ` / плакат (минимум ${config.minPrice}₽)`;
     } else {
       return ` / уникальный разворот (минимум ${config.minPrice}₽)`;

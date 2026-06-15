@@ -9,6 +9,7 @@ const TemplateViewer = ({
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  
   useEffect(() => {
     const fetchTemplates = async () => {
       const apiUrl = `${baseUrl}/api/templateSets`;
@@ -23,6 +24,18 @@ const TemplateViewer = ({
         tagIds: [],
         tagUrl: ""
       };
+
+      useEffect(() => {
+  console.log("FETCH TRIGGER", baseUrl, materialIds);
+
+  const t = setInterval(() => {
+    console.log("alive");
+  }, 1000);
+
+  fetchTemplates();
+
+  return () => clearInterval(t);
+}, []);
 
       try {
         const response = await fetch(apiUrl, {

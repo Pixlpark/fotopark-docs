@@ -9,8 +9,6 @@ const TemplateViewer = ({
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log("VIEWER RENDER");
-
   useEffect(() => {
     const fetchTemplates = async () => {
       const apiUrl = `${baseUrl}/api/templateSets`;

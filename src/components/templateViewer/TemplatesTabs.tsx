@@ -4,6 +4,7 @@ import TabItem from '@theme/TabItem';
 import TemplateViewer from "@site/src/components/templateViewer/templateViewer";
 
 export default function TemplatesTabs() {
+  console.log("TABS RENDER");
   return (
     <Tabs>
       <TabItem value="ksenia" label="Ксения Федорова" default>

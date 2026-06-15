@@ -1,114 +1,77 @@
+// templateViewer.tsx - простая версия без глобального кэша
 import { useState, useEffect, useCallback, useRef } from 'react';
-
-const globalCache = {
-  templates: null,
-  isLoading: false,
-  promise: null,
-  callbacks: []
-};
-
-const fetchTemplatesGlobal = async (baseUrl, materialIds) => {
-  if (globalCache.templates) {
-    return globalCache.templates;
-  }
-  
-  if (globalCache.promise) {
-    return globalCache.promise;
-  }
-  
-  globalCache.isLoading = true;
-  
-  const apiUrl = `${baseUrl}/api/templateSets`;
-  const requestBody = {
-    materialTypeId: 0,
-    materialIds: materialIds,
-    authorId: 0,
-    languageId: 8166,
-    ownType: 0,
-    page: 0,
-    pageSize: 50,
-    tagIds: [],
-    tagUrl: ""
-  };
-  
-  console.log('один запрос');
-  
-  globalCache.promise = fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(requestBody)
-  })
-    .then(response => response.json())
-    .then(data => {
-      globalCache.templates = data.templates || [];
-      globalCache.isLoading = false;
-      globalCache.promise = null;
-      
-      globalCache.callbacks.forEach(cb => cb(globalCache.templates));
-      globalCache.callbacks = [];
-      
-      return globalCache.templates;
-    })
-    .catch(err => {
-      console.error('Ошибка:', err);
-      globalCache.isLoading = false;
-      globalCache.promise = null;
-      throw err;
-    });
-  
-  return globalCache.promise;
-};
 
 const TemplateViewer = ({ 
   baseUrl = 'https://demo.pixlpark.ru', 
   materialIds = [12730841], 
   pid = 1164 
 }) => {
-  const [templates, setTemplates] = useState(globalCache.templates);
+  const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(!globalCache.templates && !globalCache.promise);
+  const [isLoading, setIsLoading] = useState(true);
   
-  const isMounted = useRef(true);
+  const abortControllerRef = useRef(null);
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
-    if (globalCache.templates) {
-      setTemplates(globalCache.templates);
-      setIsLoading(false);
-      return;
+    // Отменяем предыдущий запрос
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
     
-    const callback = (data) => {
-      if (isMounted.current) {
-        setTemplates(data);
-        setIsLoading(false);
-      }
-    };
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
     
-    globalCache.callbacks.push(callback);
+    setIsLoading(true);
     
-    if (!globalCache.promise && !globalCache.templates) {
-      fetchTemplatesGlobal(baseUrl, materialIds).catch(err => {
-        if (isMounted.current) {
-          console.error('Ошибка загрузки:', err);
+    const fetchTemplates = async () => {
+      const apiUrl = `${baseUrl}/api/templateSets`;
+      const requestBody = {
+        materialTypeId: 0,
+        materialIds: materialIds,
+        authorId: 0,
+        languageId: 8166,
+        ownType: 0,
+        page: 0,
+        pageSize: 50,
+        tagIds: [],
+        tagUrl: ""
+      };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestBody),
+          signal: abortController.signal
+        });
+        
+        const data = await response.json();
+        
+        if (isMountedRef.current) {
+          setTemplates(data.templates || []);
           setIsLoading(false);
         }
-      });
-    }
-    
-    setIsLoading(globalCache.isLoading);
-    
-    return () => {
-      isMounted.current = false;
-      const index = globalCache.callbacks.indexOf(callback);
-      if (index > -1) {
-        globalCache.callbacks.splice(index, 1);
+      } catch (err) {
+        if (err.name !== 'AbortError' && isMountedRef.current) {
+          console.error('Ошибка загрузки шаблонов:', err);
+          setIsLoading(false);
+        }
       }
     };
-  }, [baseUrl]);
 
+    fetchTemplates();
+
+    return () => {
+      isMountedRef.current = false;
+      abortController.abort();
+    };
+  }, [baseUrl, JSON.stringify(materialIds)]);
+
+  // ... остальной код без изменений
   const openModal = (templateSet) => {
     setSelectedTemplate(templateSet);
     setIsModalOpen(true);
@@ -152,7 +115,7 @@ const TemplateViewer = ({
   return (
     <div className="template-viewer">
       <div className="grid">
-        {templates?.map((template) => (
+        {templates.map((template) => (
           <img 
             key={template.Id} 
             src={`${baseUrl}${template.CoverUrl}`} 

@@ -1,27 +1,23 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
-const TemplateViewer = ({
-  baseUrl = 'https://demo.pixlpark.ru',
-  materialIds = [12730841],
-  pid = 1164
+const TemplateViewer = ({ 
+  baseUrl = 'https://demo.pixlpark.ru', 
+  materialIds = [12730841], 
+  pid = 1164 
 }) => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 💥 защита от повторного fetch при remount (Docusaurus Tabs)
-  const didFetchRef = useRef(false);
-
-  // 💥 стабильный ключ вместо массива в deps
-  const materialKey = materialIds.join(',');
+  // Мемоизируем массив materialIds для предотвращения бесконечных запросов
+  const stableMaterialIds = useMemo(() => materialIds, [materialIds.join(',')]);
 
   useEffect(() => {
     const fetchTemplates = async () => {
       const apiUrl = `${baseUrl}/api/templateSets`;
-
       const requestBody = {
         materialTypeId: 0,
-        materialIds,
+        materialIds: stableMaterialIds,
         authorId: 0,
         languageId: 8166,
         ownType: 0,
@@ -39,7 +35,6 @@ const TemplateViewer = ({
           },
           body: JSON.stringify(requestBody)
         });
-
         const data = await response.json();
         setTemplates(data.templates || []);
       } catch (err) {
@@ -47,12 +42,8 @@ const TemplateViewer = ({
       }
     };
 
-    // 💥 блокируем повторные вызовы при remount
-    if (didFetchRef.current) return;
-    didFetchRef.current = true;
-
     fetchTemplates();
-  }, [baseUrl, materialKey]);
+  }, [baseUrl, stableMaterialIds]);
 
   const openModal = (templateSet) => {
     setSelectedTemplate(templateSet);
@@ -64,6 +55,24 @@ const TemplateViewer = ({
     setSelectedTemplate(null);
   }, []);
 
+  // Обработчик нажатия клавиши ESC
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, closeModal]);
+
+  // Обработчик клика вне модального окна
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       closeModal();
@@ -74,12 +83,12 @@ const TemplateViewer = ({
     <div className="template-viewer">
       <div className="grid">
         {templates.map((template) => (
-          <img
-            key={template.Id}
-            src={`${baseUrl}${template.CoverUrl}`}
-            className="template"
-            alt={`Шаблон ${template.Title}`}
-            onClick={() => openModal(template)}
+          <img 
+            key={template.Id} 
+            src={`${baseUrl}${template.CoverUrl}`} 
+            className="template" 
+            alt={`Шаблон ${template.Title}`} 
+            onClick={() => openModal(template)} 
           />
         ))}
       </div>
@@ -90,17 +99,13 @@ const TemplateViewer = ({
             <button className="close-btn" onClick={closeModal}>
               ×
             </button>
-
-            <h2 className="modal-title">
-              {selectedTemplate.Title || "Шаблон"}
-            </h2>
-
+            <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
             <div className="modal-images">
               {selectedTemplate.Templates.map((template) => (
-                <img
-                  key={template.Id}
-                  src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
-                  alt={`Шаблон ${template.Title}`}
+                <img 
+                  key={template.Id} 
+                  src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`} 
+                  alt={`Шаблон ${template.Title}`} 
                 />
               ))}
             </div>

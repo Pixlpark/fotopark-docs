@@ -1,4 +1,3 @@
-// templateViewer.tsx - простая версия без глобального кэша
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 const TemplateViewer = ({ 
@@ -12,10 +11,14 @@ const TemplateViewer = ({
   const [isLoading, setIsLoading] = useState(true);
   
   const abortControllerRef = useRef(null);
-  const isMountedRef = useRef(true);
+  const hasStartedFetchRef = useRef(false);
+  const fetchPromiseRef = useRef(null);
 
   useEffect(() => {
-    // Отменяем предыдущий запрос
+    if (hasStartedFetchRef.current) {
+      return;
+    }
+    
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
@@ -24,6 +27,7 @@ const TemplateViewer = ({
     abortControllerRef.current = abortController;
     
     setIsLoading(true);
+    hasStartedFetchRef.current = true;
     
     const fetchTemplates = async () => {
       const apiUrl = `${baseUrl}/api/templateSets`;
@@ -50,28 +54,25 @@ const TemplateViewer = ({
         });
         
         const data = await response.json();
-        
-        if (isMountedRef.current) {
-          setTemplates(data.templates || []);
-          setIsLoading(false);
-        }
+        setTemplates(data.templates || []);
+        setIsLoading(false);
       } catch (err) {
-        if (err.name !== 'AbortError' && isMountedRef.current) {
+        if (err.name !== 'AbortError') {
           console.error('Ошибка загрузки шаблонов:', err);
           setIsLoading(false);
         }
       }
     };
 
-    fetchTemplates();
+    fetchPromiseRef.current = fetchTemplates();
 
     return () => {
-      isMountedRef.current = false;
-      abortController.abort();
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
     };
-  }, [baseUrl, JSON.stringify(materialIds)]);
+  }, []);
 
-  // ... остальной код без изменений
   const openModal = (templateSet) => {
     setSelectedTemplate(templateSet);
     setIsModalOpen(true);

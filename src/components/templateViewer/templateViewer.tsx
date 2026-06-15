@@ -47,6 +47,12 @@ const TemplateViewer = ({
     setIsModalOpen(true);
   };
 
+  useEffect(() => {
+  console.log("MOUNT");
+
+  return () => console.log("UNMOUNT");
+}, []);
+
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedTemplate(null);

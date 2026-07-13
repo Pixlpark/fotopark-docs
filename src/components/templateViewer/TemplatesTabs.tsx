@@ -3,7 +3,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TemplateViewer from "@site/src/components/templateViewer/templateViewer";
 
-export default function TemplatesTabs() {
+export default function TemplatesTabs() { 
   return (
     <Tabs>
       <TabItem value="ksenia" label="Ксения Федорова" default>

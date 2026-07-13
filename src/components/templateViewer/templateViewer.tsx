@@ -1,20 +1,39 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const TemplateViewer = ({ 
-  baseUrl = 'https://demo.pixlpark.ru',
-  materialIds = [12730841],
-  pid = 1164
+  baseUrl = 'https://demo.pixlpark.ru', 
+  materialIds = [12730841], 
+  pid = 1164 
 }) => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const abortControllerRef = useRef(null);
+  const hasStartedFetchRef = useRef(false);
+  const fetchPromiseRef = useRef(null);
 
   useEffect(() => {
+    if (hasStartedFetchRef.current) {
+      return;
+    }
+    
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
+    
+    setIsLoading(true);
+    hasStartedFetchRef.current = true;
+    
     const fetchTemplates = async () => {
       const apiUrl = `${baseUrl}/api/templateSets`;
       const requestBody = {
         materialTypeId: 0,
-        materialIds,
+        materialIds: materialIds,
         authorId: 0,
         languageId: 8166,
         ownType: 0,
@@ -30,17 +49,29 @@ const TemplateViewer = ({
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(requestBody)
+          body: JSON.stringify(requestBody),
+          signal: abortController.signal
         });
+        
         const data = await response.json();
         setTemplates(data.templates || []);
+        setIsLoading(false);
       } catch (err) {
-        console.error('Ошибка загрузки шаблонов:', err);
+        if (err.name !== 'AbortError') {
+          console.error('Ошибка загрузки шаблонов:', err);
+          setIsLoading(false);
+        }
       }
     };
 
-    fetchTemplates();
-  }, [baseUrl, materialIds]);
+    fetchPromiseRef.current = fetchTemplates();
+
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   const openModal = (templateSet) => {
     setSelectedTemplate(templateSet);
@@ -52,7 +83,6 @@ const TemplateViewer = ({
     setSelectedTemplate(null);
   }, []);
 
-  // Обработчик нажатия клавиши ESC
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -69,23 +99,30 @@ const TemplateViewer = ({
     };
   }, [isModalOpen, closeModal]);
 
-  // Обработчик клика вне модального окна
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       closeModal();
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="template-viewer">
+        <div className="loading">Загрузка шаблонов...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="template-viewer">
       <div className="grid">
         {templates.map((template) => (
-          <img
-            key={template.Id}
-            src={`${baseUrl}${template.CoverUrl}`}
-            className="template"
-            alt={`Шаблон ${template.Title}`}
-            onClick={() => openModal(template)}
+          <img 
+            key={template.Id} 
+            src={`${baseUrl}${template.CoverUrl}`} 
+            className="template" 
+            alt={`Шаблон ${template.Title}`} 
+            onClick={() => openModal(template)} 
           />
         ))}
       </div>
@@ -98,11 +135,11 @@ const TemplateViewer = ({
             </button>
             <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
             <div className="modal-images">
-              {selectedTemplate.Templates.map((template) => (
-                <img
-                  key={template.Id}
-                  src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
-                  alt={`Шаблон ${template.Title}`}
+              {selectedTemplate.Templates?.map((template) => (
+                <img 
+                  key={template.Id} 
+                  src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`} 
+                  alt={`Шаблон ${template.Title}`} 
                 />
               ))}
             </div>
@@ -118,14 +155,14 @@ export default TemplateViewer;
 
 // const TemplateViewer = ({ 
 //   baseUrl = 'https://demo.pixlpark.ru',
-//   materialIds = [3993968],
+//   materialIds = [12730841],
 //   pid = 1164
 // }) => {
 //   const [templates, setTemplates] = useState([]);
 //   const [selectedTemplate, setSelectedTemplate] = useState(null);
 //   const [isModalOpen, setIsModalOpen] = useState(false);
-//   const [loadedImages, setLoadedImages] = useState(new Set());
 
+  
 //   useEffect(() => {
 //     const fetchTemplates = async () => {
 //       const apiUrl = `${baseUrl}/api/templateSets`;
@@ -159,25 +196,18 @@ export default TemplateViewer;
 //     fetchTemplates();
 //   }, [baseUrl, materialIds]);
 
-//   const handleImageLoad = (imageId) => {
-//     setLoadedImages(prev => new Set(prev).add(imageId));
-//   };
-
-//   const handleImageError = (imageId) => {
-//     setLoadedImages(prev => new Set(prev).add(imageId));
-//     console.error('Ошибка загрузки изображения:', imageId);
-//   };
-
 //   const openModal = (templateSet) => {
 //     setSelectedTemplate(templateSet);
 //     setIsModalOpen(true);
 //   };
+
 
 //   const closeModal = useCallback(() => {
 //     setIsModalOpen(false);
 //     setSelectedTemplate(null);
 //   }, []);
 
+//   // Обработчик нажатия клавиши ESC
 //   useEffect(() => {
 //     const handleKeyDown = (event) => {
 //       if (event.key === 'Escape') {
@@ -194,6 +224,7 @@ export default TemplateViewer;
 //     };
 //   }, [isModalOpen, closeModal]);
 
+//   // Обработчик клика вне модального окна
 //   const handleBackdropClick = (event) => {
 //     if (event.target === event.currentTarget) {
 //       closeModal();
@@ -203,27 +234,15 @@ export default TemplateViewer;
 //   return (
 //     <div className="template-viewer">
 //       <div className="grid">
-//         {templates.map((template) => {
-//           const imageId = `template-${template.Id}`;
-//           const isLoaded = loadedImages.has(imageId);
-          
-//           return (
-//             <div key={template.Id} className="template-item">
-//               <div className={`template-loader ${isLoaded ? '' : 'active'}`}></div>
-//               <img
-//                 key={template.Id}
-//                 src={`${baseUrl}${template.CoverUrl}`}
-//                 // className={`template ${isLoaded ? 'loaded' : ''}`}
-//                 alt={`Шаблон ${template.Title}`}
-//                 onClick={() => openModal(template)}
-//                 onLoad={() => handleImageLoad(imageId)}
-//                 onError={() => handleImageError(imageId)}
-//                 loading="lazy"
-//                 style={{ position: 'relative', zIndex: 1 }}
-//               />
-//             </div>
-//           );
-//         })}
+//         {templates.map((template) => (
+//           <img
+//             key={template.Id}
+//             src={`${baseUrl}${template.CoverUrl}`}
+//             className="template"
+//             alt={`Шаблон ${template.Title}`}
+//             onClick={() => openModal(template)}
+//           />
+//         ))}
 //       </div>
 
 //       {isModalOpen && selectedTemplate && (
@@ -234,25 +253,13 @@ export default TemplateViewer;
 //             </button>
 //             <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
 //             <div className="modal-images">
-//               {selectedTemplate.Templates.map((template) => {
-//                 const modalImageId = `modal-template-${template.Id}`;
-//                 const isModalLoaded = loadedImages.has(modalImageId);
-                
-//                 return (
-//                   <div key={template.Id} style={{ position: 'relative' }}>
-//                     <div className={`modal-image-loader ${isModalLoaded ? '' : 'active'}`}></div>
-//                     <img
-//                       key={template.Id}
-//                       src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
-//                       className={isModalLoaded ? 'loaded' : ''}
-//                       alt={`Шаблон ${template.Title}`}
-//                       onLoad={() => handleImageLoad(modalImageId)}
-//                       onError={() => handleImageError(modalImageId)}
-//                       style={{ position: 'relative', zIndex: 1 }}
-//                     />
-//                   </div>
-//                 );
-//               })}
+//               {selectedTemplate.Templates.map((template) => (
+//                 <img
+//                   key={template.Id}
+//                   src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
+//                   alt={`Шаблон ${template.Title}`}
+//                 />
+//               ))}
 //             </div>
 //           </div>
 //         </div>

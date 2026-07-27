@@ -91,7 +91,7 @@ const config: Config = {
                     label: 'Новости',
                 },
                 {
-                    href: "https://t.me/MoyVipusknoySupport_bot",
+                    href: "https://t.me/moyvipusknoy_support",
                     position: 'left',
                     label: 'Поддержка',
                 },

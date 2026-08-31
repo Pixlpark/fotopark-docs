@@ -2503,7 +2503,7 @@ input[type=range] {
 }
 
 .template-viewer .template {
-  width: 200px;
+  /* width: 200px; */
   cursor: pointer;
   transition: transform 0.2s;
 }

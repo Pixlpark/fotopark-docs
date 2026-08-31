@@ -2641,9 +2641,12 @@ input[type=range] {
   }
 }
 .template-viewer .template{
-    width: 24%;
+    /* width: 24%; */
     box-shadow: 0 5px 9px 1px #223c5033;
+    max-height: 430px;
 }
+.grid-item{display: flex;flex-direction: column;width: 24%;align-items: center;}
+span.template-title{width: fit-content;margin-top: 10px;font-size: 18px;margin-bottom: 10px;}
 .template-viewer .grid{
     /* gap: 33px */
 }

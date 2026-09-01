@@ -1957,8 +1957,10 @@ sup {
     min-width: auto;
   }
   .template-viewer .template{
-    width: 48%;
+    /* width: 48%; */
+    height: 277px;
   }
+  .grid-item{width: 48%;}
 }
 @media screen and (max-width: 600px) {
   .totalPriceContainer {
@@ -2638,6 +2640,7 @@ input[type=range] {
   }
   .template-viewer .grid{
     gap: 6px;
+    justify-content: space-between;
   }
 }
 .template-viewer .template{

@@ -38,7 +38,7 @@ const TemplateViewer = ({
         languageId: 8166,
         ownType: 0,
         page: 0,
-        pageSize: 50,
+        // pageSize: 50,
         tagIds: [],
         tagUrl: ""
       };

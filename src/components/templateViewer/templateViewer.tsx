@@ -121,6 +121,8 @@ const TemplateViewer = ({
           <img  
             src={`${baseUrl}${template.CoverUrl}`} 
             className="template" 
+            loading="lazy"
+            decoding="async"
             alt={`Шаблон ${template.Title}`} 
             onClick={() => openModal(template)} 
           />

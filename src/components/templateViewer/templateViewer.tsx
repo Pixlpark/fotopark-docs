@@ -119,7 +119,7 @@ const TemplateViewer = ({
         {templates.map((template) => (
           <div key={template.Id} className='grid-item'>
           <img  
-            src={`${baseUrl}${template.CoverSmallUrl}`} 
+            src={`${baseUrl}${template.CoverUrl}`} 
             className="template" 
             alt={`Шаблон ${template.Title}`} 
             onClick={() => openModal(template)} 

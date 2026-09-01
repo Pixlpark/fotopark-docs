@@ -119,7 +119,7 @@ const TemplateViewer = ({
         {templates.map((template) => (
           <div key={template.Id} className='grid-item'>
           <img  
-            src={`${baseUrl}${template.CoverUrl}`} 
+            src={`${baseUrl}${template.CoverThumbnailUrl}`} 
             className="template" 
             loading="lazy"
             decoding="async"

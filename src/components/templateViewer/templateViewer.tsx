@@ -38,7 +38,7 @@ const TemplateViewer = ({
         languageId: 8166,
         ownType: 0,
         page: 0,
-        // pageSize: 50,
+        pageSize: 50,
         tagIds: [],
         tagUrl: ""
       };
@@ -118,14 +118,16 @@ const TemplateViewer = ({
       <div className="grid">
         {templates.map((template) => (
           <div key={template.Id} className='grid-item'>
-          <img  
-            src={`${baseUrl}${template.CoverThumbnailUrl}`} 
-            className="template" 
-            loading="lazy"
-            decoding="async"
-            alt={`Шаблон ${template.Title}`} 
-            onClick={() => openModal(template)} 
-          />
+            <div className="grid-img">
+            <img  
+              src={`${baseUrl}${template.CoverThumbnailUrl}`} 
+              className="template" 
+              loading="lazy"
+              decoding="async"
+              alt={`Шаблон ${template.Title}`} 
+              onClick={() => openModal(template)} 
+            />
+          </div>
           <span className="template-title">{template.Title}</span>
           </div>
         ))}

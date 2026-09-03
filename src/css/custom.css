@@ -2643,10 +2643,13 @@ input[type=range] {
     justify-content: space-between;
   }
 }
+.grid-img{height: 430px;position: relative;}
+
+.grid-img:before{content: '';height: 100%;position: absolute;width: 11px;left: 0;top: 1;scale: 0.99;z-index: 9999;background-color: #7c7c7c12;border-right: 1px solid #88888830;border-bottom: 1px solid #88888830;}
 .template-viewer .template{
     /* width: 24%; */
     box-shadow: 0 5px 9px 1px #223c5033;
-    max-height: 430px;
+    height: 100%;
 }
 .grid-item{display: flex;flex-direction: column;width: 24%;align-items: center;}
 span.template-title{width: fit-content;margin-top: 10px;font-size: 18px;margin-bottom: 10px;}

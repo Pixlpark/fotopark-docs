@@ -2646,8 +2646,6 @@ input[type=range] {
   .grid-img:before{scale: 0.9;}
 }
 .grid-img{height: 430px;position: relative;}
-
-.grid-img:before{content: '';height: 100%;position: absolute;width: 11px;left: 0;scale: 0.99;z-index: 99;background-color: #7c7c7c12;border-right: 1px solid #88888830;border-bottom: 1px solid #88888830;}
 .template-viewer .template{
     /* width: 24%; */
     box-shadow: 0 5px 9px 1px #223c5033;

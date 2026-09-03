@@ -1958,8 +1958,9 @@ sup {
   }
   .template-viewer .template{
     /* width: 48%; */
-    height: 277px;
+    height: auto;
   }
+  .grid-img{height: min-content;}
   .grid-item{width: 48%;}
 }
 @media screen and (max-width: 600px) {
@@ -2642,6 +2643,7 @@ input[type=range] {
     gap: 6px;
     justify-content: space-between;
   }
+  .grid-img:before{scale: 0.9;}
 }
 .grid-img{height: 430px;position: relative;}
 

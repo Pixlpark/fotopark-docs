@@ -116,13 +116,14 @@ const TemplateViewer = ({
   return (
     <div className="template-viewer">
       <div className="grid">
-        {templates.map((template) => (
+        {templates.map((template, index) => (
           <div key={template.Id} className='grid-item'>
             <div className="grid-img">
             <img  
-              src={`${baseUrl}${template.CoverThumbnailUrl}`} 
+              src={`${baseUrl}${template.CoverThumbnailUrl}?size=S`} 
               className="template" 
               loading="lazy"
+              fetchPriority={index < 4 ? 'high' : 'low'}
               decoding="async"
               alt={`Шаблон ${template.Title}`} 
               onClick={() => openModal(template)} 

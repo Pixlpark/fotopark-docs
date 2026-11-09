@@ -34,6 +34,13 @@ export default function TemplatesTabs() {
           pid={7336}
         />
       </TabItem>
+      <TabItem value="Natalya" label="Наталья Столярова">
+        <TemplateViewer 
+          baseUrl="https://natalybook.pixlpark.ru"
+          materialIds={[13279024]}
+          pid={7579}
+        />
+      </TabItem>
     </Tabs>
   );
 }

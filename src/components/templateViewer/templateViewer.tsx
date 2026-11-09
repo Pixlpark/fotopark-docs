@@ -1,11 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const getThumbnailUrl = (baseUrl: string, thumbnailPath: string) => {
-  const url = new URL(thumbnailPath, baseUrl);
-  url.searchParams.set('size', 'S');
-  return url.toString();
-};
-
 const TemplateViewer = ({ 
   baseUrl = 'https://demo.pixlpark.ru', 
   materialIds = [12730841], 
@@ -126,7 +120,7 @@ const TemplateViewer = ({
           <div key={template.Id} className='grid-item'>
             <div className="grid-img">
             <img  
-              src={getThumbnailUrl(baseUrl, template.CoverThumbnailUrl)} 
+              src={`${baseUrl}${template.CoverThumbnailUrl}`} 
               className="template" 
               loading="lazy"
               fetchPriority={index < 4 ? 'high' : 'low'}

@@ -1,152 +1,117 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-const TemplateViewer = ({ 
-  baseUrl = 'https://demo.pixlpark.ru', 
-  materialIds = [12730841], 
-  pid = 1164 
-}) => {
-  const [templates, setTemplates] = useState([]);
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+interface TemplatePreview {
+  Id: number;
+  PreviewUrl: string;
+}
+
+interface TemplateSet {
+  Id: number;
+  Title: string;
+  CoverThumbnailUrl: string;
+  Templates: TemplatePreview[];
+}
+
+interface TemplatesResponse {
+  templates: TemplateSet[];
+}
+
+const TemplateViewer = ({ baseUrl = 'https://demo.pixlpark.ru' }: { baseUrl?: string }) => {
+  const [templates, setTemplates] = useState<TemplateSet[]>([]);
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateSet | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  
-  const abortControllerRef = useRef(null);
-  const hasStartedFetchRef = useRef(false);
-  const fetchPromiseRef = useRef(null);
+  const [hasError, setHasError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    if (hasStartedFetchRef.current) {
-      return;
-    }
-    
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-    
-    const abortController = new AbortController();
-    abortControllerRef.current = abortController;
-    
-    setIsLoading(true);
-    hasStartedFetchRef.current = true;
-    
-    const fetchTemplates = async () => {
-      const apiUrl = `${baseUrl}/api/templateSets`;
-      const requestBody = {
-        materialTypeId: 0,
-        materialIds: materialIds,
-        authorId: 0,
-        languageId: 8166,
-        ownType: 0,
-        page: 0,
-        pageSize: 50,
-        tagIds: [],
-        tagUrl: ""
-      };
-
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(requestBody),
-          signal: abortController.signal
-        });
-        
-        const data = await response.json();
-        setTemplates(data.templates || []);
-        setIsLoading(false);
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          console.error('Ошибка загрузки шаблонов:', err);
-          setIsLoading(false);
-        }
-      }
-    };
-
-    fetchPromiseRef.current = fetchTemplates();
-
-    return () => {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
-    };
-  }, []);
-
-  const openModal = (templateSet) => {
-    setSelectedTemplate(templateSet);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
+    let active = true;
+    setTemplates([]);
     setSelectedTemplate(null);
-  }, []);
+    setIsLoading(true);
+    setHasError(false);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        closeModal();
+    const fetchTemplates = async () => {
+      try {
+        const response = await fetch(new URL('/api/templateSets/graduation', baseUrl));
+        if (!response.ok) throw new Error(`Template request failed: ${response.status}`);
+        const data: TemplatesResponse = await response.json();
+        if (!Array.isArray(data.templates)) throw new Error('Invalid template response');
+        if (active) setTemplates(data.templates);
+      } catch (error) {
+        if (active) {
+          console.error('Template request failed:', error);
+          setHasError(true);
+        }
+      } finally {
+        if (active) setIsLoading(false);
       }
     };
 
-    if (isModalOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    }
+    void fetchTemplates();
+    return () => { active = false; };
+  }, [baseUrl, attempt]);
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+  const closeModal = useCallback(() => setSelectedTemplate(null), []);
+
+  useEffect(() => {
+    if (!selectedTemplate) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeModal();
     };
-  }, [isModalOpen, closeModal]);
-
-  const handleBackdropClick = (event) => {
-    if (event.target === event.currentTarget) {
-      closeModal();
-    }
-  };
-
-  if (isLoading) {
-    return (
-      <div className="template-viewer">
-        <div className="loading">Загрузка шаблонов...</div>
-      </div>
-    );
-  }
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedTemplate, closeModal]);
 
   return (
     <div className="template-viewer">
       <div className="grid">
         {templates.map((template, index) => (
-          <div key={template.Id} className='grid-item'>
+          <div key={template.Id} className="grid-item">
             <div className="grid-img">
-            <img  
-              src={`${baseUrl}${template.CoverThumbnailUrl}`} 
-              className="template" 
-              loading="lazy"
-              fetchPriority={index < 4 ? 'high' : 'low'}
-              decoding="async"
-              alt={`Шаблон ${template.Title}`} 
-              onClick={() => openModal(template)} 
-            />
-          </div>
-          <span className="template-title">{template.Title}</span>
+              <img
+                src={new URL(template.CoverThumbnailUrl, baseUrl).href}
+                className="template"
+                loading={index < 4 ? 'eager' : 'lazy'}
+                fetchPriority={index < 4 ? 'high' : 'low'}
+                decoding="async"
+                alt={template.Title}
+                onClick={() => setSelectedTemplate(template)}
+              />
+            </div>
+            <span className="template-title">{template.Title}</span>
           </div>
         ))}
       </div>
 
-      {isModalOpen && selectedTemplate && (
-        <div className="modal" onClick={handleBackdropClick}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={closeModal}>
+      {isLoading && <div className="loading" role="status">{'Загрузка шаблонов...'}</div>}
+      {hasError && (
+        <div role="alert">
+          <p>{'Не удалось загрузить шаблоны. Попробуйте ещё раз.'}</p>
+          <button type="button" onClick={() => setAttempt(value => value + 1)}>
+            {'Повторить загрузку'}
+          </button>
+        </div>
+      )}
+      {!isLoading && !hasError && templates.length === 0 && (
+        <p>{'Шаблоны не найдены.'}</p>
+      )}
+
+      {selectedTemplate && (
+        <div className="modal" onClick={event => {
+          if (event.target === event.currentTarget) closeModal();
+        }}>
+          <div className="modal-content" onClick={event => event.stopPropagation()}>
+            <button type="button" className="close-btn" onClick={closeModal}
+              aria-label={'Закрыть'}>
               ×
             </button>
-            <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
+            <h2 className="modal-title">{selectedTemplate.Title || 'Шаблон'}</h2>
             <div className="modal-images">
-              {selectedTemplate.Templates?.map((template, index) => (
-                <img 
-                  key={template.Id} 
-                  src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`} 
-                  alt={`Шаблон ${template.Title}`} 
+              {selectedTemplate.Templates.map((template, index) => (
+                <img
+                  key={template.Id}
+                  src={new URL(template.PreviewUrl, baseUrl).href}
+                  alt={selectedTemplate.Title}
                   loading={index === 0 ? 'eager' : 'lazy'}
                   fetchPriority={index === 0 ? 'high' : 'auto'}
                   decoding="async"
@@ -161,121 +126,3 @@ const TemplateViewer = ({
 };
 
 export default TemplateViewer;
-// import { useState, useEffect, useCallback } from 'react';
-
-// const TemplateViewer = ({ 
-//   baseUrl = 'https://demo.pixlpark.ru',
-//   materialIds = [12730841],
-//   pid = 1164
-// }) => {
-//   const [templates, setTemplates] = useState([]);
-//   const [selectedTemplate, setSelectedTemplate] = useState(null);
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  
-//   useEffect(() => {
-//     const fetchTemplates = async () => {
-//       const apiUrl = `${baseUrl}/api/templateSets`;
-//       const requestBody = {
-//         materialTypeId: 0,
-//         materialIds,
-//         authorId: 0,
-//         languageId: 8166,
-//         ownType: 0,
-//         page: 0,
-//         pageSize: 50,
-//         tagIds: [],
-//         tagUrl: ""
-//       };
-
-//       try {
-//         const response = await fetch(apiUrl, {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify(requestBody)
-//         });
-//         const data = await response.json();
-//         setTemplates(data.templates || []);
-//       } catch (err) {
-//         console.error('Ошибка загрузки шаблонов:', err);
-//       }
-//     };
-
-//     fetchTemplates();
-//   }, [baseUrl, materialIds]);
-
-//   const openModal = (templateSet) => {
-//     setSelectedTemplate(templateSet);
-//     setIsModalOpen(true);
-//   };
-
-
-//   const closeModal = useCallback(() => {
-//     setIsModalOpen(false);
-//     setSelectedTemplate(null);
-//   }, []);
-
-//   // Обработчик нажатия клавиши ESC
-//   useEffect(() => {
-//     const handleKeyDown = (event) => {
-//       if (event.key === 'Escape') {
-//         closeModal();
-//       }
-//     };
-
-//     if (isModalOpen) {
-//       document.addEventListener('keydown', handleKeyDown);
-//     }
-
-//     return () => {
-//       document.removeEventListener('keydown', handleKeyDown);
-//     };
-//   }, [isModalOpen, closeModal]);
-
-//   // Обработчик клика вне модального окна
-//   const handleBackdropClick = (event) => {
-//     if (event.target === event.currentTarget) {
-//       closeModal();
-//     }
-//   };
-
-//   return (
-//     <div className="template-viewer">
-//       <div className="grid">
-//         {templates.map((template) => (
-//           <img
-//             key={template.Id}
-//             src={`${baseUrl}${template.CoverUrl}`}
-//             className="template"
-//             alt={`Шаблон ${template.Title}`}
-//             onClick={() => openModal(template)}
-//           />
-//         ))}
-//       </div>
-
-//       {isModalOpen && selectedTemplate && (
-//         <div className="modal" onClick={handleBackdropClick}>
-//           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-//             <button className="close-btn" onClick={closeModal}>
-//               ×
-//             </button>
-//             <h2 className="modal-title">{selectedTemplate.Title || "Шаблон"}</h2>
-//             <div className="modal-images">
-//               {selectedTemplate.Templates.map((template) => (
-//                 <img
-//                   key={template.Id}
-//                   src={`${baseUrl}/content/pxp-template-cover/${template.Id}.png?pid=${pid}&v=${template.Hash}&size=S`}
-//                   alt={`Шаблон ${template.Title}`}
-//                 />
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default TemplateViewer;

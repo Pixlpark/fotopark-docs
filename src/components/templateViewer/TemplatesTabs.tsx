@@ -9,36 +9,26 @@ export default function TemplatesTabs() {
       <TabItem value="ksenia" label="Ксения Федорова" default>
         <TemplateViewer 
           baseUrl="https://mirramian.pixlpark.ru" 
-          materialIds={[11519865]}
-          pid={6748}
         />
       </TabItem>
       <TabItem value="irina" label="Ирина Миронова">
         <TemplateViewer 
           baseUrl="https://mironova.pixlpark.ru"
-          materialIds={[12536839]}
-          pid={7193}
         />
       </TabItem>
       <TabItem value="Sergei" label="ОбложкиТУТ.рф">
         <TemplateViewer 
           baseUrl="https://stepanov.pixlpark.ru"
-          materialIds={[12660292]}
-          pid={7248}
         />
       </TabItem>
       <TabItem value="Yulia" label="Юлия Сорокина">
         <TemplateViewer 
           baseUrl="https://sorokina.pixlpark.ru"
-          materialIds={[12819003]}
-          pid={7336}
         />
       </TabItem>
       <TabItem value="Natalya" label="Наталья Столярова">
         <TemplateViewer 
           baseUrl="https://natalybook.pixlpark.ru"
-          materialIds={[13279024]}
-          pid={7579}
         />
       </TabItem>
     </Tabs>

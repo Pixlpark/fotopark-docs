@@ -31,6 +31,11 @@ export default function TemplatesTabs() {
           baseUrl="https://natalybook.pixlpark.ru"
         />
       </TabItem>
+      <TabItem value="Oksana" label="Оксана Михайлова">
+        <TemplateViewer 
+          baseUrl="https://maketfoto.pixlpark.ru/"
+        />
+      </TabItem>
     </Tabs>
   );
 }

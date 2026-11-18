@@ -2549,7 +2549,7 @@ input[type=range] {
   max-width: 100%;
   margin-bottom: 10px;
   display: block;
-  width: 48%;
+  /* width: 48%; */
   box-shadow: 0 3px 7px 5px #223c5033;
 }
 
@@ -2950,4 +2950,14 @@ position: absolute;
 }
 div#studentsOption {
     margin-bottom: 10px;
+}
+.modal-image-wrapper {
+    width: 48%;
+    padding-top: 20px;
+}
+span.modal-image-caption {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    font-family: var(--ifm-heading-font-family);
 }

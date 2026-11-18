@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 interface TemplatePreview {
   Id: number;
   PreviewUrl: string;
+  SiteTitle: string;
 }
 
 interface TemplateSet {
@@ -108,14 +109,16 @@ const TemplateViewer = ({ baseUrl = 'https://demo.pixlpark.ru' }: { baseUrl?: st
             <h2 className="modal-title">{selectedTemplate.Title || 'Шаблон'}</h2>
             <div className="modal-images">
               {selectedTemplate.Templates.map((template, index) => (
+                <div key={template.Id} className="modal-image-wrapper">
                 <img
-                  key={template.Id}
                   src={new URL(template.PreviewUrl, baseUrl).href}
-                  alt={selectedTemplate.Title}
+                  alt={template.SiteTitle}
                   loading={index === 0 ? 'eager' : 'lazy'}
                   fetchPriority={index === 0 ? 'high' : 'auto'}
                   decoding="async"
                 />
+                <span className="modal-image-caption">{template.SiteTitle}</span>
+                </div>
               ))}
             </div>
           </div>
